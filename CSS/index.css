@@ -1,0 +1,34 @@
+body {
+  background-color: #acdef8;  /* Color del fondo */
+}
+
+h1, img {
+  display: block;  /* Convierte ambos en bloques para aplicar margen automático */
+  margin: 0 auto;  /* Centra horizontalmente */
+  text-align: center; /* Asegura que el texto del h1 esté centrado */
+}
+
+h1 {
+  font-size: 60px;  /* Tamaño de la fuente del encabezado */
+}
+
+img {
+  margin-top: 10px; /* Espacio entre el h1 y la imagen */
+  height: 150px;  /* Tamaño de la imagen */
+}
+
+p {
+  margin: 20px; /* Margenes para parrafos generales */
+}
+
+/* Clase para los párrafos de información */
+.párrafos {
+  background-color: #f9f9f9;  /* Color del fondo del parrafo */
+  border: 2px solid #ff9d00; /* Borde de color */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno (separación del texto con el borde) */
+  font-family: sans-serif;  /* Tipo de fuente */
+  margin: 20px; /* Margenes para el parrafo */
+  text-align: center; /* Alinear el texto al centro */
+  font-size: large; /* Tamaño del texto */
+}
