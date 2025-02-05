@@ -15,7 +15,7 @@ h1 {
 img {
     display: block;
     margin: 10px auto;
-    height: 150px;
+   /* height: 150px;*/
 }
 
 ul {
@@ -64,6 +64,29 @@ ul {
     font-size: large;
     max-width: 800px;
     box-shadow: 0 2px 4px #ff9d00;
+}
+
+/*Bocetos*/
+.bocetos {
+    background-color: #f9f9f9;
+    border: 2px solid #ff9d00;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: large;
+    box-shadow: 0 2px 4px #ff9d00;
+}
+
+.bocetos img{
+    flex-shrink: 0; /* Evita que la imagen se reduzca */
+    max-width: 400px;
+    height: auto;
+
+}
+
+.bocetos h2 {
+    color: #f06000;
 }
 
 /* Miembros */
