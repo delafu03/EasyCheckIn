@@ -1,95 +1,127 @@
+/* === Estilos generales === */
 body {
-    background-color: #acdef8;
-    font-family: Arial, sans-serif;
-    margin: 20px;
+    background-color: #acdef8; /* Color de fondo azul claro */
+    font-family: "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif; /* Fuente moderna y redondeada */
+    margin: 20px; /* Margen externo de 20px alrededor del cuerpo de la página */
 }
 
-/* Encabezados */
+/* === Encabezados === */
 h1 {
-    text-align: center;
-    font-size: 60px;
-    display: grid;
+    text-align: center; /* Centra el texto del título */
+    font-size: 60px; /* Tamaño grande para el título principal */
+    display: grid; /* Asegura que el título respete el diseño en grid si se usa */
 }
 
-/* Imágenes */
+/* === Imágenes === */
 img {
-    display: block;
-    margin: 10px auto;
-    height: 150px;
+    display: block; /* Hace que las imágenes sean bloques, evitando espacios adicionales */
+    margin: 10px auto; /* Centra las imágenes horizontalmente */
+    height: 150px; /* Altura fija de 150px */
+    border-radius: 15px; /* Bordes redondeados de 15px */
+    box-shadow: 0 8px 8px 12px rgba(0, 0, 0, 0.6); 
+    /* 
+        - 0: No desplaza la sombra horizontalmente 
+        - 8px: Desplaza la sombra 8px hacia abajo (sombra vertical)
+        - 8px: Define el radio de difuminado (difuminado medio)
+        - 12px: Expansión de la sombra (se hace más grande)
+        - rgba(0, 0, 0, 0.6): Color negro con 60% de opacidad
+    */
 }
 
+/* === Listas generales === */
 ul {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 40px; /* Espacio antes de la lista */
+    margin-bottom: 40px; /* Espacio después de la lista */
 }
 
-/* Navegación */
+/* === Navegación y listado de miembros === */
 .navegacion, .listado-miembros {
-    text-align: center;
-    margin-bottom: 20px;
+    text-align: center; /* Centra el contenido de la navegación */
 }
 
+/* Listas dentro de la navegación y miembros */
 .navegacion ul, .listado-miembros ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding interno */
+    display: flex; /* Usa flexbox para organizar elementos */
+    justify-content: center; /* Centra los elementos en la lista */
+    gap: 15px; /* Espaciado entre los elementos de la lista */
 }
 
+/* Estilos de los enlaces de navegación y miembros */
 .navegacion a, .listado-miembros a {
-    text-decoration: none;
-    font-size: 18px;
-    color: white;
-    background-color: #ff9d00;
-    padding: 10px 20px;
-    border-radius: 20px;
+    text-decoration: none; /* Elimina el subrayado */
+    font-size: 18px; /* Tamaño de fuente legible */
+    color: white; /* Texto en color blanco */
+    background-color: #ff9d00; /* Color de fondo naranja */
+    padding: 10px 20px; /* Espaciado interno (vertical 10px, horizontal 20px) */
+    border-radius: 20px; /* Bordes redondeados */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    /*
+        - 0: Sin desplazamiento horizontal 
+        - 4px: Desplazamiento vertical (sombra hacia abajo)
+        - 6px: Radio de difuminado (sombra suave)
+        - rgba(0, 0, 0, 0.2): Color negro con 20% de opacidad
+    */
+    transition: all 0.3s ease; /* Transición suave en 0.3s para todos los cambios */
 }
 
+/* Estilos cuando se pasa el cursor sobre los enlaces */
 .navegacion a:hover, .listado-miembros a:hover {
-    background-color: #ffa733;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    background-color: #ffa733; /* Color de fondo más claro al pasar el cursor */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); 
+    /*
+        - Sombra ligeramente más fuerte al pasar el cursor
+        - 6px de desplazamiento vertical 
+        - 8px de difuminado
+        - Opacidad del 30%
+    */
 }
 
-/* Contenido */
+/* === Contenedor principal de contenido === */
 .contenido {
-    background-color: #f9f9f9;
-    border: 2px solid #ff9d00;
-    border-radius: 10px;
-    padding: 15px;
+    background-color: #f9f9f9; /* Fondo gris claro */
+    border: 2px solid #ff9d00; /* Borde de 2px en color naranja */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
     margin: 20px auto;
-    text-align: center;
-    font-size: large;
-    max-width: 800px;
-    box-shadow: 0 2px 4px #ff9d00;
+    text-align: center; /* Centrar texto */
+    font-size: large; /* Texto de tamaño grande */
+    max-width: 800px; /* Ancho máximo de 800px */
+    box-shadow: 0 2px 4px #ff9d00; 
+    /*
+        - 0: Sin desplazamiento horizontal 
+        - 2px: Sombra hacia abajo
+        - 4px: Difuminado medio
+        - Color naranja para dar efecto tridimensional
+    */
 }
 
-/* Miembros */
+/* === Tarjetas de los miembros === */
 .miembro {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #ff9d00;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px #ff9d00;
-    background-color: #f9f9f9;
+    display: flex; /* Flexbox para organizar imagen y texto en la misma línea */
+    align-items: center; /* Alineación vertical centrada */
+    justify-content: space-between; /* Separa el contenido en extremos opuestos */
+    border: 1px solid #ff9d00; /* Borde de 1px en color naranja */
+    padding: 15px; /* Espaciado interno */
+    margin-bottom: 15px; /* Espaciado entre miembros */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px #ff9d00; /* Sombra sutil en naranja */
+    background-color: #f9f9f9; /* Fondo gris claro */
 }
 
+/* Estilos cuando se pasa el cursor sobre una tarjeta de miembro */
 .miembro:hover {
-    background-color: #fff4e0;
-    box-shadow: 0 4px 8px #ff9d00;
-    transform: translateY(-5px);
+    background-color: #fff4e0; /* Fondo beige claro al pasar el cursor */
+    box-shadow: 0 4px 8px #ff9d00; /* Sombra más fuerte */
+    transform: translateY(-5px); /* Eleva la tarjeta 5px al pasar el cursor */
 }
 
-/* Foto de miembro */
+/* === Estilos de la foto de los miembros === */
 .foto-miembro {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-right: 20px;
+    width: 180px; /* Ancho fijo de 180px */
+    height: 180px; /* Altura fija de 180px */
+    object-fit: cover; /* La imagen se ajusta sin deformarse */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    margin-right: 20px; /* Espaciado a la derecha de la imagen */
 }
