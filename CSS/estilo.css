@@ -2,126 +2,113 @@
 body {
     background-color: #acdef8; /* Color de fondo azul claro */
     font-family: "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif; /* Fuente moderna y redondeada */
-    margin: 20px; /* Margen externo de 20px alrededor del cuerpo de la página */
+    margin: 20px; /* Margen externo */
 }
 
 /* === Encabezados === */
 h1 {
-    text-align: center; /* Centra el texto del título */
-    font-size: 60px; /* Tamaño grande para el título principal */
-    display: grid; /* Asegura que el título respete el diseño en grid si se usa */
+    font-size: 60px; /* Tamaño grande */
+    display: grid; /* Asegura estructura */
 }
 
 /* === Imágenes === */
 img {
-    display: block; /* Hace que las imágenes sean bloques, evitando espacios adicionales */
-    margin: 10px auto; /* Centra las imágenes horizontalmente */
-    height: 150px; /* Altura fija de 150px */
-    border-radius: 15px; /* Bordes redondeados de 15px */
-    box-shadow: 0 8px 8px 12px rgba(0, 0, 0, 0.6); 
-    /* 
-        - 0: No desplaza la sombra horizontalmente 
-        - 8px: Desplaza la sombra 8px hacia abajo (sombra vertical)
-        - 8px: Define el radio de difuminado (difuminado medio)
-        - 12px: Expansión de la sombra (se hace más grande)
-        - rgba(0, 0, 0, 0.6): Color negro con 60% de opacidad
-    */
+    display: block; /* Bloque para centrar */
+    margin: 10px auto; /* Centrado horizontal */
+    max-width: 100%; /* Adaptable */
 }
 
 /* === Listas generales === */
 ul {
-    margin-top: 40px; /* Espacio antes de la lista */
-    margin-bottom: 40px; /* Espacio después de la lista */
+    margin: 40px 0; /* Espaciado superior e inferior */
+    padding: 0; /* Eliminar padding interno */
+    list-style: none; /* Sin viñetas */
 }
 
-/* === Navegación y listado de miembros === */
-.navegacion, .listado-miembros {
-    text-align: center; /* Centra el contenido de la navegación */
+p, h1, h2 {
+    text-align: center;
 }
 
-/* Listas dentro de la navegación y miembros */
+.bocetos img {
+    max-width: 400px; /* Ancho máximo */
+    height: auto; /* Ajuste automático */
+    border-radius: 5px;
+}
+
+.foto-miembro {
+    width: 180px; /* Ancho fijo */
+    height: 180px; /* Altura fija */
+    object-fit: cover; /* Ajuste de imagen */
+    border-radius: 50%; /* Circular */
+    margin-right: 20px; /* Espaciado derecho */
+}
+
+.foto-index {
+    height: 200px; /* Altura fija */
+    border-radius: 15px; /* Bordes redondeados */
+}
+
+.foto-miembro, .foto-index {
+    box-shadow: 0 8px 8px 12px rgba(0, 0, 0, 0.4); /* Sombra */
+}
+
+/* === Navegación y Listados === */
 .navegacion ul, .listado-miembros ul {
-    list-style: none; /* Elimina los puntos de la lista */
-    padding: 0; /* Elimina el padding interno */
-    display: flex; /* Usa flexbox para organizar elementos */
-    justify-content: center; /* Centra los elementos en la lista */
-    gap: 15px; /* Espaciado entre los elementos de la lista */
+    display: flex; /* Diseño flexible */
+    justify-content: center; /* Centrar horizontalmente */
+    gap: 15px; /* Separación entre elementos */
 }
 
-/* Estilos de los enlaces de navegación y miembros */
 .navegacion a, .listado-miembros a {
-    text-decoration: none; /* Elimina el subrayado */
-    font-size: 18px; /* Tamaño de fuente legible */
-    color: white; /* Texto en color blanco */
-    background-color: #ff9d00; /* Color de fondo naranja */
-    padding: 10px 20px; /* Espaciado interno (vertical 10px, horizontal 20px) */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 18px; /* Tamaño adecuado */
+    color: white; /* Texto blanco */
+    background-color: #ff9d00; /* Naranja */
+    padding: 10px 20px; /* Espaciado interno */
     border-radius: 20px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    /*
-        - 0: Sin desplazamiento horizontal 
-        - 4px: Desplazamiento vertical (sombra hacia abajo)
-        - 6px: Radio de difuminado (sombra suave)
-        - rgba(0, 0, 0, 0.2): Color negro con 20% de opacidad
-    */
-    transition: all 0.3s ease; /* Transición suave en 0.3s para todos los cambios */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra ligera */
 }
 
-/* Estilos cuando se pasa el cursor sobre los enlaces */
 .navegacion a:hover, .listado-miembros a:hover {
-    background-color: #ffa733; /* Color de fondo más claro al pasar el cursor */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); 
-    /*
-        - Sombra ligeramente más fuerte al pasar el cursor
-        - 6px de desplazamiento vertical 
-        - 8px de difuminado
-        - Opacidad del 30%
-    */
+    background-color: #ffa733; /* Cambio al pasar cursor */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Sombra más fuerte */
 }
 
-/* === Contenedor principal de contenido === */
-.contenido {
+/* === Contenido === */
+.contenido, .bocetos {
     background-color: #f9f9f9; /* Fondo gris claro */
-    border: 2px solid #ff9d00; /* Borde de 2px en color naranja */
+    border: 2px solid #ff9d00; /* Borde naranja */
     border-radius: 10px; /* Bordes redondeados */
     padding: 15px; /* Espaciado interno */
-    margin: 20px auto;
-    text-align: center; /* Centrar texto */
-    font-size: large; /* Texto de tamaño grande */
-    max-width: 800px; /* Ancho máximo de 800px */
-    box-shadow: 0 2px 4px #ff9d00; 
-    /*
-        - 0: Sin desplazamiento horizontal 
-        - 2px: Sombra hacia abajo
-        - 4px: Difuminado medio
-        - Color naranja para dar efecto tridimensional
-    */
+    margin: 20px auto; /* Centrado */
+    font-size: large; /* Tamaño adecuado */
+    max-width: 1000px; /* Ancho máximo */
+    box-shadow: 0 2px 4px #ff9d00; /* Sombra */
+}
+
+.bocetos h2 {
+    color: #f06000; /* Color del título */
 }
 
 /* === Tarjetas de los miembros === */
 .miembro {
-    display: flex; /* Flexbox para organizar imagen y texto en la misma línea */
-    align-items: center; /* Alineación vertical centrada */
-    justify-content: space-between; /* Separa el contenido en extremos opuestos */
-    border: 1px solid #ff9d00; /* Borde de 1px en color naranja */
-    padding: 15px; /* Espaciado interno */
-    margin-bottom: 15px; /* Espaciado entre miembros */
+    display: flex; /* Diseño flexible */
+    align-items: center; /* Alinear verticalmente */
+    justify-content: space-between; /* Separar contenido */
+    border: 1px solid #ff9d00; /* Borde naranja */
+    padding: 15px; /* Espaciado */
+    margin-bottom: 15px; /* Separación entre miembros */
     border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 2px 4px #ff9d00; /* Sombra sutil en naranja */
+    box-shadow: 0 2px 4px #ff9d00; /* Sombra ligera */
     background-color: #f9f9f9; /* Fondo gris claro */
 }
 
-/* Estilos cuando se pasa el cursor sobre una tarjeta de miembro */
 .miembro:hover {
-    background-color: #fff4e0; /* Fondo beige claro al pasar el cursor */
+    background-color: #fff4e0; /* Cambio de color */
     box-shadow: 0 4px 8px #ff9d00; /* Sombra más fuerte */
-    transform: translateY(-5px); /* Eleva la tarjeta 5px al pasar el cursor */
+    transform: translateY(-5px); /* Elevación */
 }
 
-/* === Estilos de la foto de los miembros === */
-.foto-miembro {
-    width: 180px; /* Ancho fijo de 180px */
-    height: 180px; /* Altura fija de 180px */
-    object-fit: cover; /* La imagen se ajusta sin deformarse */
-    border-radius: 50%; /* Hace que la imagen sea circular */
-    margin-right: 20px; /* Espaciado a la derecha de la imagen */
+.miembro p, .miembro h2 {
+    text-align: start; /* Alinear a la izquierda */
 }
