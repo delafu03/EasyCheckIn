@@ -1,0 +1,116 @@
+/* === Estilos generales === */
+body {
+    background-color: #acdef8; /* Color de fondo azul claro */
+    font-family: "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif; /* Fuente moderna y redondeada */
+    margin: 20px; /* Margen externo */
+}
+
+/* === Encabezados === */
+h1 {
+    font-size: 60px; /* Tamaño grande */
+    text-align: center; /* Centrado */
+    color: #f06000; /* Color del texto */
+}
+
+/* === Formulario === */
+.container {
+    max-width: 600px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 20px;
+    background-color: #f9f9f9; /* Fondo gris claro */
+    border: 2px solid #ff9d00; /* Borde naranja */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+form {
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos estén en columna */
+    gap: 15px; /* Espacio entre los elementos */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px; /* Espacio debajo de las etiquetas */
+}
+
+input, select, textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #ff9d00; /* Borde naranja cuando el campo está en foco */
+    outline: none;
+}
+
+/* Estilo para el área de texto (mensaje) */
+textarea {
+    resize: vertical; /* Permite cambiar el tamaño vertical */
+}
+
+/* Botón de envío */
+button {
+    padding: 12px 20px;
+    background-color: #ff9d00; /* Naranja */
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px; /* Bordes redondeados */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #ffa733; /* Color de fondo al pasar el ratón */
+    transform: translateY(-3px); /* Levantar el botón */
+}
+
+button:active {
+    transform: translateY(0); /* El botón vuelve a su posición original */
+}
+
+/* === Mensajes informativos === */
+p {
+    font-size: 16px;
+    text-align: center;
+}
+
+a {
+    color: #ff9d00; /* Enlace de color naranja */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f06000; /* Color al pasar el ratón */
+}
+
+/* === Estilos de las imágenes (si las hay) === */
+img {
+    display: block; /* Bloque para centrar */
+    margin: 10px auto; /* Centrado horizontal */
+    max-width: 100%; /* Adaptable */
+}
+
+/* === Estilos de los párrafos de información === */
+p {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* === Estilo para la sección de ayuda === */
+.container p {
+    color: #555;
+}
+
