@@ -12,7 +12,7 @@ h1 {
     color: #f06000; /* Color del texto */
 }
 
-/* === Formulario === */
+/* === Contenedor del formulario === */
 .container {
     max-width: 600px; /* Ancho máximo del formulario */
     margin: 0 auto; /* Centrado horizontal */
@@ -23,6 +23,7 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
 }
 
+/* === Formulario === */
 form {
     display: flex;
     flex-direction: column; /* Asegura que los elementos estén en columna */
@@ -53,12 +54,37 @@ input:focus, select:focus, textarea:focus {
     outline: none;
 }
 
-/* Estilo para el área de texto (mensaje) */
+/* === Estilos para radio buttons === */
+.form-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+.form-group label[for^="evaluacion"],
+.form-group label[for^="sugerencias"],
+.form-group label[for^="criticas"] {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 16px;
+    color: #444;
+}
+
+/* === Estilos para el checkbox de términos y condiciones === */
+input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* Aumenta el tamaño del checkbox */
+}
+
+label[for="terms"] {
+    font-size: 16px;
+    color: #444;
+}
+
+/* === Estilo para el área de texto (mensaje) === */
 textarea {
     resize: vertical; /* Permite cambiar el tamaño vertical */
 }
 
-/* Botón de envío */
+/* === Botón de envío === */
 button {
     padding: 12px 20px;
     background-color: #ff9d00; /* Naranja */
@@ -95,13 +121,6 @@ a:hover {
     color: #f06000; /* Color al pasar el ratón */
 }
 
-/* === Estilos de las imágenes (si las hay) === */
-img {
-    display: block; /* Bloque para centrar */
-    margin: 10px auto; /* Centrado horizontal */
-    max-width: 100%; /* Adaptable */
-}
-
 /* === Estilos de los párrafos de información === */
 p {
     text-align: center;
@@ -109,8 +128,6 @@ p {
     line-height: 1.6;
 }
 
-/* === Estilo para la sección de ayuda === */
 .container p {
     color: #555;
 }
-
