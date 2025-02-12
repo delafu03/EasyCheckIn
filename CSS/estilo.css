@@ -18,6 +18,20 @@ img {
     max-width: 100%; /* Adaptable */
 }
 
+/*Tablas*/
+table{
+    width:70%;
+    border-collapse: collapse;
+}
+th,td{
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+th{
+    background-color:#ff9d00;
+}
+
 /* === Listas generales === */
 ul {
     margin: 40px 0; /* Espaciado superior e inferior */
