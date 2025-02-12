@@ -29,6 +29,67 @@ p, h1, h2 {
     text-align: center;
 }
 
+/* === Formulario === */
+form {
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos estén en columna */
+    gap: 15px; /* Espacio entre los elementos */
+}
+
+label {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px; /* Espacio debajo de las etiquetas */
+}
+
+/* === Estilo para el área de texto (mensaje) === */
+textarea {
+    resize: vertical; /* Permite cambiar el tamaño vertical */
+}
+
+input, textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+input:focus, textarea:focus {
+    border-color: #ff9d00; /* Borde naranja cuando el campo está en foco */
+    outline: none;
+}
+
+/* === Estilo para el área de texto (mensaje) === */
+textarea {
+    resize: vertical; /* Permite cambiar el tamaño vertical */
+}
+
+/* === Botón de envío === */
+button {
+    display: block;
+    margin: auto;
+    padding: 12px 20px;
+    background-color: #ff9d00; /* Naranja */
+    width: 300px;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px; /* Bordes redondeados */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #ffa733; /* Color de fondo al pasar el ratón */
+    transform: translateY(-3px); /* Levantar el botón */
+}
+
+button:active {
+    transform: translateY(0); /* El botón vuelve a su posición original */
+}
+
 .bocetos img {
     max-width: 400px; /* Ancho máximo */
     height: auto; /* Ajuste automático */
@@ -75,7 +136,7 @@ p, h1, h2 {
 }
 
 /* === Contenido === */
-.contenido, .bocetos {
+.contenido, .bocetos, .container {
     background-color: #f9f9f9; /* Fondo gris claro */
     border: 2px solid #ff9d00; /* Borde naranja */
     border-radius: 10px; /* Bordes redondeados */
@@ -111,4 +172,32 @@ p, h1, h2 {
 
 .miembro p, .miembro h2 {
     text-align: start; /* Alinear a la izquierda */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+}
+
+.radio-group {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 16px;
+    color: #444;
+}
+
+#terms {
+    display: inline-block /* Alineo en la misma linea la casilla*/
+}
+
+/* === Estilos para el checkbox de términos y condiciones === */
+#terms input {
+    margin-right: 10px;
+    transform: scale(1.2); /* Aumenta el tamaño del checkbox */
+}
+
+#terms label {
+    font-size: 16px;
+    color: #444;
 }
