@@ -128,3 +128,7 @@ p, h1, h2 {
 .miembro p, .miembro h2 {
     text-align: start; /* Alinear a la izquierda */
 }
+.diagrama-gantt{
+    width: 100px;
+
+}
