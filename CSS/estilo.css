@@ -18,6 +18,22 @@ img {
     max-width: 100%; /* Adaptable */
 }
 
+/*Tablas*/
+table{
+    width:70%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+th,td{
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    background-color: white;
+}
+th{
+    background-color:#ff9d00;
+}
+
 /* === Listas generales === */
 ul {
     margin: 40px 0; /* Espaciado superior e inferior */
@@ -187,6 +203,11 @@ button:active {
     color: #444;
 }
 
+.diagrama-gantt{
+    width: 800px;
+
+}
+
 #terms {
     display: inline-block /* Alineo en la misma linea la casilla*/
 }
@@ -201,3 +222,4 @@ button:active {
     font-size: 16px;
     color: #444;
 }
+
