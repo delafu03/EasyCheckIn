@@ -5,6 +5,50 @@ body {
     margin: 20px; /* Margen externo */
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0073e6;
+    padding: 15px 30px;
+    color: #ff9d00;
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn-login {
+    background-color: #ff9d00;
+    color: #fdfdfd;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.navegacion {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+}
+
+.navegacion li {
+    display: inline;
+    color: white;
+    font-weight: bold;
+}
+
+.navegacion a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
 /* === Encabezados === */
 h1 {
     font-size: 60px; /* Tamaño grande */
@@ -129,12 +173,13 @@ button:active {
     box-shadow: 0 8px 8px 12px rgba(0, 0, 0, 0.4); /* Sombra */
 }
 
-/* === Navegación y Listados === */
+/*
+/* === Navegación y Listados === 
 .navegacion ul, .listado-miembros ul {
-    display: flex; /* Diseño flexible */
-    justify-content: center; /* Centrar horizontalmente */
-    gap: 15px; /* Separación entre elementos */
-}
+    display: flex; /* Diseño flexible 
+    justify-content: center; /* Centrar horizontalmente 
+    gap: 15px; /* Separación entre elementos 
+}  */
 
 .navegacion a, .listado-miembros a {
     text-decoration: none; /* Sin subrayado */
