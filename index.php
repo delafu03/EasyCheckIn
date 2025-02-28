@@ -18,7 +18,7 @@
                 <a href="alojamientos.html">Alojamientos</a> <li></li>
                 <a href="miembros.html">Equipo</a> <li></li>
                 <a href="contacto.html">Contacto</a> <li></li>
-                <a href="actividades.html">Actividades</a> <li></li>
+                <a href="portal.html">Mi Portal</a> <li></li>
                 <a href="admin.html">Administración</a> <li></li>
 
             </ul>
@@ -36,7 +36,7 @@
     </div>
     <div class="contenido">
         <?php if (!$usuario): ?>
-            <p>Inicia sesión para acceder a un contenido exclusivo con información sobre alojamientos, reservas e información sobre actividades.</p>
+            <p>Inicia sesión para acceder a un contenido exclusivo con información sobre alojamientos, reservas y actividades o eventos.</p>
             <a href="login.php" class="btn-login">Login</a>
         <?php endif; ?>
     </div>
