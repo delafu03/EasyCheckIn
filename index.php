@@ -18,8 +18,8 @@
                 <a href="alojamientos.html">Alojamientos</a> <li></li>
                 <a href="miembros.html">Equipo</a> <li></li>
                 <a href="contacto.html">Contacto</a> <li></li>
-                <a href="portal.html">Mi Portal</a> <li></li>
                 <a href="admin.html">Administración</a> <li></li>
+                <a href="portal.html">Mi Portal</a> <li></li>
 
             </ul>
             <?php if ($usuario): ?>
