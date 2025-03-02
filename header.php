@@ -1,4 +1,7 @@
 <?php session_start(); ?>
+<head>
+<link href="./CSS/headerFooter.css" rel="stylesheet" type="text/css">
+</head>
 <header> 
     <h1>EasyCheckIn</h1>
     <nav>
@@ -16,8 +19,8 @@
     </nav>
 
     <?php if (isset($_SESSION["login"]) ): ?>
-        <a href="logout.php" class="btn-logout">Logout</a>
+        <a href="logout.php" class=".btn-logout">Logout</a>
     <?php else: ?>
-        <a href="login.php" class="btn-login">Login</a>
+        <a href="login.php" class=".btn-login">Login</a>
     <?php endif; ?>
 </header>

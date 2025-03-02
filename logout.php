@@ -1,10 +1,4 @@
-<?php
-    session_start();
-?>
 
-<?php
-    session_start();
-    ?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -23,15 +17,16 @@
             if(isset($_SESSION["login"])){
                 unset($_SESSION["login"]);
                 unset($_SESSION["nombre"]);
+                unset($_SESSION["error"]);
+
                 if (isset($_SESSION["esAdmin"])) {
                     unset($_SESSION["esAdmin"]);
                     }
                     session_destroy();
                     // Recargar la página después de 0.2 segundos
-                    header("Refresh: 0.2; url=logout.php"); 
+                    header("Refresh: 0.2; url=login.php"); 
                     exit();
                 }
-                echo "<h1>Gracias por visitar nuestra web. ¡Hasta pronto!</h1>";
             ?>
             </main>
         

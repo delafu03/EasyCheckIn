@@ -1,6 +1,4 @@
-<?php
-    session_start();
-?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -22,7 +20,7 @@
                     <a href="portal.html">Mi Portal</a> <li></li>
 
                 </ul>
-                <?php if ($usuario): ?>
+                //<?php if ($usuario): ?>
                     <a href="logout.php">Cerrar Sesión</a>
                 <?php endif; ?>
         </header>
@@ -42,7 +40,7 @@
                 <p><strong>¡BIENVENIDO!</strong> as EasyCheckIn</p>
             <?php else: ?>
                 <p>Inicia sesión para acceder a un contenido exclusivo con información sobre alojamientos, reservas y actividades o eventos.</p>
-                <a href="login.php" class="btn-login">Login</a>
+                <a href="login.php" class=".btn-login">Login</a>
             <?php endif; ?>
         </div>
     </body>
