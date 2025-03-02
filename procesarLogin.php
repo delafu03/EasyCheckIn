@@ -1,3 +1,4 @@
+@ -0,0 +1,61 @@
 <?php
     session_start(); // Inicia la sesión para poder usar $_SESSION
 
@@ -36,16 +37,8 @@
 
     <header> 
         <h1>EasyCheckIn</h1>
-        <nav>
-            <ul class="navegacion"> 
-                <a href="detalles.html">Detalles</a> <li></li>
-                <a href="bocetos.html">Bocetos</a> <li></li>
-                <a href="miembros.html">Miembros</a> <li></li>
-                <a href="planificacion.html">Planificación</a> <li></li>
-                <a href="contacto.html">Contacto</a> <li></li>
-            </ul>
-        </nav>
-        <a href="login.php" class="btn-login">Login</a>
+        
+        <?php include 'header.php'; ?>
 
         <main id="contenido">
             <?php
@@ -59,3 +52,6 @@
         </main> 
 
     </header>
+    <?php include 'footer.php'; ?>
+</body>
+</html>
