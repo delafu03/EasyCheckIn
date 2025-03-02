@@ -1,5 +1,6 @@
 
 <?php
+ session_start();
     if (isset($_POST["username"]) && isset($_POST["password"])) {
         // Filtra y limpia los datos del formulario
         $username = htmlspecialchars(trim(strip_tags($_POST["username"])));

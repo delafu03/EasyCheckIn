@@ -1,16 +1,14 @@
-header {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #0073e6;
-    padding: 15px 30px;
-    color: #ff9d00;
-    margin: 0;
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    background-color: #000;
+    color: white;
 }
-
+.header img {
+    height: 50px;
+}
 .btn-login, .btn.logout {
     background-color: #ff9d00;
     color: #fdfdfd;
