@@ -1,0 +1,287 @@
+/* === Estilos generales === */
+body {
+    background-color: #acdef8; /* Color de fondo azul claro */
+    font-family: "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif; /* Fuente moderna y redondeada */
+    margin: 20px; /* Margen externo */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0073e6;
+    padding: 15px 30px;
+    color: #ff9d00;
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn-login {
+    background-color: #ff9d00;
+    color: #fdfdfd;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.no-session-container {
+    text-align: center;
+    background: #ffcccc;
+    padding: 15px;
+    margin: 30px auto;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(255, 0, 0, 0.3);
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.navegacion {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+}
+
+.navegacion li {
+    display: inline;
+    color: white;
+    font-weight: bold;
+}
+
+.navegacion a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+/* === Encabezados === */
+h1 {
+    font-size: 60px; /* Tamaño grande */
+    display: grid; /* Asegura estructura */
+}
+
+/* === Imágenes === */
+img {
+    display: block; /* Bloque para centrar */
+    margin: 10px auto; /* Centrado horizontal */
+    max-width: 100%; /* Adaptable */
+}
+
+/*Tablas*/
+table{
+    width:70%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+th,td{
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    background-color: white;
+}
+th{
+    background-color:#ff9d00;
+}
+
+/* === Listas generales === */
+ul {
+    margin: 40px 0; /* Espaciado superior e inferior */
+    padding: 0; /* Eliminar padding interno */
+    list-style: none; /* Sin viñetas */
+}
+
+p, h1, h2 {
+    text-align: center;
+}
+
+/* === Formulario === */
+form {
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos estén en columna */
+    gap: 15px; /* Espacio entre los elementos */
+}
+
+label {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px; /* Espacio debajo de las etiquetas */
+}
+
+/* === Estilo para el área de texto (mensaje) === */
+textarea {
+    resize: vertical; /* Permite cambiar el tamaño vertical */
+}
+
+input, textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+input:focus, textarea:focus {
+    border-color: #ff9d00; /* Borde naranja cuando el campo está en foco */
+    outline: none;
+}
+
+/* === Estilo para el área de texto (mensaje) === */
+textarea {
+    resize: vertical; /* Permite cambiar el tamaño vertical */
+}
+
+/* === Botón de envío === */
+button {
+    display: block;
+    margin: auto;
+    padding: 12px 20px;
+    background-color: #ff9d00; /* Naranja */
+    width: 300px;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px; /* Bordes redondeados */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #ffa733; /* Color de fondo al pasar el ratón */
+    transform: translateY(-3px); /* Levantar el botón */
+}
+
+button:active {
+    transform: translateY(0); /* El botón vuelve a su posición original */
+}
+
+.bocetos img {
+    max-width: 400px; /* Ancho máximo */
+    height: auto; /* Ajuste automático */
+    border-radius: 5px;
+}
+
+.foto-miembro {
+    width: 180px; /* Ancho fijo */
+    height: 180px; /* Altura fija */
+    object-fit: cover; /* Ajuste de imagen */
+    border-radius: 50%; /* Circular */
+    margin-right: 20px; /* Espaciado derecho */
+}
+
+.foto-index {
+    height: 200px; /* Altura fija */
+    border-radius: 15px; /* Bordes redondeados */
+}
+
+.foto-miembro, .foto-index {
+    box-shadow: 0 8px 8px 12px rgba(0, 0, 0, 0.4); /* Sombra */
+}
+
+/*
+/* === Navegación y Listados === 
+.navegacion ul, .listado-miembros ul {
+    display: flex; /* Diseño flexible 
+    justify-content: center; /* Centrar horizontalmente 
+    gap: 15px; /* Separación entre elementos 
+}  */
+
+.navegacion a, .listado-miembros a {
+    text-decoration: none; /* Sin subrayado */
+    font-size: 18px; /* Tamaño adecuado */
+    color: white; /* Texto blanco */
+    background-color: #ff9d00; /* Naranja */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+}
+
+.navegacion a:hover, .listado-miembros a:hover {
+    background-color: #ffa733; /* Cambio al pasar cursor */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Sombra más fuerte */
+}
+
+/* === Contenido === */
+.contenido, .bocetos, .container {
+    background-color: #f9f9f9; /* Fondo gris claro */
+    border: 2px solid #ff9d00; /* Borde naranja */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    margin: 20px auto; /* Centrado */
+    font-size: large; /* Tamaño adecuado */
+    max-width: 1000px; /* Ancho máximo */
+    box-shadow: 0 2px 4px #ff9d00; /* Sombra */
+}
+
+.bocetos h2 {
+    color: #f06000; /* Color del título */
+}
+
+/* === Tarjetas de los miembros === */
+.miembro {
+    display: flex; /* Diseño flexible */
+    align-items: center; /* Alinear verticalmente */
+    justify-content: space-between; /* Separar contenido */
+    border: 1px solid #ff9d00; /* Borde naranja */
+    padding: 15px; /* Espaciado */
+    margin-bottom: 15px; /* Separación entre miembros */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px #ff9d00; /* Sombra ligera */
+    background-color: #f9f9f9; /* Fondo gris claro */
+}
+
+.miembro:hover {
+    background-color: #fff4e0; /* Cambio de color */
+    box-shadow: 0 4px 8px #ff9d00; /* Sombra más fuerte */
+    transform: translateY(-5px); /* Elevación */
+}
+
+.miembro p, .miembro h2 {
+    text-align: start; /* Alinear a la izquierda */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+}
+
+.radio-group {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 16px;
+    color: #444;
+}
+
+.diagrama-gantt{
+    width: 800px;
+
+}
+
+#terms {
+    display: inline-block /* Alineo en la misma linea la casilla*/
+}
+
+/* === Estilos para el checkbox de términos y condiciones === */
+#terms input {
+    margin-right: 10px;
+    transform: scale(1.2); /* Aumenta el tamaño del checkbox */
+}
+
+#terms label {
+    font-size: 16px;
+    color: #444;
+}
+
