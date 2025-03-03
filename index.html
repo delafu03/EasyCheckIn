@@ -3,33 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./CSS/estilo.css" rel="stylesheet" type="text/css">
-    <title>Presentación</title>
+    <title>Registro & Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            width: 300px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
 
-    <header> 
-        <h1>EasyCheckIn</h1>
-        <nav>
-            <ul class="navegacion"> 
-                <a href="detalles.html">Detalles</a> <li></li>
-                <a href="bocetos.html">Bocetos</a> <li></li>
-                <a href="miembros.html">Miembros</a> <li></li>
-                <a href="planificacion.html">Planificación</a> <li></li>
-                <a href="contacto.html">Contacto</a> <li></li>
-            </ul>
-        </nav>
-        <a href="login.php" class="btn-login">Login</a>
-    </header>
-    
-    <img src="./img/LOGOTIPO.png" alt="LOGOTIPO" class="foto-index" > 
-    <div class="contenido">
-        <p><strong>EasyCheckIn</strong> es una plataforma digital que agiliza el check-in y mejora la experiencia en alojamientos, ofreciendo comodidad a huéspedes y eficiencia a administradores. 
-        Nuestra solución integral ha sido diseñada para transformar el proceso de llegada en una experiencia rápida y sin complicaciones, eliminando largas esperas y simplificando la gestión administrativa.</p>
+    <h2>Registro</h2>
+    <div class="container">
+        <form action="registro.php" method="POST">
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Registrarse</button>
+        </form>
     </div>
-    <div class="contenido">
-        <p>Con un enfoque en comodidad, seguridad e innovación, QuickStay transforma la forma en que los viajeros acceden a su estancia, brindando un servicio más eficiente y personalizado. 
-        Descubre una nueva manera de gestionar el check-in y mejorar la experiencia de cada visita.</p>
+
+    <h2>Inicio de Sesión</h2>
+    <div class="container">
+        <form action="login.php" method="POST">
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
     </div>
+
 </body>
 </html>
