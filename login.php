@@ -12,15 +12,17 @@
 </head>
 <body>
 <?php include 'header.php'; ?>
-    <main class="login-container">
-        <h2>Iniciar sesión</h2>
-        <form action="procesarLogin.php" method="post" class="login-form">
-            <label for="username">Usuario:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit" class="btn">Inciar sesión</button>
+    <form action="procesarLogin.php" method="post" class="login-form">
+      <label for="username">Usuario:</label>
+      <input type="text" id="username" name="username" required>
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" required>
+      
+      <div class="btn-container">
+        <button type="submit" class="btn">Iniciar sesión</button>
+        <button><a href="registro.php"  type="button" class="btn" >Registrarse</a></button>
 
+      </div>
         <?php if (isset($_SESSION["login"]) && !isset($_SESSION["error"])) {
          echo"
             <p>Bienvenido {$_SESSION['nombre']}!, usa la cabecera para navegar por nuestra web.</p>
