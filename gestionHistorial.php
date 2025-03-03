@@ -39,6 +39,4 @@ echo json_encode($reservas); // Enviar datos en formato JSON
 
 $stmt->close();
 $conn->close();
-
-include 'footer.php';   // Incluir el footer
 ?>
