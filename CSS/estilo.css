@@ -1,52 +1,28 @@
-/* === Estilos generales === */
+
+   /* === Estilos generales === */
 body {
-    background-color: #acdef8; /* Color de fondo azul claro */
-    font-family: "Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif; /* Fuente moderna y redondeada */
-    margin: 20px; /* Margen externo */
+    background-color: #78d0ff; /* Color de fondo azul claro */
+    font-family: "Arial Rounded MT", "Trebuchet MS", Arial, sans-serif; /* Fuente moderna y redondeada */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #0073e6;
+    background-color: #1a237e;
     padding: 15px 30px;
-    color: #ff9d00;
+    border-top: 3px solid #ff9d00;
+    color: #e3981e;
     margin: 0;
     font-size: 2.5rem;
     font-weight: bold;
     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-}
-
-.btn-login {
-    background-color: #ff9d00;
-    color: #fdfdfd;
-    padding: 8px 15px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-.navegacion {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 1.1rem;
-}
-
-.navegacion li {
-    display: inline;
-    color: white;
-    font-weight: bold;
-}
-
-.navegacion a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
 }
 
 /* === Encabezados === */
@@ -75,7 +51,7 @@ th,td{
     background-color: white;
 }
 th{
-    background-color:#ff9d00;
+    background-color:#e3981e;
 }
 
 /* === Listas generales === */
@@ -90,11 +66,6 @@ p, h1, h2 {
 }
 
 /* === Formulario === */
-form {
-    display: flex;
-    flex-direction: column; /* Asegura que los elementos estén en columna */
-    gap: 15px; /* Espacio entre los elementos */
-}
 
 label {
     font-size: 18px;
@@ -116,7 +87,7 @@ input, textarea {
 }
 
 input:focus, textarea:focus {
-    border-color: #ff9d00; /* Borde naranja cuando el campo está en foco */
+    border-color: #e3981e; /* Borde naranja cuando el campo está en foco */
     outline: none;
 }
 
@@ -126,20 +97,33 @@ textarea {
 }
 
 /* === Botón de envío === */
-button {
-    display: block;
-    margin: auto;
-    padding: 12px 20px;
-    background-color: #ff9d00; /* Naranja */
-    width: 300px;
+
+ .login-form {
+    margin: 60px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .btn-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 12px;  /* Menos padding para botones más pequeños */
+    background-color: #ff9d00;
     color: white;
-    font-size: 18px;
+    font-size: 15px;    /* Fuente más pequeña */
     border: none;
-    border-radius: 20px; /* Bordes redondeados */
+    border-radius: 10px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
     transition: background-color 0.3s, transform 0.3s;
-}
+  }
 
 button:hover {
     background-color: #ffa733; /* Color de fondo al pasar el ratón */
@@ -185,27 +169,27 @@ button:active {
     text-decoration: none; /* Sin subrayado */
     font-size: 18px; /* Tamaño adecuado */
     color: white; /* Texto blanco */
-    background-color: #ff9d00; /* Naranja */
+    background-color: #e3981e; /* Naranja */
     padding: 10px 20px; /* Espaciado interno */
     border-radius: 20px; /* Bordes redondeados */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra ligera */
 }
 
 .navegacion a:hover, .listado-miembros a:hover {
-    background-color: #ffa733; /* Cambio al pasar cursor */
+    background-color: #e3981e; /* Cambio al pasar cursor */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Sombra más fuerte */
 }
 
 /* === Contenido === */
 .contenido, .bocetos, .container {
     background-color: #f9f9f9; /* Fondo gris claro */
-    border: 2px solid #ff9d00; /* Borde naranja */
+    border: 2px solid #e3981e; /* Borde naranja */
     border-radius: 10px; /* Bordes redondeados */
     padding: 15px; /* Espaciado interno */
     margin: 20px auto; /* Centrado */
     font-size: large; /* Tamaño adecuado */
     max-width: 1000px; /* Ancho máximo */
-    box-shadow: 0 2px 4px #ff9d00; /* Sombra */
+    box-shadow: 0 2px 4px #e3981e; /* Sombra */
 }
 
 .bocetos h2 {
@@ -217,17 +201,17 @@ button:active {
     display: flex; /* Diseño flexible */
     align-items: center; /* Alinear verticalmente */
     justify-content: space-between; /* Separar contenido */
-    border: 1px solid #ff9d00; /* Borde naranja */
+    border: 1px solid #e3981e; /* Borde naranja */
     padding: 15px; /* Espaciado */
     margin-bottom: 15px; /* Separación entre miembros */
     border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 2px 4px #ff9d00; /* Sombra ligera */
+    box-shadow: 0 2px 4px #e3981e; /* Sombra ligera */
     background-color: #f9f9f9; /* Fondo gris claro */
 }
 
 .miembro:hover {
     background-color: #fff4e0; /* Cambio de color */
-    box-shadow: 0 4px 8px #ff9d00; /* Sombra más fuerte */
+    box-shadow: 0 4px 8px #e3981e; /* Sombra más fuerte */
     transform: translateY(-5px); /* Elevación */
 }
 
@@ -267,4 +251,5 @@ button:active {
     font-size: 16px;
     color: #444;
 }
+
 
