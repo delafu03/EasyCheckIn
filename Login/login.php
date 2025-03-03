@@ -20,7 +20,7 @@
       
       <div class="btn-container">
         <button type="submit" class="btn">Iniciar sesión</button>
-        <button><a href="registro.php"  type="button" class="btn" >Registrarse</a></button>
+        <button><a href="registro.php"  type="submit" class="btn" >Registrarse</a></button>
 
       </div>
         <?php if (isset($_SESSION["login"]) && !isset($_SESSION["error"])) {
@@ -34,7 +34,7 @@
         ?>
     
     </form>
-    <?php include 'footer.php'; ?>
-
-    </body>
+    
+</body>
+<?php include 'footer.php'; ?>
     </html>
