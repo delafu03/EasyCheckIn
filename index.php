@@ -5,28 +5,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="./CSS/index.css" rel="stylesheet" type="text/css">
+        <link href="./CSS/estilo.css" rel="stylesheet" type="text/css">
         <title>EasyCheckIn</title>
     </head>
     <body>
-    <!-- <header> 
-            <img src="./img/LOGOTIPO.png" alt="LOGOTIPO" class="foto-index" > 
-            <nav>
-                <ul class="navegacion"> 
-                    <a href="alojamientos.html">Alojamientos</a> <li></li>
-                    <a href="miembros.html">Equipo</a> <li></li>
-                    <a href="contacto.html">Contacto</a> <li></li>
-                    <a href="admin.html">Administración</a> <li></li>
-                    <a href="portal.html">Mi Portal</a> <li></li>
-
-                </ul>
-                //<?php if ($usuario): ?>
-                    <a href="logout.php">Cerrar Sesión</a>
-                <?php endif; ?>
-        </header>
-        
-        ! -->
         <?php include 'header.php'; ?>
+
+        <img src="./img/LOGOTIPO.png" alt="LOGOTIPO" class="foto-index" > 
 
         <div class="contenido">
             <p><strong>EasyCheckIn</strong> es una plataforma digital que agiliza el check-in y mejora la experiencia en alojamientos, 
@@ -44,6 +29,7 @@
             <?php endif; ?>
         </div>
     </body>
+
     <?php include 'footer.php'; ?>
 
 </html>

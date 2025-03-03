@@ -2,27 +2,22 @@
     session_start();
 } ?>
 <head>
-<link href="./CSS/headerFooter.css" rel="stylesheet" type="text/css">
+    <link href="./CSS/headerFooter.css" rel="stylesheet" type="text/css">
 </head>
 <header> 
-    <h1>EasyCheckIn</h1>
     <nav>
         <ul class="navegacion"> 
-            <li><a href="detalles.html">Detalles</a></li>
-            <li>|</li>
-            <li><a href="bocetos.html">Bocetos</a></li>
-            <li>|</li>
-            <li><a href="miembros.html">Miembros</a></li>
-            <li>|</li>
-            <li><a href="planificacion.html">Planificación</a></li>
-            <li>|</li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
+            <a href="alojamientos.html">Alojamientos</a> <li></li>
+            <a href="miembros.html">Equipo</a> <li></li>
+            <a href="contacto.html">Contacto</a> <li></li>
+            <a href="admin.html">Administración</a> <li></li>
+            <a href="portal.html">Mi Portal</a> <li></li>
 
-    <?php if (isset($_SESSION["login"]) ): ?>
-        <a href="logout.php" class=".btn-logout">Logout</a>
-    <?php else: ?>
-        <a href="login.php" class=".btn-login">Login</a>
-    <?php endif; ?>
+            <?php if (isset($_SESSION["login"]) ): ?>
+                <a href="logout.php" class="btn-logout ">Cerrar sesión</a>
+            <?php else: ?>
+                <a href="login.php" class="btn-login">Iniciar sesión</a>
+            <?php endif; ?>
+        </ul>
+    </nav>    
 </header>
