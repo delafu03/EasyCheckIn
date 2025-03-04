@@ -13,8 +13,8 @@
 <body>
 <?php include 'header.php'; ?>
     <form action="procesarLogin.php" method="post" class="login-form">
-      <label for="username">Usuario:</label>
-      <input type="text" id="username" name="username" required>
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" required>
       <label for="password">Contraseña:</label>
       <input type="password" id="password" name="password" required>
       
