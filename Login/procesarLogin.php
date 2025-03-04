@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'conexion.php'; // Incluir la conexión
+require '../conexion.php'; // Incluir la conexión
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -21,15 +21,10 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./CSS/estilo.css" rel="stylesheet" type="text/css">
-    <title>ProcesarLogin</title>
+
 </head>
 <body>
-    <header> 
-        <h1>EasyCheckIn</h1>
-        <?php include 'header.php'; ?>
-    </header>
-    
+
     <main id="contenido">
         <?php
             if ($user && password_verify($password, $user['password_hash'])) {
@@ -48,6 +43,5 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         ?>
     </main> 
 
-    <?php include 'footer.php'; ?>
 </body>
 </html>

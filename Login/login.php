@@ -7,12 +7,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./CSS/estilo.css" rel="stylesheet" type="text/css">
+    <link href="\AW\EasyCheckIn\CSS\estilo.css" rel="stylesheet" type="text/css">
+    <link href="../CSS/headerFooter.css" rel="stylesheet" type="text/css">
     <title>Login</title>
 </head>
 <body>
-<?php include './header.php'; ?>
-    <form action="./Login/procesarLogin.php" method="post" class="login-form">
+<?php include '../header.php'; ?>
+    <form action="procesarLogin.php" method="post" class="login-form">
       <label for="email">Email:</label>
       <input type="text" id="email" name="email" required>
       <label for="password">Contraseña:</label>
@@ -36,5 +37,5 @@
     </form>
     
 </body>
-<?php include './footer.php'; ?>
+<?php include '../footer.php'; ?>
     </html>

@@ -96,43 +96,6 @@ textarea {
     resize: vertical; /* Permite cambiar el tamaño vertical */
 }
 
-/* === Botón de envío === */
-
- .login-form {
-    margin: 60px auto 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .btn-container {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: 10px 12px;  /* Menos padding para botones más pequeños */
-    background-color: #ff9d00;
-    color: white;
-    font-size: 15px;    /* Fuente más pequeña */
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-  }
-
-button:hover {
-    background-color: #ffa733; /* Color de fondo al pasar el ratón */
-    transform: translateY(-3px); /* Levantar el botón */
-}
-
-button:active {
-    transform: translateY(0); /* El botón vuelve a su posición original */
-}
 
 .bocetos img {
     max-width: 400px; /* Ancho máximo */
@@ -266,22 +229,6 @@ button:active {
     gap: 15px;
   }
   
-  .btn {
-    padding: 8px 12px;
-    background-color: #ff9d00;
-    color: white;
-    font-size: 12px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-  }
-  
-  .btn:hover {
-    background-color: #ffa733;
-    transform: translateY(-3px);
-  }
-  
   label {
     font-weight: bold;
   }
@@ -291,4 +238,41 @@ button:active {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
-  }
+  }     
+/* === Botón de envío === */
+
+.login-form {
+margin: 60px auto 0 auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px;
+}
+
+.btn-container {
+display: flex;
+gap: 10px;
+justify-content: center;
+width: 100%;
+}
+
+.btn {
+display: inline-block;
+padding: 10px 12px;  /* Menos padding para botones más pequeños */
+background-color: #ff9d00;
+color: white;
+font-size: 15px;    /* Fuente más pequeña */
+border: none;
+border-radius: 10px;
+cursor: pointer;
+transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #ffa733; /* Color de fondo al pasar el ratón */
+    transform: translateY(-3px); /* Levantar el botón */
+}
+
+button:active {
+    transform: translateY(0); /* El botón vuelve a su posición original */
+}
