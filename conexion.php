@@ -1,7 +1,7 @@
 <?php
 $servidor = "localhost"; 
 $usuario = "root"; 
-$clave = "1234"; 
+$clave = "root"; 
 $base_datos = "checkin_hotel"; 
 
 try {

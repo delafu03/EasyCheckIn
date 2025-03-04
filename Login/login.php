@@ -11,8 +11,8 @@
     <title>Login</title>
 </head>
 <body>
-<?php include 'header.php'; ?>
-    <form action="procesarLogin.php" method="post" class="login-form">
+<?php include './header.php'; ?>
+    <form action="./Login/procesarLogin.php" method="post" class="login-form">
       <label for="email">Email:</label>
       <input type="text" id="email" name="email" required>
       <label for="password">Contraseña:</label>
@@ -36,5 +36,5 @@
     </form>
     
 </body>
-<?php include 'footer.php'; ?>
+<?php include './footer.php'; ?>
     </html>

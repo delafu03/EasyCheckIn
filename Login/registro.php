@@ -11,7 +11,7 @@
     <?php include 'header.php'; ?>
 
     <h2 class="header">Registro de Usuario</h2>
-        <form action="procesarRegistro.php" method="post" class="register-form">
+        <form action="./Login/procesarRegistro.php" method="post" class="register-form">
         
             <label for="email">Correo Electrónico:</label>
             <input type="email" id="email" name="email" required>
