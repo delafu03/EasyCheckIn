@@ -7,17 +7,17 @@
 <header> 
     <nav>
         <ul class="navegacion"> 
-            <a href="alojamientos.html">Alojamientos</a> <li></li>
-            <a href="miembros.html">Equipo</a> <li></li>
-            <a href="contacto.html">Contacto</a> <li></li>
-            <a href="admin.html">Administración</a> <li></li>
-            <a href="portal.html">Mi Portal</a> <li></li>
+            <a href="/EasyCheckIn/alojamientos.html">Alojamientos</a> <li></li>
+            <a href="/EasyCheckIn/miembros.html">Equipo</a> <li></li>
+            <a href="/EasyCheckIn/contacto.html">Contacto</a> <li></li>
+            <a href="/EasyCheckIn/admin.html">Administración</a> <li></li>
+            <a href="/EasyCheckIn/portal.html">Mi Portal</a> <li></li>
 
             
             <?php if (isset($_SESSION["email"])): ?>
-                <a href="/AW/EasyCheckIn/Login/logout.php" class="btn-logout">Cerrar sesión</a>
+                <a href="/EasyCheckIn/Login/logout.php" class="btn-logout">Cerrar sesión</a>
             <?php else: ?>
-                <a href="/AW/EasyCheckIn/Login/login.php" class="btn-login">Iniciar sesión</a>
+                <a href="/EasyCheckIn/Login/login.php" class="btn-login">Iniciar sesión</a>
             <?php endif; ?>
 
         </ul>

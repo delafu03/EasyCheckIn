@@ -7,8 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="\AW\EasyCheckIn\CSS\estilo.css" rel="stylesheet" type="text/css">
-    <link href="../CSS/headerFooter.css" rel="stylesheet" type="text/css">
+    <link href="/EasyCheckIn/CSS/estilo.css" rel="stylesheet" type="text/css">
+    <link href="/EasyCheckIn/CSS/headerFooter.css" rel="stylesheet" type="text/css">
     <title>Login</title>
 </head>
 <body>
