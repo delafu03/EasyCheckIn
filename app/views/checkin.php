@@ -11,21 +11,17 @@
     <?php if (empty($usuarios)): ?>
         <p>No hay usuarios registrados para esta reserva.</p>
     <?php else: ?>
-        <?php 
-        $totalUsuarios = count($usuarios);
-        $menores = array_filter($usuarios, fn($usuario) => calcularEdad($usuario['fecha_nacimiento']) < 14);
-        $hayMenores = count($menores) > 0;
-        ?>
-        <form method="POST" action="index.php?action=procesar_checkin">
-            <?php foreach ($usuarios as $usuario): ?>
-                <?php
-                $fechaNacimiento = !empty($usuario['fecha_nacimiento']) ? $usuario['fecha_nacimiento'] : date('Y-m-d', strtotime('-12 years'));
-                $edad = calcularEdad($usuario['fecha_nacimiento']);
-                $fechaExpedicion = !empty($usuario['fecha_expedicion']) ? $usuario['fecha_expedicion'] : date('Y-m-d', strtotime('-12 years'));
-                $deshabilitarParentesco = ($totalUsuarios < 2 || !$hayMenores);
-                ?>
+        <?php foreach ($usuarios as $usuario): ?>
+            <?php
+            $fechaNacimiento = !empty($usuario['fecha_nacimiento']) ? $usuario['fecha_nacimiento'] : date('Y-m-d', strtotime('-14 years'));
+            $edad = calcularEdad($fechaNacimiento);
+            echo "<script>console.log('Edad calculada correctamente: $edad');</script>";
+            $fechaExpedicion = !empty($usuario['fecha_expedicion']) ? $usuario['fecha_expedicion'] : date('Y-m-d', strtotime('-14 years'));
+            ?>
+            
+            <form method="POST" action="index.php?action=procesar_checkin">
                 <fieldset>
-                    <legend>Usuario: <?php echo htmlspecialchars($usuario['nombre'] . ' ' . $usuario['apellidos']); ?></legend>
+                    <legend>Usuario (ID: <?php echo $usuario['id_usuario']; ?>): <?php echo htmlspecialchars($usuario['nombre'] . ' ' . $usuario['apellidos']); ?></legend>
                     <input type="hidden" name="id_usuario" value="<?php echo $usuario['id_usuario']; ?>">
                     <input type="hidden" name="id_reserva" value="<?php echo $id_reserva; ?>">
                     
@@ -45,7 +41,7 @@
                     <input type="text" name="num_soporte" value="<?php echo htmlspecialchars($usuario['num_soporte']); ?>" <?php echo ($edad < 14) ? 'disabled' : ''; ?>>
                     
                     <label>Relación de Parentesco:</label>
-                    <input type="text" name="relacion_parentesco" value="<?php echo htmlspecialchars($usuario['relacion_parentesco']); ?>" <?php echo $deshabilitarParentesco ? 'disabled' : ''; ?>>
+                    <input type="text" name="relacion_parentesco" value="<?php echo htmlspecialchars($usuario['relacion_parentesco']); ?>" <?php echo ($edad >= 14) ? 'disabled' : ''; ?>>
                     
                     <label>Sexo:</label>
                     <select name="sexo">
@@ -77,8 +73,8 @@
                     
                     <button type="submit">Actualizar</button>
                 </fieldset>
-            <?php endforeach; ?>
-        </form>
+            </form>
+        <?php endforeach; ?>
     <?php endif; ?>
 </body>
 </html>
@@ -89,8 +85,7 @@ function calcularEdad($fechaNacimiento) {
     if (!$fechaNacimiento) return 0;
     $hoy = new DateTime();
     $nacimiento = new DateTime($fechaNacimiento);
-    $edad = $hoy->diff($nacimiento)->y;
-    return $edad;
+    return $hoy->diff($nacimiento)->y;
 }
 
 function validarDNI($dni) {

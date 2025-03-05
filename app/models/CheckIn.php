@@ -33,10 +33,52 @@ class CheckIn {
     }
     
     public function procesarCheckIn($datos) {
-        $stmt = $this->db->prepare("UPDATE usuarios SET tipo_documento = ?, numero_documento = ?, fecha_expedicion = ?, num_soporte = ?, relacion_parentesco = ?, sexo = ?, nombre = ?, apellidos = ?, fecha_nacimiento = ?, nacionalidad = ?, pais = ?, direccion = ?, correo = ? WHERE id_usuario = ?");
-        return $stmt->execute([
-            $datos['tipo_documento'], $datos['numero_documento'], $datos['fecha_expedicion'], $datos['num_soporte'], $datos['relacion_parentesco'], $datos['sexo'], $datos['nombre'], $datos['apellidos'], $datos['fecha_nacimiento'], $datos['nacionalidad'], $datos['pais'], $datos['direccion'], $datos['correo'], $datos['id_usuario']
-        ]);
+        try {
+            // Verificar si el número de documento ya existe en otro usuario
+            $sql = "SELECT id_usuario FROM usuarios WHERE numero_documento = :numero_documento AND id_usuario != :id_usuario";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindValue(":numero_documento", $datos['numero_documento'], PDO::PARAM_STR);
+            $stmt->bindValue(":id_usuario", $datos['id_usuario'], PDO::PARAM_INT);
+            $stmt->execute();
+    
+            if ($stmt->rowCount() > 0) {
+                return ["error" => "El número de documento ya está registrado en otro usuario."];
+            }
+    
+            // Filtrar solo los campos enviados
+            $campos_actualizar = [];
+            $valores = [];
+    
+            foreach ($datos as $campo => $valor) {
+                if ($campo !== "id_usuario" && $campo !== "id_reserva") { // No actualizar claves primarias
+                    $campos_actualizar[] = "$campo = :$campo";
+                    $valores[":$campo"] = $valor;
+                }
+            }
+    
+            // Si no hay campos a actualizar, devolver un mensaje de error
+            if (empty($campos_actualizar)) {
+                return ["error" => "No hay datos válidos para actualizar."];
+            }
+    
+            $valores[":id_usuario"] = $datos['id_usuario'];
+    
+            // Construir la consulta dinámica
+            $sql = "UPDATE usuarios SET " . implode(", ", $campos_actualizar) . " WHERE id_usuario = :id_usuario";
+    
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute($valores);
+    
+            // Verificar si la actualización afectó alguna fila
+            if ($stmt->rowCount() > 0) {
+                return ["success" => "Usuario actualizado correctamente."];
+            } else {
+                return ["error" => "No se realizaron cambios en la base de datos. ¿Los datos son los mismos?"];
+            }
+    
+        } catch (PDOException $e) {
+            return ["error" => "Error al actualizar el usuario: " . $e->getMessage()];
+        }
     }
 }
 ?>
