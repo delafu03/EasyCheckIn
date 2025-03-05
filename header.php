@@ -4,8 +4,8 @@
 <head>
     <link href="./CSS/headerFooter.css" rel="stylesheet" type="text/css">
 </head>
-<header> 
-    <!-- <img src="./img/LOGOTIPO.png" alt="LOGOTIPO" class="foto-index" >    -->
+<header class="header"> 
+    <img src="./img/LOGOTIPO.png" alt="LOGOTIPO" class="foto-index" >   
     <nav>
         <ul class="navegacion"> 
             <a href="/EasyCheckIn/index.php">Inicio</a> <li></li> 

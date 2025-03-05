@@ -1,6 +1,6 @@
 
    /* === Estilos generales === */
-body {
+html, body {
     background-color: #bbdff3e0; /* Color de fondo azul claro */
     font-family: "Arial Rounded MT", "Trebuchet MS", Arial, sans-serif; /* Fuente moderna y redondeada */
     margin: 0;
@@ -153,6 +153,7 @@ textarea {
     font-size: large; /* Tamaño adecuado */
     max-width: 1000px; /* Ancho máximo */
     box-shadow: 0 2px 4px #e3981e; /* Sombra */
+    flex: 1;
 }
 
 .bocetos h2 {

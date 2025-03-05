@@ -3,12 +3,15 @@
     justify-content: space-between;
     align-items: center;
     padding: 5px 10px;
-    background-color: #000;
+    background-color: #1a237e;
     color: white;
+    height: 90px;
 }
 
 .header img {
-    height: 30px;
+    height: 70px;
+    margin-left: 30px;
+    margin-right: 70px;
 }
 
 nav {
@@ -16,16 +19,6 @@ nav {
     align-items: center;
     flex-grow: 1;
 }
-
-/* .btn-login, .btn-logout {
-    background-color: #ff9d00;
-    color: #fdfdfd;
-    padding: 8px 15px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: 0.3s;
-} */
 
 .navegacion {
     list-style: none;
