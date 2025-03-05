@@ -26,7 +26,7 @@
             <input type="password" id="password" name="password" required>
             
 
-            <button type="submit">Registrarse</button>
+            <button type="submit" class="btn">Registrarse</button>
         </form>
 
 

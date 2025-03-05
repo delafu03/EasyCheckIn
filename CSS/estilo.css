@@ -159,51 +159,6 @@ textarea {
     color: #f06000; /* Color del título */
 }
 
-/* === Tarjetas de los miembros === */
-.miembro {
-    display: flex; /* Diseño flexible */
-    align-items: center; /* Alinear verticalmente */
-    justify-content: space-between; /* Separar contenido */
-    border: 1px solid #e3981e; /* Borde naranja */
-    padding: 15px; /* Espaciado */
-    margin-bottom: 15px; /* Separación entre miembros */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 2px 4px #e3981e; /* Sombra ligera */
-    background-color: #f9f9f9; /* Fondo gris claro */
-}
-
-.miembro:hover {
-    background-color: #fff4e0; /* Cambio de color */
-    box-shadow: 0 4px 8px #e3981e; /* Sombra más fuerte */
-    transform: translateY(-5px); /* Elevación */
-}
-
-.miembro p, .miembro h2 {
-    text-align: start; /* Alinear a la izquierda */
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    margin-right: 5px;
-}
-
-.radio-group {
-    display: inline-block;
-    margin-left: 5px;
-    font-size: 16px;
-    color: #444;
-}
-
-.diagrama-gantt{
-    width: 800px;
-
-}
-
-#terms {
-    display: inline-block /* Alineo en la misma linea la casilla*/
-}
-
 /* === Estilos para el checkbox de términos y condiciones === */
 #terms input {
     margin-right: 10px;
