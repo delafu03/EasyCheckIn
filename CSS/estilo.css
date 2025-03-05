@@ -11,6 +11,12 @@ html, body {
     flex-direction: column;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -144,7 +150,7 @@ textarea {
 }
 
 /* === Contenido === */
-.contenido, .bocetos, .container {
+.contenido, .container {
     background-color: #f9f9f9; /* Fondo gris claro */
     border: 2px solid #e3981e; /* Borde naranja */
     border-radius: 10px; /* Bordes redondeados */
@@ -153,11 +159,8 @@ textarea {
     font-size: large; /* Tamaño adecuado */
     max-width: 1000px; /* Ancho máximo */
     box-shadow: 0 2px 4px #e3981e; /* Sombra */
-    flex: 1;
-}
-
-.bocetos h2 {
-    color: #f06000; /* Color del título */
+    flex-grow: 0; 
+    min-height: 200px;
 }
 
 /* === Estilos para el checkbox de términos y condiciones === */
@@ -195,6 +198,7 @@ textarea {
     border-radius: 5px;
     font-size: 14px;
   }     
+
 /* === Botón de envío === */
 
 .login-form {

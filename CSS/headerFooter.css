@@ -72,7 +72,7 @@ footer {
     font-size: 16px;
     border-top: 3px solid #ff9d00;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-    margin-top: 40px;
+    margin-top: auto;
 }
   
 footer p {
