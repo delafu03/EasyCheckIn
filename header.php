@@ -14,7 +14,7 @@
             <a href="portal.html">Mi Portal</a> <li></li>
 
             
-            <?php if (isset($_SESSION["correo"])): ?>
+            <?php if (isset($_SESSION["email"])): ?>
                 <a href="/AW/EasyCheckIn/Login/logout.php" class="btn-logout">Cerrar sesión</a>
             <?php else: ?>
                 <a href="/AW/EasyCheckIn/Login/login.php" class="btn-login">Iniciar sesión</a>

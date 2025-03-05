@@ -14,8 +14,8 @@
 <body>
 <?php include '../header.php'; ?>
     <form action="procesarLogin.php" method="post" class="login-form">
-      <label for="email">Email:</label>
-      <input type="text" id="email" name="email" required>
+      <label for="correo">Email:</label>
+      <input type="text" id="correo" name="correo" required>
       <label for="password">Contraseña:</label>
       <input type="password" id="password" name="password" required>
       
@@ -25,13 +25,11 @@
 
       </div>
         <?php if (isset($_SESSION["login"]) && !isset($_SESSION["error"])) {
-         echo"
-            <p>Bienvenido {$_SESSION['nombre']}!, usa la cabecera para navegar por nuestra web.</p>
-            ";
+         
+            header("Location : ../index.php");
         } 
         else if (isset($_SESSION["error"]) && $_SESSION["error"]=== true){
             echo"<p style='color:red'>El usuario o contraseña no son válidos.";
-            unset($_SESSION["correo"]);
         }
         ?>
     

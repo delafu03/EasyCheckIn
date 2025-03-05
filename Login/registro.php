@@ -19,8 +19,8 @@
             <label for="apellidos">Apellidos:</label>
             <input type="apellidos" id="apellidos" name="apellidos" required>
         
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required>
+            <label for="correo">Correo Electrónico:</label>
+            <input type="correo" id="correo" name="correo" required>
             
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" required>
