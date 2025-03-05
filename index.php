@@ -8,9 +8,6 @@
     </head>
     <body>
         <?php include 'header.php'; ?>
-
-        <img src="./img/LOGOTIPO.png" alt="LOGOTIPO" class="foto-index" > 
-
         <div class="contenido">
             <p><strong>EasyCheckIn</strong> es una plataforma digital que agiliza el check-in y mejora la experiencia en alojamientos, 
             ofreciendo comodidad a huéspedes y eficiencia a administradores. 
