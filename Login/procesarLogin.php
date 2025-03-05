@@ -7,11 +7,10 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $password = $_POST['password'];
 
     // Buscar usuario en la base de datos
-    $sql = "SELECT id_usuario, nombre, es_admin, password_hash FROM usuarios WHERE correo = :correo";
+    $sql = "SELECT id_usuario, nombre, rol, password_hash FROM usuarios WHERE correo = :correo";
     $stmt = $conn->prepare($sql);
     $stmt->execute([':correo' => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
    
 }
 ?>
@@ -32,7 +31,8 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                 $_SESSION['login'] = true;
                 $_SESSION['user_id'] = $user['id_usuario'];
                 $_SESSION['nombre'] = $user['nombre'];
-                $_SESSION['esAdmin'] = $user['es_admin'];
+                $_SESSION['rol'] = $user['rol'];
+                $_SESSION['correo'] = $email;//para comprobar si se ha iniciado sesion luego en el header y cambiar el boton inciar sesion a cerrar sesion 
                 header("Location: login.php");
                 exit();
             } else {

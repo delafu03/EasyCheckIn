@@ -31,6 +31,7 @@
         } 
         else if (isset($_SESSION["error"]) && $_SESSION["error"]=== true){
             echo"<p style='color:red'>El usuario o contraseña no son válidos.";
+            unset($_SESSION["correo"]);
         }
         ?>
     

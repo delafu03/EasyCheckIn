@@ -13,7 +13,8 @@
             <a href="admin.html">Administración</a> <li></li>
             <a href="portal.html">Mi Portal</a> <li></li>
 
-            <?php if (isset($_SESSION["login"])): ?>
+            
+            <?php if (isset($_SESSION["correo"])): ?>
                 <a href="/AW/EasyCheckIn/Login/logout.php" class="btn-logout">Cerrar sesión</a>
             <?php else: ?>
                 <a href="/AW/EasyCheckIn/Login/login.php" class="btn-login">Iniciar sesión</a>
