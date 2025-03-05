@@ -1,18 +1,18 @@
 <?php
 session_start();
-require '../conexion.php'; // Incluir la conexión
+    require '../conexion.php'; // Incluir la conexión
 
-if (isset($_POST['correo']) && isset($_POST['password'])) {
-    $correo = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
-    $password = $_POST['password'];
+    if (isset($_POST['correo']) && isset($_POST['password'])) {
+        $correo = filter_var($_POST['correo'], FILTER_SANITIZE_EMAIL);
+        $password = $_POST['password'];
 
-    // Buscar usuario en la base de datos
-    $sql = "SELECT id_usuario, nombre, rol, password_hash FROM usuarios WHERE correo = :correo";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([':correo' => $correo]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-   
-}
+        // Buscar usuario en la base de datos
+        $sql = "SELECT id_usuario, nombre, rol, password_hash FROM usuarios WHERE correo = :correo";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([':correo' => $correo]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    }
 ?>
 
 <!DOCTYPE html>

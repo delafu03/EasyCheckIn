@@ -160,11 +160,11 @@ textarea {
     max-width: 1000px; /* Ancho máximo */
     box-shadow: 0 2px 4px #e3981e; /* Sombra */
     flex-grow: 0; 
-    min-height: 150px;
+    min-height: 50px;
 }
 
 .imagen-usuario{
-    height: 150px;
+    height: 200px;
 }
 
 /* === Estilos para el checkbox de términos y condiciones === */
