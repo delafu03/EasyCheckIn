@@ -13,11 +13,12 @@
             ofreciendo comodidad a huéspedes y eficiencia a administradores. 
             Nuestra solución integral ha sido diseñada para transformar el proceso de llegada en una experiencia rápida y sin complicaciones, 
             eliminando largas esperas y simplificando la gestión administrativa.</p>
-
         </div>
+        <img src="./img/hotel.png" alt="HOTEL" class="foto-index">
         <div class="contenido">
             <?php if ($usuario): ?>
                 <p><strong>¡BIENVENIDO!</strong> as EasyCheckIn</p>
+                
             <?php else: ?>
                 <p>Inicia sesión para acceder a un contenido exclusivo con información sobre alojamientos, reservas y actividades o eventos.</p>
             <?php endif; ?>
