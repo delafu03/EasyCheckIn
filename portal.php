@@ -1,3 +1,7 @@
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+} ?>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -8,35 +12,36 @@
     </head>
     <body>
         <?php include 'header.php'; ?>
-            <!-- user normal -->
-            <?php if ($usuario): ?>
-                <div class="contenido">
-                    <p>Bienvenido a tu portal de usuario de EasyCheckIn</p>
-                    <p> Podrás encontrar toda la información sobre tus reservas y realizar cambios en ellas. Además de añadir actividades
-                        extras que desees realizar o valorar tu estancia en los hoteles que has visitado </p>
-                    <img src="./img/portal-user.png" alt="usuario" class="imagen-usuario">   
-                </div>
-                <div class="contenido">
-                    <p>Accede a tus <a href="reservas.php"> reservas</a> </p>
-                </div>
-               
-            <!-- user administrador     -->
-            <?php elseif ($usuario['rol'] == 'admin'): ?>
-                <div class="contenido">
-                    <p>Bienvenido a tu portal de administrador de EasyCheckIn</p>
-                    <p> Accede ya a la ventana de <a href="admin.php"> administrador</a> </p>
-                    <img src="./img/portal-admin.png" alt="usuario" class="imagen-usuario">
-                </div>
-                
+            <!-- usuario iniciado -->
+            <?php if (isset($_SESSION["email"])): ?>
+                <!-- user administrador     -->
+                <?php if ($usuario['rol'] == 'admin'): ?>
+                    <div class="contenido">
+                        <p>Bienvenido a tu portal de administrador de EasyCheckIn</p>
+                        <p> Accede ya a la ventana de <a href="admin.php"> administrador</a> </p>
+                        <img src="./img/portal-admin.png" alt="usuario" class="imagen-usuario">
+                    </div>
+
+                <!-- user normal -->
+                <?php else: ?>
+                    <div class="contenido">
+                        <p>Bienvenido a tu portal de usuario de EasyCheckIn</p>
+                        <p> Podrás encontrar toda la información sobre tus reservas y realizar cambios en ellas. Además de añadir actividades
+                            extras que desees realizar o valorar tu estancia en los hoteles que has visitado </p>
+                        <img src="./img/portal-user.png" alt="usuario" class="imagen-usuario">   
+                    </div>
+                    <div class="contenido">
+                        <p>Accede a tus <a href="reservas.php"> reservas</a> </p>
+                    </div>
+                <?php endif; ?>
+
             <!-- no hay ususario iniciado -->
             <?php else: ?>
                 <div class="contenido">
                     <img src="./img/usuario.png" alt="usuario" class="imagen-usuario">   
                     <p>Inicia sesión para acceder a tu portal de usuario</p>
                 </div>
-                
             <?php endif; ?>
-        
     </body>
 
     <?php include 'footer.php'; ?>
