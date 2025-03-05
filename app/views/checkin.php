@@ -8,6 +8,7 @@
 </head>
 <body>
     <h2>Check-In de Usuarios</h2>
+    <h2>ID de Reserva:</strong> <?php echo htmlspecialchars($id_reserva); ?></h2>
     <?php if (empty($usuarios)): ?>
         <p>No hay usuarios registrados para esta reserva.</p>
     <?php else: ?>
