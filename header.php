@@ -2,16 +2,16 @@
     session_start();
 } ?>
 <head>
-    <link href="./CSS/headerFooter.css" rel="stylesheet" type="text/css">
+    <link href="/EasyCheckIn/CSS/headerFooter.css" rel="stylesheet" type="text/css">
 </head>
 <header class="header"> 
-    <img src="./img/LOGOTIPO.png" alt="LOGOTIPO" class="foto-index" >   
+    <img src="/EasyCheckIn/img/LOGOTIPO.png" alt="LOGOTIPO" class="foto-index" >   
     <nav>
         <ul class="navegacion"> 
             <a href="/EasyCheckIn/index.php">Inicio</a> <li></li> 
             <a href="/EasyCheckIn/alojamientos.html">Alojamientos</a> <li></li>
             <a href="/EasyCheckIn/contacto.php">Contacto</a> <li></li>
-            <a href="/EasyCheckIn/portal.html">Mi Portal</a> <li></li>
+            <a href="/EasyCheckIn/portal.php">Mi Portal</a> <li></li>
             
         </ul>
         <div class="auth-buttons"> 

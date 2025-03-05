@@ -58,11 +58,6 @@ nav {
     transition: 0.3s;
 }
 
-.auth-buttons .btn-login:hover,
-.auth-buttons .btn-logout:hover {
-    background-color: #0056b3;
-}
-
 footer {
     background: linear-gradient(45deg, #1a237e, #3949ab);
     color: #fff;

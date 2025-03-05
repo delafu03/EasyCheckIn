@@ -160,7 +160,11 @@ textarea {
     max-width: 1000px; /* Ancho máximo */
     box-shadow: 0 2px 4px #e3981e; /* Sombra */
     flex-grow: 0; 
-    min-height: 200px;
+    min-height: 150px;
+}
+
+.imagen-usuario{
+    height: 150px;
 }
 
 /* === Estilos para el checkbox de términos y condiciones === */
@@ -198,34 +202,33 @@ textarea {
     border-radius: 5px;
     font-size: 14px;
   }     
-
 /* === Botón de envío === */
 
 .login-form {
-margin: 60px auto 0 auto;
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 10px;
+    margin: 60px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 .btn-container {
-display: flex;
-gap: 10px;
-justify-content: center;
-width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
 }
 
 .btn {
-display: inline-block;
-padding: 10px 12px;  /* Menos padding para botones más pequeños */
-background-color: #ff9d00;
-color: white;
-font-size: 15px;    /* Fuente más pequeña */
-border: none;
-border-radius: 10px;
-cursor: pointer;
-transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+    padding: 10px 12px;  /* Menos padding para botones más pequeños */
+    background-color: #ff9d00;
+    color: white;
+    font-size: 15px;    /* Fuente más pequeña */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
