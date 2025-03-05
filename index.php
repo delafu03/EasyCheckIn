@@ -1,3 +1,7 @@
+<?php if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+} ?>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -15,14 +19,18 @@
             eliminando largas esperas y simplificando la gestión administrativa.</p>
         </div>
         <img src="./img/hotel.png" alt="HOTEL" class="foto-index">
-        <div class="contenido">
-            <?php if ($usuario): ?>
-                <p><strong>¡BIENVENIDO!</strong> as EasyCheckIn</p>
-                
+            <!-- usuario iniciado -->
+            <?php if (isset($_SESSION["email"])): ?>
+                <div class="contenido">
+                    <p><strong>¡BIENVENIDO!</strong> a EasyCheckIn</p>
+                </div>
+            <!-- no hay usuario iniciado -->
             <?php else: ?>
-                <p>Inicia sesión para acceder a un contenido exclusivo con información sobre alojamientos, reservas y actividades o eventos.</p>
-            <?php endif; ?>
-        </div>
+                <div class="contenido">
+                    <p>Inicia sesión para acceder a un contenido exclusivo con información sobre alojamientos, reservas y actividades o eventos.</p>
+                </div>
+                <?php endif; ?>
+        
     </body>
 
     <?php include 'footer.php'; ?>
