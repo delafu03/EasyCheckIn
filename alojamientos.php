@@ -14,6 +14,7 @@ $result = $conn->query($sql);
     <link href="../CSS/headerFooter.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<?php include 'header.php'; ?>
     <h1>Lista de Alojamientos</h1>
     <div class="contenedor">
     <?php if ($result->num_rows > 0): ?>
@@ -35,5 +36,5 @@ $result = $conn->query($sql);
 $conn->close();
 ?>
 
-<?php include '../footer.php'; ?>
+<?php include 'footer.php'; ?>
     </html>
