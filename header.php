@@ -7,7 +7,7 @@
 <header> 
     <nav>
         <ul class="navegacion"> 
-            <a href="/EasyCheckIn/alojamientos.html">Alojamientos</a> <li></li>
+            <a href="/EasyCheckIn/alojamientos.php">Alojamientos</a> <li></li>
             <a href="/EasyCheckIn/miembros.html">Equipo</a> <li></li>
             <a href="/EasyCheckIn/contacto.html">Contacto</a> <li></li>
             <a href="/EasyCheckIn/admin.html">Administración</a> <li></li>
