@@ -1,5 +1,5 @@
 <?php
-include '/conexion.php';
+include 'conexion.php';
 
 $sql = "SELECT * FROM servicios";
 $result = $conn->query($sql);
