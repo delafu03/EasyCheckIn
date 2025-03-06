@@ -16,11 +16,11 @@ $result = $conn->query($sql);
 <body>
 <?php include 'header.php'; ?>
     <h1>Lista de Alojamientos</h1>
-    <div class="contenedor">
-    <?php if ($result->num_rows > 0): ?>
+    <div class="contenido">
+    <?php if ($result->rowCount() > 0): ?>
         <?php while ($row = $result->fetch_assoc()): ?>
-            <div class="alojamiento">
-                //<img src="img/<?php echo $row['imagen']; ?>" alt="<?php echo $row['nombre']; ?>">
+            <div class="contenido">
+            //<img src="img/<?php echo $row['imagen']; ?>" alt="<?php echo $row['nombre']; ?>">
                 <h2><?php echo $row['nombre']; ?></h2>
                 <p><?php echo $row['descripcion']; ?></p>
                 <p><strong>Precio:</strong> $<?php echo $row['precio']; ?></p>
@@ -33,7 +33,7 @@ $result = $conn->query($sql);
 </body>
 
 <?php
-$conn->close();
+$conn=null;
 ?>
 
 <?php include 'footer.php'; ?>
