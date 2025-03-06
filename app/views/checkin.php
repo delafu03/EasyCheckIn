@@ -1,12 +1,15 @@
 <?php
-// views/checkin.php
+require_once __DIR__ . '/../../config.php';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
     <title>Check-In</title>
+    <link href="<?php echo RUTA_CSS; ?>estilo.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <?php include RAIZ_APP  . '/app/views/common/header.php'; ?>
     <h2>Check-In de Usuarios</h2>
     <h2>ID de Reserva:</strong> <?php echo htmlspecialchars($id_reserva); ?></h2>
     <?php if (empty($usuarios)): ?>
@@ -78,6 +81,7 @@
         <?php endforeach; ?>
     <?php endif; ?>
 </body>
+<?php include RAIZ_APP . '/app/views/common/footer.php'; ?> 
 </html>
 
 <?php

@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../models/CheckIn.php';
 class CheckInController {
     public function mostrarFormulario($id_reserva) {
         $checkInModel = new CheckIn();

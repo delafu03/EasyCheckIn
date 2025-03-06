@@ -1,12 +1,14 @@
 <?php
+require_once __DIR__ . '/../config.php';
+
 class Database {
     private static $instance = null;
     private $conn;
     
-    private $host = 'localhost';
-    private $user = 'root';
-    private $pass = '1234';
-    private $dbname = 'checkin_hotel';
+    private $host = BD_HOST;
+    private $user = BD_USER;
+    private $pass = BD_PASS;
+    private $dbname = BD_NAME;
     
     private function __construct() {
         try {
