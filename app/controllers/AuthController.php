@@ -46,7 +46,7 @@ class AuthController {
 
     public function logout() {
         $this->authModel->logout();
-        header('Location: login.php?logout=1');
+        header('Location: index.php');
         exit;
     }
 }
