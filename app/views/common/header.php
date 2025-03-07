@@ -20,7 +20,7 @@ require_once __DIR__ . '/../../../config.php';
             <?php if (isset($_SESSION["usuario_id"])): ?>
                 <span><?php echo htmlspecialchars($_SESSION['nombre']); ?></span>
                 <?php if ($_SESSION['rol'] === 'admin'): ?>
-                    <a href="/EasyCheckIn/admin/dashboard.php" class="btn-admin">Panel Admin</a>
+                    <a href="index.php?action=admin" class="btn-admin">Panel Admin</a>
                 <?php endif; ?>
                 <a href="index.php?action=logout" class="btn-logout">Cerrar sesión</a>
             <?php else: ?>

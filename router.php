@@ -19,6 +19,8 @@ if ($action == 'home') {
     include 'app/views/portal.php';
 } elseif ($action == 'actividades') {
     include 'app/views/actividades.php';
+} elseif ($action == 'admin') {
+    include 'app/views/admin.php';
 } elseif ($action == 'reservas') {
     (new ReservaController())->mostrarReservas();
 } elseif ($action == 'checkin' && $id_reserva) {

@@ -19,7 +19,7 @@
                 <?php if ($_SESSION['rol'] == 'admin'): ?>
                     <div class="contenido">
                         <p>Bienvenido a tu portal de administrador de EasyCheckIn</p>
-                        <p> Accede ya a la ventana de <a href="admin.php"> administrador</a> </p>
+                        <p> Accede ya a la ventana de <a href="index.php?action=admin"> administrador</a> </p>
                         <img src="<?php echo RUTA_IMGS; ?>portal-admin.png" alt="usuario" class="imagen-usuario">
                     </div>
 
