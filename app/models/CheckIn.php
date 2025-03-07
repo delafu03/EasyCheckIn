@@ -49,7 +49,6 @@ class CheckIn {
             $campos_actualizar = [];
             $valores = [];
     
-            echo "<script>console.log('Datos a actualizar: " . json_encode($datos) . "');</script>";
             foreach ($datos as $campo => $valor) {
                 if ($campo !== "id_usuario" && $campo !== "id_reserva") { // No actualizar claves primarias
                     $campos_actualizar[] = "$campo = :$campo";
@@ -63,10 +62,6 @@ class CheckIn {
             }
     
             $valores[":id_usuario"] = $datos['id_usuario'];
-    
-            // Construir la consulta dinámica
-            //HAZME UN SCRIPT PARA VER LOS DATOS QUE SE ENVIAN AL UPDATE
-            echo "<script>console.log('Datos a actualizar: " . json_encode($valores) . "');</script>";
 
             $sql = "UPDATE usuarios SET " . implode(", ", $campos_actualizar) . " WHERE id_usuario = :id_usuario";
     

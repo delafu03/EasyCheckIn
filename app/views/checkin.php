@@ -19,7 +19,6 @@ require_once __DIR__ . '/../../config.php';
             <?php
             $fechaNacimiento = !empty($usuario['fecha_nacimiento']) ? $usuario['fecha_nacimiento'] : date('Y-m-d', strtotime('-14 years'));
             $edad = calcularEdad($fechaNacimiento);
-            echo "<script>console.log('Edad calculada correctamente: $edad');</script>";
             $fechaExpedicion = !empty($usuario['fecha_expedicion']) ? $usuario['fecha_expedicion'] : date('Y-m-d', strtotime('-14 years'));
             ?>
             

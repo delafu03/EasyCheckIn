@@ -17,9 +17,6 @@ class ReservaController {
         }
 
         $id_usuario = $_SESSION["usuario_id"];
-        echo "<script>
-                console.log('Mostrando reservas del usuario con ID: $id_usuario');
-              </script>";
         $reservas = $this->reservaModel->obtenerReservasPorUsuario($id_usuario);
 
         require_once __DIR__ . '/../views/reservas.php';

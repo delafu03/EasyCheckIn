@@ -32,12 +32,8 @@ class CheckInController {
             $id_reserva = $_POST["id_reserva"];
             $numero_documento_original = $_POST["numero_documento_original"];
 
-            //hazme un script para ver que numero documento y id usario llegan
-            echo "<script>console.log('DNI: $dni, ID Usuario: $id_usuario');</script>";
             $usuarioEncontrado = $this->checkInModel->buscarUsuarioPorDNI($dni);
 
-            //hazme un script para ver que usuario encontrado llega
-            echo "<script>console.log('Usuario encontrado: " . json_encode($usuarioEncontrado) . "');</script>";
             if ($usuarioEncontrado) {
                 $this->checkInModel->procesarCheckIn([
                     "id_usuario" => $id_usuario, // Usuario a actualizar
