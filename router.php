@@ -23,6 +23,8 @@ if ($action == 'home') {
     (new ReservaController())->mostrarReservas();
 } elseif ($action == 'checkin' && $id_reserva) {
     (new CheckInController())->mostrarFormulario($id_reserva);
+} elseif ($action == 'buscar_actualizar_usuario') {
+    (new CheckInController())->buscarYActualizarUsuario();
 } elseif ($action == 'procesar_checkin') {
     (new CheckInController())->procesarFormulario();
 } elseif ($action === 'register') {

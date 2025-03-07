@@ -36,8 +36,13 @@ require_once __DIR__ . '/../../config.php';
                     </select>
                     
                     <label>Número de Documento:</label>
-                    <input type="text" name="numero_documento" value="<?php echo htmlspecialchars($usuario['numero_documento']); ?>" <?php echo ($edad < 14) ? 'disabled' : ''; ?>>
-                    
+                    <!-- Formulario principal donde el usuario ingresa el número de documento -->
+                    <input type="text" name="numero_documento" id="dniInput"
+                        value="<?= isset($_POST['numero_documento']) ? htmlspecialchars($_POST['numero_documento']) : htmlspecialchars($usuario['numero_documento']) ?>"
+                        onchange="document.getElementById('dniHidden').value = this.value;">
+
+                    <button type="submit" name="buscar_dni" form="buscarUsuarioForm">Buscar</button>
+
                     <label>Fecha de Expedición:</label>
                     <input type="date" name="fecha_expedicion" value="<?php echo htmlspecialchars($fechaExpedicion); ?>" <?php echo ($edad < 14) ? 'disabled' : ''; ?>>
                     
@@ -78,6 +83,16 @@ require_once __DIR__ . '/../../config.php';
                     <button type="submit">Actualizar</button>
                 </fieldset>
             </form>
+
+            <!-- Formulario oculto que enviará el número de documento actualizado -->
+            <form method="POST" action="index.php?action=buscar_actualizar_usuario" id="buscarUsuarioForm">
+                <input type="hidden" name="numero_documento" id="dniHidden"
+                    value="<?= isset($_POST['numero_documento']) ? htmlspecialchars($_POST['numero_documento']) : htmlspecialchars($usuario['numero_documento']) ?>">
+                <input type="hidden" name="numero_documento_original" value="<?php echo $usuario['numero_documento']; ?>">
+                <input type="hidden" name="id_usuario" value="<?php echo $usuario['id_usuario']; ?>">
+                <input type="hidden" name="id_reserva" value="<?php echo $id_reserva; ?>">
+            </form>
+
         <?php endforeach; ?>
     <?php endif; ?>
 </body>

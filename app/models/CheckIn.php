@@ -49,10 +49,11 @@ class CheckIn {
             $campos_actualizar = [];
             $valores = [];
     
+            echo "<script>console.log('Datos a actualizar: " . json_encode($datos) . "');</script>";
             foreach ($datos as $campo => $valor) {
                 if ($campo !== "id_usuario" && $campo !== "id_reserva") { // No actualizar claves primarias
                     $campos_actualizar[] = "$campo = :$campo";
-                    $valores[":$campo"] = $valor;
+                    $valores[":$campo"] = ($valor === "" ? NULL : $valor);
                 }
             }
     
@@ -64,6 +65,9 @@ class CheckIn {
             $valores[":id_usuario"] = $datos['id_usuario'];
     
             // Construir la consulta dinámica
+            //HAZME UN SCRIPT PARA VER LOS DATOS QUE SE ENVIAN AL UPDATE
+            echo "<script>console.log('Datos a actualizar: " . json_encode($valores) . "');</script>";
+
             $sql = "UPDATE usuarios SET " . implode(", ", $campos_actualizar) . " WHERE id_usuario = :id_usuario";
     
             $stmt = $this->db->prepare($sql);
@@ -78,6 +82,17 @@ class CheckIn {
     
         } catch (PDOException $e) {
             return ["error" => "Error al actualizar el usuario: " . $e->getMessage()];
+        }
+    }
+
+    public function buscarUsuarioPorDNI($dni) {
+        try {
+            $sql = "SELECT * FROM usuarios WHERE numero_documento = ?";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute([$dni]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return null;
         }
     }
 }
