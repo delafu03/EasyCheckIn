@@ -21,7 +21,7 @@ class CheckInController {
             $resultado = $this->checkInModel->procesarCheckIn($_POST);
             
             if ($resultado) {
-                echo "<script>alert('Check-In actualizado con éxito'); window.location.href='index.php?action=checkin&id_reserva={$_POST['id_reserva']}';</script>";
+                echo "<script>window.location.href='index.php?action=checkin&id_reserva={$_POST['id_reserva']}';</script>";
             } else {
                 echo "<script>alert('Error al actualizar el Check-In');</script>";
             }

@@ -23,16 +23,22 @@
                 
                 <label>Número de Documento:</label>
                 <!-- Formulario principal donde el usuario ingresa el número de documento -->
-                <input type="text" name="numero_documento" class="dniInput"
+                <input type="text" name="numero_documento" class="dniInput mayuscula"
                     value="<?= isset($_POST['numero_documento']) ? htmlspecialchars($_POST['numero_documento']) : htmlspecialchars($usuario['numero_documento']) ?>">
 
-                <button type="submit" name="buscar_dni" form="buscarUsuarioForm">Buscar</button>
+                <button type="button"
+                    class="buscarBtn"
+                    data-id-usuario="<?= $usuario['id_usuario'] ?>"
+                    data-id-reserva="<?= $id_reserva ?>"
+                    data-documento-original="<?= $usuario['numero_documento'] ?>">
+                    Buscar
+                </button>
 
                 <label>Fecha de Expedición:</label>
                 <input type="date" name="fecha_expedicion" class="fechaExpedicion" value="<?php echo htmlspecialchars($fechaExpedicion); ?>">
                 
                 <label>Número de Soporte:</label>
-                <input type="text" name="num_soporte" class="numSoporte" 
+                <input type="text" name="num_soporte" class="numSoporte mayuscula" 
                     value="<?php echo htmlspecialchars($usuario['num_soporte']); ?>">
                 
                 <label>Sexo:</label>
@@ -43,22 +49,22 @@
                 </select>
                 
                 <label>Nombre:</label>
-                <input type="text" name="nombre" value="<?php echo htmlspecialchars($usuario['nombre']); ?>">
+                <input type="text" name="nombre" class="mayuscula" value="<?php echo htmlspecialchars($usuario['nombre']); ?>">
                 
                 <label>Apellidos:</label>
-                <input type="text" name="apellidos" value="<?php echo htmlspecialchars($usuario['apellidos']); ?>">
+                <input type="text" name="apellidos" class="mayuscula" value="<?php echo htmlspecialchars($usuario['apellidos']); ?>">
                 
                 <label>Fecha de Nacimiento:</label> 
                 <input type="date" name="fecha_nacimiento" class="fechaNacimiento" value="<?php echo htmlspecialchars($fechaNacimiento); ?>">
                 
                 <label>Nacionalidad:</label>
-                <input type="text" name="nacionalidad" value="<?php echo htmlspecialchars($usuario['nacionalidad']); ?>">
+                <input type="text" name="nacionalidad" class="mayuscula" value="<?php echo htmlspecialchars($usuario['nacionalidad']); ?>">
                 
                 <label>País:</label>
-                <input type="text" name="pais" value="<?php echo htmlspecialchars($usuario['pais']); ?>">
+                <input type="text" name="pais" class="mayuscula" value="<?php echo htmlspecialchars($usuario['pais']); ?>">
                 
                 <label>Dirección:</label>
-                <input type="text" name="direccion" value="<?php echo htmlspecialchars($usuario['direccion']); ?>">
+                <input type="text" name="direccion" class="mayuscula" value="<?php echo htmlspecialchars($usuario['direccion']); ?>">
                 
                 <label>Correo:</label>
                 <input type="email" name="correo" class="correoInput" value="<?php echo htmlspecialchars($usuario['correo']); ?>">
@@ -66,17 +72,8 @@
                 <button type="submit">Actualizar</button>
             </fieldset>
         </form>
-
-        <!-- Formulario oculto que enviará el número de documento actualizado -->
-        <form method="POST" action="index.php?action=buscar_actualizar_usuario" id="buscarUsuarioForm">
-        <input type="hidden" name="numero_documento" class="dniHidden"
-            value="<?= isset($_POST['numero_documento']) ? htmlspecialchars($_POST['numero_documento']) : htmlspecialchars($usuario['numero_documento']) ?>">
-            <input type="hidden" name="numero_documento_original" value="<?php echo $usuario['numero_documento']; ?>">
-            <input type="hidden" name="id_usuario" value="<?php echo $usuario['id_usuario']; ?>">
-            <input type="hidden" name="id_reserva" value="<?php echo $id_reserva; ?>">
-        </form>
-
     <?php endforeach; ?>
 <?php endif; ?>
 
 <script src="<?php echo RUTA_JS; ?>validaciones.js"></script>
+<script src="<?php echo RUTA_JS; ?>funciones_aux.js"></script>
