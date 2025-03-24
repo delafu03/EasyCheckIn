@@ -29,27 +29,24 @@ require_once __DIR__ . '/../../config.php';
                     <input type="hidden" name="id_reserva" value="<?php echo $id_reserva; ?>">
                     
                     <label>Tipo de Documento:</label>
-                    <select name="tipo_documento" <?php echo ($edad < 14) ? 'disabled' : ''; ?>>
+                    <select name="tipo_documento" class="tipoDocumento">
                         <option value="DNI" <?php echo ($usuario['tipo_documento'] == 'DNI') ? 'selected' : ''; ?>>DNI</option>
                         <option value="Pasaporte" <?php echo ($usuario['tipo_documento'] == 'Pasaporte') ? 'selected' : ''; ?>>Pasaporte</option>
                     </select>
                     
                     <label>Número de Documento:</label>
                     <!-- Formulario principal donde el usuario ingresa el número de documento -->
-                    <input type="text" name="numero_documento" id="dniInput"
-                        value="<?= isset($_POST['numero_documento']) ? htmlspecialchars($_POST['numero_documento']) : htmlspecialchars($usuario['numero_documento']) ?>"
-                        onchange="document.getElementById('dniHidden').value = this.value;">
+                    <input type="text" name="numero_documento" class="dniInput"
+                        value="<?= isset($_POST['numero_documento']) ? htmlspecialchars($_POST['numero_documento']) : htmlspecialchars($usuario['numero_documento']) ?>">
 
                     <button type="submit" name="buscar_dni" form="buscarUsuarioForm">Buscar</button>
 
                     <label>Fecha de Expedición:</label>
-                    <input type="date" name="fecha_expedicion" value="<?php echo htmlspecialchars($fechaExpedicion); ?>" <?php echo ($edad < 14) ? 'disabled' : ''; ?>>
+                    <input type="date" name="fecha_expedicion" class="fechaExpedicion" value="<?php echo htmlspecialchars($fechaExpedicion); ?>">
                     
                     <label>Número de Soporte:</label>
-                    <input type="text" name="num_soporte" value="<?php echo htmlspecialchars($usuario['num_soporte']); ?>" <?php echo ($edad < 14) ? 'disabled' : ''; ?>>
-                    
-                    <label>Relación de Parentesco:</label>
-                    <input type="text" name="relacion_parentesco" value="<?php echo htmlspecialchars($usuario['relacion_parentesco']); ?>" <?php echo ($edad >= 14) ? 'disabled' : ''; ?>>
+                    <input type="text" name="num_soporte" class="numSoporte" 
+                        value="<?php echo htmlspecialchars($usuario['num_soporte']); ?>">
                     
                     <label>Sexo:</label>
                     <select name="sexo">
@@ -64,8 +61,8 @@ require_once __DIR__ . '/../../config.php';
                     <label>Apellidos:</label>
                     <input type="text" name="apellidos" value="<?php echo htmlspecialchars($usuario['apellidos']); ?>">
                     
-                    <label>Fecha de Nacimiento:</label>
-                    <input type="date" name="fecha_nacimiento" value="<?php echo htmlspecialchars($fechaNacimiento); ?>">
+                    <label>Fecha de Nacimiento:</label> 
+                    <input type="date" name="fecha_nacimiento" class="fechaNacimiento" value="<?php echo htmlspecialchars($fechaNacimiento); ?>">
                     
                     <label>Nacionalidad:</label>
                     <input type="text" name="nacionalidad" value="<?php echo htmlspecialchars($usuario['nacionalidad']); ?>">
@@ -77,7 +74,7 @@ require_once __DIR__ . '/../../config.php';
                     <input type="text" name="direccion" value="<?php echo htmlspecialchars($usuario['direccion']); ?>">
                     
                     <label>Correo:</label>
-                    <input type="email" name="correo" value="<?php echo htmlspecialchars($usuario['correo']); ?>">
+                    <input type="email" name="correo" class="correoInput" value="<?php echo htmlspecialchars($usuario['correo']); ?>">
                     
                     <button type="submit">Actualizar</button>
                 </fieldset>
@@ -85,8 +82,8 @@ require_once __DIR__ . '/../../config.php';
 
             <!-- Formulario oculto que enviará el número de documento actualizado -->
             <form method="POST" action="index.php?action=buscar_actualizar_usuario" id="buscarUsuarioForm">
-                <input type="hidden" name="numero_documento" id="dniHidden"
-                    value="<?= isset($_POST['numero_documento']) ? htmlspecialchars($_POST['numero_documento']) : htmlspecialchars($usuario['numero_documento']) ?>">
+            <input type="hidden" name="numero_documento" class="dniHidden"
+                value="<?= isset($_POST['numero_documento']) ? htmlspecialchars($_POST['numero_documento']) : htmlspecialchars($usuario['numero_documento']) ?>">
                 <input type="hidden" name="numero_documento_original" value="<?php echo $usuario['numero_documento']; ?>">
                 <input type="hidden" name="id_usuario" value="<?php echo $usuario['id_usuario']; ?>">
                 <input type="hidden" name="id_reserva" value="<?php echo $id_reserva; ?>">
@@ -94,6 +91,7 @@ require_once __DIR__ . '/../../config.php';
 
         <?php endforeach; ?>
     <?php endif; ?>
+    <script src="<?php echo RUTA_JS; ?>validaciones.js"></script>
 </body>
 <?php include RAIZ_APP . '/app/views/common/footer.php'; ?> 
 </html>
@@ -107,7 +105,4 @@ function calcularEdad($fechaNacimiento) {
     return $hoy->diff($nacimiento)->y;
 }
 
-function validarDNI($dni) {
-    return preg_match('/^[0-9]{8}[A-Z]$/', $dni);
-}
 ?>
