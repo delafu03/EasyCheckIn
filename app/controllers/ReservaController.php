@@ -19,6 +19,9 @@ class ReservaController {
         $id_usuario = $_SESSION["usuario_id"];
         $reservas = $this->reservaModel->obtenerReservasPorUsuario($id_usuario);
 
-        require_once __DIR__ . '/../views/reservas.php';
+        $tituloPagina = 'Mis Reservas';
+        $vista = __DIR__ . '/../views/reservas.php';
+        include __DIR__ . '/../views/plantillas/plantilla.php';
+        
     }
 }

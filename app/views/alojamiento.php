@@ -20,7 +20,6 @@
     </style>
 </head>
 <body>
-    <?php include RAIZ_APP  . '/app/views/common/header.php'; ?>
 </body>
 
 </html>

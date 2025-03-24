@@ -22,7 +22,9 @@ class AuthController {
                 echo json_encode($resultado);
             }
         } else {
-            include __DIR__ . '/../views/register.php';
+            $tituloPagina = 'Registro';
+            $vista = __DIR__ . '/../views/register.php';
+            include __DIR__ . '/../views/plantillas/plantilla.php';
         }
     }
 
@@ -40,7 +42,9 @@ class AuthController {
                 echo json_encode($resultado);
             }
         } else {
-            include __DIR__ . '/../views/login.php';
+            $tituloPagina = 'Iniciar Sesión';
+            $vista = __DIR__ . '/../views/login.php';
+            include __DIR__ . '/../views/plantillas/plantilla.php';
         }
     }
 

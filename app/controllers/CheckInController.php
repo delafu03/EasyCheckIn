@@ -10,7 +10,10 @@ class CheckInController {
 
     public function mostrarFormulario($id_reserva) {
         $usuarios = $this->checkInModel->obtenerUsuariosPorReserva($id_reserva);
-        include __DIR__ . '/../views/checkin.php';
+        $tituloPagina = "Check-In de la Reserva $id_reserva";
+        $vista = __DIR__ . '/../views/checkin.php';
+
+        include __DIR__ . '/../views/plantillas/plantilla.php';
     }
     
     public function procesarFormulario() {
