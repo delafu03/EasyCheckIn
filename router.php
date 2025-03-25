@@ -31,6 +31,15 @@ if ($action == 'home') {
 } elseif ($action == 'admin') {
     $tituloPagina = 'Administración';
     $vista = 'app/views/admin.php';
+} 
+} elseif ($action == 'mostrar_usuarios') {
+    require 'app/controllers/AdminController.php';
+    (new AdminController())->mostrarUsuarios();
+    exit;
+} elseif ($action == 'mostrar_reservas') {
+    require 'app/controllers/AdminController.php';
+    (new AdminController())->mostrarReservas();
+    exit;
 } elseif ($action == 'reservas') {
     (new ReservaController())->mostrarReservas();
     exit;

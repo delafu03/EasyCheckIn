@@ -3,7 +3,7 @@
 /**
  * Parámetros de conexión a la BD
  */
-define('BD_HOST', 'localhost');
+define('BD_HOST', 'localhost:3309');
 define('BD_NAME', 'checkin_hotel');
 define('BD_USER', 'root');
 define('BD_PASS', '1234');
