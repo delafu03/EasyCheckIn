@@ -128,6 +128,15 @@ textarea {
     gap: 15px; /* Separación entre elementos 
 }  */
 
+/* === Corrección formulario === */
+form {
+    width: 100%; /* Garantiza que el formulario no supere su contenedor padre */
+    max-width: 100%; /* Impide que el formulario desborde su contenedor */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .navegacion a, .listado-miembros a {
     text-decoration: none; /* Sin subrayado */
     font-size: 18px; /* Tamaño adecuado */
@@ -144,7 +153,7 @@ textarea {
 }
 
 /* === Contenido === */
-.contenido, .bocetos, .container {
+.contenido {
     background-color: #f9f9f9; /* Fondo gris claro */
     border: 2px solid #e3981e; /* Borde naranja */
     border-radius: 10px; /* Bordes redondeados */
@@ -185,23 +194,16 @@ textarea {
 .form-group {
     display: flex;
     flex-direction: column;
-    margin-right: 5px;
+    align-items: center; /* Alineación interna del contenedor */
+    box-sizing: border-box; /* Incluye padding y bordes en el tamaño */
 }
 
-.radio-group {
-    display: inline-block;
-    margin-left: 5px;
-    font-size: 16px;
-    color: #444;
+.login-container {
+    margin-top: 100px;
 }
 
-.diagrama-gantt{
-    width: 800px;
-
-}
-
-#terms {
-    display: inline-block /* Alineo en la misma linea la casilla*/
+.imagen-usuario{
+    height: 200px;
 }
 
 /* === Estilos para el checkbox de términos y condiciones === */
