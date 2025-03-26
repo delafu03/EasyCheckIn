@@ -7,6 +7,7 @@
                     <th>ID</th>
                     <th>Usuario</th>
                     <th>Fecha Entrada</th>
+                    <th>Fecha Salida</th>
                     <th>Estado</th>
                 </tr>
             </thead>
