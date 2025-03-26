@@ -31,7 +31,6 @@ if ($action == 'home') {
 } elseif ($action == 'admin') {
     $tituloPagina = 'Administración';
     $vista = 'app/views/admin.php';
-} 
 } elseif ($action == 'mostrar_usuarios') {
     require 'app/controllers/AdminController.php';
     (new AdminController())->mostrarUsuarios();

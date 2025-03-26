@@ -20,4 +20,22 @@ class Reserva {
             die("Error en la consulta: " . $e->getMessage());
         }
     }
+
+    public function obtenerTodasLasReservas() {
+        try {
+            $sql = "SELECT 
+                    id_reserva as id, 
+                    fecha_entrada, 
+                    fecha_salida,
+                    estado,
+                    (SELECT nombre FROM usuarios WHERE id_usuario = 
+                     JSON_UNQUOTE(JSON_EXTRACT(usuarios_ids, '$[0]'))) as usuario
+                    FROM reservas";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die("Error en la consulta: " . $e->getMessage());
+        }
+    }
 }

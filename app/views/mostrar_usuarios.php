@@ -12,10 +12,9 @@
         <tbody>
             <?php foreach ($usuarios as $usuario): ?>
                 <tr>
-                    <td><?= htmlspecialchars($usuario['id']) ?></td>
+                    <td><?= htmlspecialchars($usuario['id_usuario']) ?></td>
                     <td><?= htmlspecialchars($usuario['nombre']) ?></td>
-                    <td><?= htmlspecialchars($usuario['email']) ?></td>
-                    <td><?= htmlspecialchars($usuario['fecha_registro']) ?></td>
+                    <td><?= htmlspecialchars($usuario['correo']) ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

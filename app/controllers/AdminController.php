@@ -1,24 +1,27 @@
 <?php
-require_once __DIR__ . '/../models/Admin.php';
+require_once __DIR__ . '/../models/Usuarios.php';
+require_once __DIR__ . '/../models/Reserva.php';
 
 class AdminController {
+    private $reservaModel, $usuariosModel;
+
+    public function __construct() {
+        $this->reservaModel = new Reserva();
+        $this->usuariosModel = new Usuarios();
+    }
+
     public function mostrarUsuarios() {
-        $db = Database::getConnection();
-        $query = "SELECT id, nombre, email FROM usuarios WHERE rol != 'admin'";
-        $stmt = $db->prepare($query);
-        $stmt->execute();
-        $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        require_once '../views/usuarios.php';
+        $usuarios = $this->usuariosModel->obtenerUsuarios();
+
+        $tituloPagina = 'Usuarios EasyCheckIn';
+        $vista = __DIR__ . '/../views/mostrar_usuarios.php';
+        require_once __DIR__ . '/../views/plantillas/plantilla.php';
     }
 
     public function mostrarReservas() {
-        $db = Database::getConnection();
-        $query = "SELECT r.id, u.nombre AS usuario, r.fecha, r.estado 
-                  FROM reservas r 
-                  JOIN usuarios u ON r.usuario_id = u.id";
-        $stmt = $db->prepare($query);
-        $stmt->execute();
-        $reservas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        require_once '../views/reservas.php';
+        $reservas = $this->reservaModel->obtenerTodasLasReservas(); 
+        $tituloPagina = 'Reservas EasyCheckIn';
+        $vista = __DIR__ . '/../views/mostrar_reservas.php';
+        require_once __DIR__ . '/../views/plantillas/plantilla.php';
     }
 }
