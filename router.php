@@ -1,14 +1,14 @@
 <?php
 require 'includes/Database.php';
 // require 'includes/Usuario.php';
-// require 'includes/Reserva.php';
+require 'includes/Reserva.php';
 // require 'includes/CheckIn.php';
-require 'includes/models/Reserva.php';
+
+
 require 'includes/models/CheckIn.php';
 require 'includes/models/Registro.php';
 require 'includes/models/Login.php';
 
-require 'includes/controllers/ReservaController.php';
 require 'includes/controllers/CheckInController.php';
 require 'includes/controllers/LoginController.php';
 require 'includes/controllers/RegistroController.php';
@@ -39,7 +39,7 @@ if ($action == 'home') {
     $tituloPagina = 'Administración';
     $vista = 'admin.php';
 } elseif ($action == 'reservas') {
-    (new ReservaController())->mostrarReservas();
+    (new Reserva())->mostrarReservas();
     exit;
 } elseif ($action == 'checkin' && $id_reserva) {
     (new CheckInController())->mostrarFormulario($id_reserva);
