@@ -6,3 +6,9 @@
         <li><a href="?action=mostrar_reservas">Gestión de Reservas</a></li>
     </ul>
 </div>
+
+<!-- CREDENCIALES DEL ADMIN
+    correo: admin@easycheckin.es
+    contraseña: 1234
+-->
+
