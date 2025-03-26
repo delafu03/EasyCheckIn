@@ -3,7 +3,7 @@ if (!isset($reservas)) {
     $reservas = [];
 }
 ?>
-
+<div class="reservas-container">
 <h2>Mis Reservas</h2>
 
 <?php if (!empty($reservas)) { ?>
@@ -25,4 +25,7 @@ if (!isset($reservas)) {
     </table>
 <?php } else { ?>
     <p>No tienes reservas registradas.</p>
+
+</div>
+
 <?php } ?>

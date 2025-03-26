@@ -205,128 +205,207 @@ form {
     color: #444;
 }
 
-/* registro */
-.register-form {
-    max-width: 400px;
+/* ==reservas === */
+.reservas-container {
+    margin: 20px auto;
+    max-width: 800px;
+    font-family: Arial, sans-serif;
+}
+
+.reservas-container h2 {
+    text-align: center;
+    color: #1a237e; 
+    margin-bottom: 20px;
+}
+
+.reservas-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+.reservas-container table th,
+.reservas-container table td {
+    border: 1px solid #1a237e; 
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+}
+
+.reservas-container table th {
+    background-color: #e3981e; 
+    color: white;
+    font-weight: bold;
+}
+
+
+.reservas-container .btn {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #e3981e;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.reservas-container .btn:hover {
+    background-color: #ffa733;
+}
+
+/* === login === */
+.login-container {
     margin: 60px auto;
+    max-width: 400px;
     padding: 20px;
     background-color: #f9f9f9;
-    border: 2px solid #ff9d00;
+    border: 2px solid #1a237e;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+    color: #1a237e;
+    margin-bottom: 20px;
+}
+
+.login-container form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-  
-  label {
+
+.login-container form label {
     font-weight: bold;
-  }
-  
-  input {
+    color: #333;
+}
+
+.login-container form input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
-  }     
-/* === Botón de envío === */
-
-.login-form {
-    margin: 60px auto 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
 }
 
-.btn-container {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    width: 100%;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 12px;  /* Menos padding para botones más pequeños */
-    background-color: #ff9d00;
+.login-container form button {
+    padding: 10px 15px;
+    background-color: #e3981e;
     color: white;
-    font-size: 15px;    /* Fuente más pequeña */
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
+    font-size: 14px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #ffa733; /* Color de fondo al pasar el ratón */
-    transform: translateY(-3px); /* Levantar el botón */
+.login-container form button:hover {
+    background-color: #ffa733;
 }
 
-button:active {
-    transform: translateY(0); /* El botón vuelve a su posición original */
-}
-
-.mayuscula {
-    text-transform: uppercase;
-}
-
-.form-container-checkin {
-    display: grid;
-    gap: 15px;
+/* === registro === */
+.register-container {
+    margin: 60px auto;
+    max-width: 500px;
     padding: 20px;
-    background: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    border: 2px solid #1a237e;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Cada fila en el formulario ocupa 12 columnas */
-.form-row {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 15px;
-    margin-bottom: 15px;
+.register-container h2 {
+    text-align: center;
+    color: #1a237e;
+    margin-bottom: 20px;
 }
 
-/* Distribución de las columnas */
-.col-1 { grid-column: span 1; } /* Ocupa 1 de 12 columnas */
-.col-2 { grid-column: span 2; } /* Ocupa 2 de 12 columnas */
-.col-3 { grid-column: span 3; } /* Ocupa 3 de 12 columnas */
-.col-4 { grid-column: span 4; } /* Ocupa 4 de 12 columnas */
-.col-5 { grid-column: span 5; } /* Ocupa 6 de 12 columnas */
-.col-10 { grid-column: span 10; } /* Ocupa 12 de 12 columnas */
-
-/* Estilos de los inputs */
-.form-group-checkin {
+.register-container form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
-label {
+.register-container form label {
     font-weight: bold;
-    margin-bottom: 5px;
+    color: #333;
 }
 
-input, select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-/* Botón */
-.submit-btn {
-    grid-column: span 12;
-    width: 100%;
+.register-container form input {
     padding: 10px;
-    background: #007bff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.register-container form button {
+    padding: 10px 15px;
+    background-color: #e3981e;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 14px;
     cursor: pointer;
-    font-size: 18px;
+    transition: background-color 0.3s ease;
 }
 
-.submit-btn:hover {
-    background: #0056b3;
+.register-container form button:hover {
+    background-color: #ffa733;
+}
+
+/* === contacto === */
+.contact-container {
+    margin: 60px auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #1a237e;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h2 {
+    text-align: center;
+    color: #1a237e;
+    margin-bottom: 20px;
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-container form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-container form input,
+.contact-container form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.contact-container form textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.contact-container form button {
+    padding: 10px 15px;
+    background-color: #e3981e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-container form button:hover {
+    background-color: #ffa733;
 }
