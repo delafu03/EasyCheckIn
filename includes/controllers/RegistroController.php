@@ -24,7 +24,7 @@ class RegistroController{
             }
         } else {
             $tituloPagina = 'Registro';
-            $vista = __DIR__ . '/../views/register.php';
+            $vista = __DIR__ . '/../../register.php';
             include __DIR__ . '/../views/plantillas/plantilla.php';
         }
     }

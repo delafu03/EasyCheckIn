@@ -5,7 +5,7 @@ if (isset($_SESSION['usuario_id'])) {
 }
 ?>
 
-<div class="container login-container">
+<div class="register-container">
     <h2>Registro</h2>
 
     <?php if (isset($_GET['error'])): ?>

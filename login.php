@@ -5,7 +5,7 @@ if (isset($_SESSION['usuario_id'])) {
 }
 ?>
 
-<div class="container login-container">
+<div class="login-container">
     <h2>Iniciar Sesión</h2>
 
     <?php if (isset($_SESSION['error'])): ?>

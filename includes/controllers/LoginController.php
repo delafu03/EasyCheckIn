@@ -23,7 +23,7 @@ class LoginController{
                 }
             } else {
                 $tituloPagina = 'Iniciar Sesión';
-                $vista = __DIR__ . '/../views/login.php';
+                $vista = __DIR__ . '/../../login.php';
                 include __DIR__ . '/../views/plantillas/plantilla.php';
             }
         }

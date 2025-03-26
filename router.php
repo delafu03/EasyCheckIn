@@ -1,14 +1,17 @@
 <?php
-require 'config/database.php';
-require 'app/models/Reserva.php';
-require 'app/models/CheckIn.php';
-require 'app/models/Registro.php';
-require 'app/models/Login.php';
+require 'includes/Database.php';
+// require 'includes/Usuario.php';
+// require 'includes/Reserva.php';
+// require 'includes/CheckIn.php';
+require 'includes/models/Reserva.php';
+require 'includes/models/CheckIn.php';
+require 'includes/models/Registro.php';
+require 'includes/models/Login.php';
 
-require 'app/controllers/ReservaController.php';
-require 'app/controllers/CheckInController.php';
-require 'app/controllers/LoginController.php';
-require 'app/controllers/RegistroController.php';
+require 'includes/controllers/ReservaController.php';
+require 'includes/controllers/CheckInController.php';
+require 'includes/controllers/LoginController.php';
+require 'includes/controllers/RegistroController.php';
 
 $action = $_GET['action'] ?? 'home';
 $id_reserva = $_GET['id_reserva'] ?? null;
@@ -19,22 +22,22 @@ $vista = null;
 
 if ($action == 'home') {
     $tituloPagina = 'Inicio';
-    $vista = 'app/views/index.php';
+    $vista = 'home.php';
 } elseif ($action == 'contacto') {
     $tituloPagina = 'Contacto';
-    $vista = 'app/views/contacto.php';
+    $vista = 'contacto.php';
 } elseif ($action == 'alojamiento') {
     $tituloPagina = 'Alojamientos';
-    $vista = 'app/views/alojamiento.php';
+    $vista = 'alojamiento.php';
 } elseif ($action == 'portal') {
     $tituloPagina = 'Portal';
-    $vista = 'app/views/portal.php';
+    $vista = 'portal.php';
 } elseif ($action == 'actividades') {
     $tituloPagina = 'Actividades';
-    $vista = 'app/views/actividades.php';
+    $vista = 'actividades.php';
 } elseif ($action == 'admin') {
     $tituloPagina = 'Administración';
-    $vista = 'app/views/admin.php';
+    $vista = 'admin.php';
 } elseif ($action == 'reservas') {
     (new ReservaController())->mostrarReservas();
     exit;
@@ -58,10 +61,10 @@ if ($action == 'home') {
     exit;
 } else {
     $tituloPagina = 'Error';
-    $vista = 'app/views/error404.php';
+    $vista = 'error404.php';
 }
 
 if ($vista !== null) {
-    include 'app/views/plantillas/plantilla.php';
+    include 'includes/views/plantillas/plantilla.php';
 }
 ?>

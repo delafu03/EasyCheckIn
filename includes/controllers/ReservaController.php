@@ -20,7 +20,7 @@ class ReservaController {
         $reservas = $this->reservaModel->obtenerReservasPorUsuario($id_usuario);
 
         $tituloPagina = 'Mis Reservas';
-        $vista = __DIR__ . '/../views/reservas.php';
+        $vista = __DIR__ . '/../../reservas.php';
         include __DIR__ . '/../views/plantillas/plantilla.php';
         
     }

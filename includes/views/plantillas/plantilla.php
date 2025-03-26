@@ -1,5 +1,5 @@
 <?php
-require_once RAIZ_APP . '/config.php';
+require_once __DIR__ . '/../../../config.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,8 +9,8 @@ require_once RAIZ_APP . '/config.php';
     <link href="<?php echo RUTA_CSS; ?>estilo.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <?php include RAIZ_APP  . '/app/views/common/header.php'; ?>
+    <?php include RAIZ_APP  . '/includes/views/common/header.php'; ?>
     <?php include $vista; ?>
-    <?php include RAIZ_APP . '/app/views/common/footer.php'; ?> 
+    <?php include RAIZ_APP . '/includes/views/common/footer.php'; ?> 
 </body>
 </html>

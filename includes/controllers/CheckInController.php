@@ -11,8 +11,7 @@ class CheckInController {
     public function mostrarFormulario($id_reserva) {
         $usuarios = $this->checkInModel->obtenerUsuariosPorReserva($id_reserva);
         $tituloPagina = "Check-In de la Reserva $id_reserva";
-        $vista = __DIR__ . '/../views/checkin.php';
-
+        $vista = __DIR__ . '/../../checkin.php';
         include __DIR__ . '/../views/plantillas/plantilla.php';
     }
     
@@ -54,7 +53,7 @@ class CheckInController {
                 exit();
             } else {
                 $mensaje = "No se encontró un usuario con ese número de documento.";
-                require_once __DIR__ . '/../views/checkin.php';
+                require_once __DIR__ . '/../../checkin.php';
             }
         }
     }
