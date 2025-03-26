@@ -19,9 +19,12 @@ require_once __DIR__ . '/../../../config.php';
         <div class="auth-buttons"> 
             <?php if (isset($_SESSION["usuario_id"])): ?>
                 <span><?php echo htmlspecialchars($_SESSION['nombre']); ?></span>
-                <?php if ($_SESSION['rol'] === 'admin'): ?>
-                    <a href="index.php?action=admin" class="btn-admin">Panel Admin</a>
-                <?php endif; ?>
+
+                <!-- comento esto porque el admin ya accede al panel de admin desde el portal -->
+                <?php //if ($_SESSION['rol'] === 'admin'): ?>
+                    <!-- <a href="index.php?action=admin" class="btn-admin">Panel Admin</a> -->
+                <?php //endif; ?>
+                
                 <a href="index.php?action=logout" class="btn-logout">Cerrar sesión</a>
             <?php else: ?>
                 <a href="index.php?action=login" class="btn-login">Iniciar sesión</a>
