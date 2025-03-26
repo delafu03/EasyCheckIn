@@ -24,4 +24,9 @@ class AdminController {
         $vista = __DIR__ . '/../views/mostrar_reservas.php';
         require_once __DIR__ . '/../views/plantillas/plantilla.php';
     }
+
+    public function eliminarReserva($id_reserva) {
+        $this->reservaModel->eliminarReserva($id_reserva);
+        header('Location: /mostrar_reservas');
+    }
 }

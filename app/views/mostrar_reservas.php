@@ -19,6 +19,13 @@
                         <td><?= htmlspecialchars($reserva['fecha_entrada'] ?? '') ?></td>
                         <td><?= htmlspecialchars($reserva['fecha_salida'] ?? '') ?></td>
                         <td><?= htmlspecialchars($reserva['estado'] ?? '') ?></td>
+                        <td>
+                            <form action="?action=mostrar_reservas" method="post" style="display:inline;">
+                                <input type="hidden" name="action" value="eliminar_reserva">
+                                <input type="hidden" name="id_reserva" value="<?= htmlspecialchars($reserva['id'] ?? '') ?>">
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

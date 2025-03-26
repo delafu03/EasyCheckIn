@@ -38,4 +38,15 @@ class Reserva {
             die("Error en la consulta: " . $e->getMessage());
         }
     }
+
+    public function eliminarReserva($id_reserva) {
+        try {
+            $sql = "DELETE FROM reservas WHERE id_reserva = :id_reserva";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindValue(':id_reserva', $id_reserva, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            die("Error en la consulta: " . $e->getMessage());
+        }
+    }    
 }
