@@ -1,8 +1,6 @@
 <div class="container">
     <h1>Gestión de Usuarios</h1>
-    <form action="index.php?action=register" method="post" style="display:inline;">
-        <button type="submit" class="btn btn-danger">Añadir usuario</button>
-    </form>
+    <a href="index.php?action=register" class="btn btn-danger">Añadir usuario</a>
     <?php if (!empty($usuarios)): ?>
         <table class="table">
             <thead>

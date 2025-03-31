@@ -10,12 +10,6 @@ class Usuario {
 
     public function register($nombre, $correo, $password) {
         try {
-            // Verificar si el usuario ya existe
-            // $stmt = $this->db->prepare("SELECT id_usuario FROM usuarios WHERE correo = :correo");
-            // $stmt->execute([":correo" => $correo]);
-            // if ($stmt->rowCount() > 0) {
-            //     return ["error" => "El correo ya está registrado."];
-            // }
 
             // Hash de la contraseña y asignar rol por defecto ("usuario")
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
