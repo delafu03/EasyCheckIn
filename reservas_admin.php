@@ -26,6 +26,13 @@
                                 <button type="submit" class="btn btn-danger">Eliminar</button>
                             </form>
                         </td>
+                        <td>
+                            <form action="index.php?action=checkin" method="post" style="display:inline;">
+                                <input type="hidden" name="id_reserva" value="<?= htmlspecialchars($reserva['id'] ?? '') ?>">
+                                <button type="submit" class="btn btn-danger">Modificar reserva</button>
+                            </form>
+                        </td>
+                        
                     </tr>
                 <?php endforeach; ?>
             </tbody>

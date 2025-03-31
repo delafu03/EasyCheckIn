@@ -77,6 +77,16 @@ class Usuario {
             die("Error en la consulta: " . $e->getMessage());
         }
     }
+    public function eliminarUsuario($id_usuario) {
+        try {
+            $sql = "DELETE FROM usuarios WHERE id_usuario = :id_usuario";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindValue(':id_usuario', $id_usuario, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            die("Error en la consulta: " . $e->getMessage());
+        }
+    }
 
     // === MÉTODOS DEL CONSTRUCTOR ===
 
