@@ -44,6 +44,7 @@ switch ($action) {
             $id_reserva = $_POST['id_reserva'] ?? null;
             if ($id_reserva) {
                 (new Reserva())->eliminarReserva($id_reserva);
+                header('Location: index.php?action=reservas_admin&status=success');
             }
         }
         else
@@ -54,6 +55,7 @@ switch ($action) {
             $id_usuario = $_POST['id_usuario'] ?? null;
             if ($id_usuario) {
                 (new Usuario())->eliminarUsuario($id_usuario);
+                header('Location: index.php?action=usuarios_admin&status=success');
             }
         }
         else
@@ -63,6 +65,7 @@ switch ($action) {
         (new Reserva())->mostrarReservas();
         exit;
     case 'checkin':
+        $id_reserva = $_POST['id_reserva'] ?? $_GET['id_reserva'] ?? null; // Verificar en POST y GET
         if ($id_reserva) {
             (new CheckIn())->mostrarFormulario($id_reserva);
         }
