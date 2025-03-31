@@ -1,5 +1,5 @@
 <h2>Si ha tenido algún problema con su reserva, alguna duda o sugerencia, no dude en contactarnos a través de este formulario. Nos pondremos en contacto con usted lo antes posible.</h2>
-<div class="contact-container">
+<div class="container">
     <form action="mailto:dadela03@ucm.es" method="POST" enctype="text/plain">
         <div class="form-group">
             <label for="name">Nombre</label>
