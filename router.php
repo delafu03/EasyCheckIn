@@ -40,10 +40,24 @@ switch ($action) {
         $vista = 'faq.php';
         break;
     case 'reservas_admin':
-        (new Reserva())->mostrarTodasReservas();
+        if (isset($_POST['action']) && $_POST['action'] === 'eliminar_reserva') {
+            $id_reserva = $_POST['id_reserva'] ?? null;
+            if ($id_reserva) {
+                (new Reserva())->eliminarReserva($id_reserva);
+            }
+        }
+        else
+            (new Reserva())->mostrarTodasReservas();
         exit;
     case 'usuarios_admin':
-        (new Usuario())->mostrarUsuarios();
+        if (isset($_POST['action']) && $_POST['action'] === 'eliminar_usuario') {
+            $id_usuario = $_POST['id_usuario'] ?? null;
+            if ($id_usuario) {
+                (new Usuario())->eliminarUsuario($id_usuario);
+            }
+        }
+        else
+            (new Usuario())->mostrarUsuarios();
         exit;
     case 'reservas':
         (new Reserva())->mostrarReservas();

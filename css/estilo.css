@@ -1,5 +1,4 @@
-
-   /* === Estilos generales === */
+/* === Estilos generales === */
 html, body {
     background-color: #bbdff3e0;
     font-family: "Arial Rounded MT", "Trebuchet MS", Arial, sans-serif;
@@ -175,19 +174,14 @@ form {
     background-color: #f9f9f9; /* Fondo gris claro */
     border: 2px solid #e3981e; /* Borde naranja */
     border-radius: 10px; /* Bordes redondeados */
-    margin: 20px auto; /* Centrado */
+    margin: 100px auto 0 auto;
     padding: 15px; /* Espaciado interno */
     width: 90%; /* Ancho relativo del contenedor */
     max-width: 800px; /* Máximo ancho del contenedor para mantener control visual */
-    margin: 0 auto; /* Centrado horizontalmente */
     display: flex;
     flex-direction: column;
     align-items: center; /* Alineación interna del contenedor */
     box-sizing: border-box; /* Incluye padding y bordes en el tamaño */
-}
-
-.login-container {
-    margin-top: 100px;
 }
 
 .imagen-usuario{
@@ -205,56 +199,133 @@ form {
     color: #444;
 }
 
-/* ==reservas === */
-.reservas-container {
-    margin: 20px auto;
-    max-width: 800px;
-    font-family: Arial, sans-serif;
+/* registro */
+.register-form {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #ff9d00;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
-
-.reservas-container h2 {
-    text-align: center;
-    color: #1a237e; 
-    margin-bottom: 20px;
-}
-
-.reservas-container table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px auto;
-}
-
-.reservas-container table th,
-.reservas-container table td {
-    border: 1px solid #1a237e; 
-    padding: 10px;
-    text-align: center;
-    background-color: white;
-}
-
-.reservas-container table th {
-    background-color: #e3981e; 
-    color: white;
+  
+  label {
     font-weight: bold;
-}
-
-
-.reservas-container .btn {
-    display: inline-block;
-    padding: 8px 12px;
-    background-color: #e3981e;
-    color: white;
-    text-decoration: none;
+  }
+  
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
-    transition: background-color 0.3s ease;
+  }     
+/* === Botón de envío === */
+
+.login-form {
+    margin: 60px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
-.reservas-container .btn:hover {
-    background-color: #ffa733;
+.btn-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
 }
 
-/* === login === */
+.btn {
+    display: inline-block;
+    padding: 10px 12px;  /* Menos padding para botones más pequeños */
+    background-color: #ff9d00;
+    color: white;
+    font-size: 15px;    /* Fuente más pequeña */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #ffa733; /* Color de fondo al pasar el ratón */
+    transform: translateY(-3px); /* Levantar el botón */
+}
+
+button:active {
+    transform: translateY(0); /* El botón vuelve a su posición original */
+}
+
+.mayuscula {
+    text-transform: uppercase;
+}
+
+.form-container-checkin {
+    display: grid;
+    gap: 15px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Cada fila en el formulario ocupa 12 columnas */
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* Distribución de las columnas */
+.col-1 { grid-column: span 1; } /* Ocupa 1 de 12 columnas */
+.col-2 { grid-column: span 2; } /* Ocupa 2 de 12 columnas */
+.col-3 { grid-column: span 3; } /* Ocupa 3 de 12 columnas */
+.col-4 { grid-column: span 4; } /* Ocupa 4 de 12 columnas */
+.col-5 { grid-column: span 5; } /* Ocupa 6 de 12 columnas */
+.col-10 { grid-column: span 10; } /* Ocupa 12 de 12 columnas */
+
+/* Estilos de los inputs */
+.form-group-checkin {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Botón */
+.submit-btn {
+    grid-column: span 12;
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.submit-btn:hover {
+    background: #0056b3;
+}
+
+/* ===  login === */
 .login-container {
     margin: 60px auto;
     max-width: 400px;
@@ -304,7 +375,7 @@ form {
     background-color: #ffa733;
 }
 
-/* === registro === */
+/* ===  registro === */
 .register-container {
     margin: 60px auto;
     max-width: 500px;
@@ -354,58 +425,119 @@ form {
     background-color: #ffa733;
 }
 
-/* === contacto === */
-.contact-container {
-    margin: 60px auto;
-    max-width: 600px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 2px solid #1a237e;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+.reservas-container {
+    margin: 20px auto;
+    max-width: 800px;
+    font-family: Arial, sans-serif;
 }
 
-.contact-container h2 {
+.reservas-container h2 {
     text-align: center;
-    color: #1a237e;
+    color: #1a237e; /* Color principal */
     margin-bottom: 20px;
 }
 
-.contact-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.reservas-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
 }
 
-.contact-container form label {
-    font-weight: bold;
-    color: #333;
-}
-
-.contact-container form input,
-.contact-container form textarea {
+.reservas-container table th,
+.reservas-container table td {
+    border: 1px solid #1a237e; /* Borde azul */
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
+    text-align: center;
+    background-color: white;
 }
 
-.contact-container form textarea {
-    resize: vertical;
-    height: 100px;
+.reservas-container table th {
+    background-color: #e3981e; /* Naranja */
+    color: white;
+    font-weight: bold;
 }
 
-.contact-container form button {
-    padding: 10px 15px;
+.reservas-container table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fondo alternativo */
+}
+
+.reservas-container .btn {
+    display: inline-block;
+    padding: 8px 12px;
     background-color: #e3981e;
     color: white;
-    border: none;
+    text-decoration: none;
     border-radius: 5px;
     font-size: 14px;
-    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.contact-container form button:hover {
+.reservas-container .btn:hover {
     background-color: #ffa733;
+}
+
+/* FAQ Container */
+.faq-container {
+    background-color: #f9f9f9;
+    border: 2px solid #e3981e; /* Borde naranja */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    margin: 30px auto; /* Centrado */
+    max-width: 800px; /* Máximo ancho */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    font-size: large;
+}
+
+/* Título FAQ */
+.faq-title {
+    color: #1a237e; /* Color del texto */
+    text-align: center;
+    font-size: 2rem; /* Tamaño grande */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+/* FAQ Items */
+.faq-item {
+    margin-bottom: 15px; /* Espaciado entre items */
+}
+
+/* Botones de preguntas */
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background-color: #ff9d00; /* Naranja */
+    color: white; /* Texto blanco */
+    border: none;
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.faq-question:hover {
+    background-color: #ffa733; /* Más claro al pasar el cursor */
+    transform: translateY(-2px); /* Levanta ligeramente el botón */
+}
+
+.faq-question:active {
+    transform: translateY(0); /* Vuelve a su posición original */
+}
+
+/* Respuestas FAQ */
+.faq-answer {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    font-size: 0.9rem;
+    color: #333;
+    display: none; /* Ocultas por defecto */
+}
+
+.hidden {
+    display: none; /* Clase para ocultar */
 }
