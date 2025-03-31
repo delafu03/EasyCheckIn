@@ -77,7 +77,7 @@ class FormularioRegistro extends Formulario
             if ($usuario) {
                 $this->errores[] = "El correo electrónico ya está registrado.";
             } else {
-                $usuario = Usuario::crea($nombre, $correo, $password, Usuario::USER_ROLE);
+                $usuario = Usuario::crea($correo, $password, $nombre, Usuario::USER_ROLE);
                 $app = Aplicacion::getInstance();
                 $app->login($usuario);
             }
