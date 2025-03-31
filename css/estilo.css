@@ -175,19 +175,14 @@ form {
     background-color: #f9f9f9; /* Fondo gris claro */
     border: 2px solid #e3981e; /* Borde naranja */
     border-radius: 10px; /* Bordes redondeados */
-    margin: 20px auto; /* Centrado */
+    margin: 100px auto 0 auto;
     padding: 15px; /* Espaciado interno */
     width: 90%; /* Ancho relativo del contenedor */
     max-width: 800px; /* Máximo ancho del contenedor para mantener control visual */
-    margin: 0 auto; /* Centrado horizontalmente */
     display: flex;
     flex-direction: column;
     align-items: center; /* Alineación interna del contenedor */
     box-sizing: border-box; /* Incluye padding y bordes en el tamaño */
-}
-
-.login-container {
-    margin-top: 100px;
 }
 
 .imagen-usuario{
@@ -481,4 +476,69 @@ input, select {
 
 .reservas-container .btn:hover {
     background-color: #ffa733;
+}
+
+/* FAQ Container */
+.faq-container {
+    background-color: #f9f9f9;
+    border: 2px solid #e3981e; /* Borde naranja */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    margin: 30px auto; /* Centrado */
+    max-width: 800px; /* Máximo ancho */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    font-size: large;
+}
+
+/* Título FAQ */
+.faq-title {
+    color: #1a237e; /* Color del texto */
+    text-align: center;
+    font-size: 2rem; /* Tamaño grande */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+/* FAQ Items */
+.faq-item {
+    margin-bottom: 15px; /* Espaciado entre items */
+}
+
+/* Botones de preguntas */
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background-color: #ff9d00; /* Naranja */
+    color: white; /* Texto blanco */
+    border: none;
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.faq-question:hover {
+    background-color: #ffa733; /* Más claro al pasar el cursor */
+    transform: translateY(-2px); /* Levanta ligeramente el botón */
+}
+
+.faq-question:active {
+    transform: translateY(0); /* Vuelve a su posición original */
+}
+
+/* Respuestas FAQ */
+.faq-answer {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    font-size: 0.9rem;
+    color: #333;
+    display: none; /* Ocultas por defecto */
+}
+
+.hidden {
+    display: none; /* Clase para ocultar */
 }

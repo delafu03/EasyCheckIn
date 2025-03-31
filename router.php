@@ -1,67 +1,77 @@
 <?php
 require 'includes/Database.php';
-// require 'includes/Usuario.php';
+require 'includes/Usuario.php';
 require 'includes/Reserva.php';
-// require 'includes/CheckIn.php';
-
-
-require 'includes/models/CheckIn.php';
-require 'includes/models/Registro.php';
-require 'includes/models/Login.php';
-
-require 'includes/controllers/CheckInController.php';
-require 'includes/controllers/LoginController.php';
-require 'includes/controllers/RegistroController.php';
+require 'includes/CheckIn.php';
 
 $action = $_GET['action'] ?? 'home';
 $id_reserva = $_GET['id_reserva'] ?? null;
 
-// Variables compartidas por la plantilla
 $tituloPagina = 'EasyCheckIn';
 $vista = null;
 
-if ($action == 'home') {
-    $tituloPagina = 'Inicio';
-    $vista = 'home.php';
-} elseif ($action == 'contacto') {
-    $tituloPagina = 'Contacto';
-    $vista = 'contacto.php';
-} elseif ($action == 'alojamiento') {
-    $tituloPagina = 'Alojamientos';
-    $vista = 'alojamiento.php';
-} elseif ($action == 'portal') {
-    $tituloPagina = 'Portal';
-    $vista = 'portal.php';
-} elseif ($action == 'actividades') {
-    $tituloPagina = 'Actividades';
-    $vista = 'actividades.php';
-} elseif ($action == 'admin') {
-    $tituloPagina = 'Administración';
-    $vista = 'admin.php';
-} elseif ($action == 'reservas') {
-    (new Reserva())->mostrarReservas();
-    exit;
-} elseif ($action == 'checkin' && $id_reserva) {
-    (new CheckInController())->mostrarFormulario($id_reserva);
-    exit;
-} elseif ($action == 'buscar_actualizar_usuario') {
-    (new CheckInController())->buscarYActualizarUsuario();
-    exit;
-} elseif ($action == 'procesar_checkin') {
-    (new CheckInController())->procesarFormulario();
-    exit;
-} elseif ($action === 'register') {
-    (new RegistroController())->register();
-    exit;
-} elseif ($action === 'login') {
-    (new LoginController())->login();
-    exit;
-} elseif ($action === 'logout') {
-    (new LoginController())->logout();
-    exit;
-} else {
-    $tituloPagina = 'Error';
-    $vista = 'error404.php';
+switch ($action) {
+    case 'home':
+        $tituloPagina = 'Inicio';
+        $vista = 'home.php';
+        break;
+    case 'contacto':
+        $tituloPagina = 'Contacto';
+        $vista = 'contacto.php';
+        break;
+    case 'alojamiento':
+        $tituloPagina = 'Alojamientos';
+        $vista = 'alojamiento.php';
+        break;
+    case 'portal':
+        $tituloPagina = 'Portal';
+        $vista = 'portal.php';
+        break;
+    case 'actividades':
+        $tituloPagina = 'Actividades';
+        $vista = 'actividades.php';
+        break;
+    case 'admin':
+        $tituloPagina = 'Administración';
+        $vista = 'admin.php';
+        break;
+    case 'faq':
+        $tituloPagina = 'Preguntas Frecuentes';
+        $vista = 'faq.php';
+        break;
+    case 'reservas_admin':
+        (new Reserva())->mostrarTodasReservas();
+        exit;
+    case 'usuarios_admin':
+        (new Usuario())->mostrarUsuarios();
+        exit;
+    case 'reservas':
+        (new Reserva())->mostrarReservas();
+        exit;
+    case 'checkin':
+        if ($id_reserva) {
+            (new CheckIn())->mostrarFormulario($id_reserva);
+        }
+        exit;
+    case 'buscar_actualizar_usuario':
+        (new CheckIn())->buscarYActualizarUsuario();
+        exit;
+    case 'procesar_checkin':
+        (new CheckIn())->procesarFormulario();
+        exit;
+    case 'register':
+        (new Usuario())->procesar_register();
+        exit;
+    case 'login':
+        (new Usuario())->procesar_login();
+        exit;
+    case 'logout':
+        (new Usuario())->procesar_logout();
+        exit;
+    default:
+        $tituloPagina = 'Error';
+        $vista = 'error404.php';
+        break;
 }
 
 if ($vista !== null) {
