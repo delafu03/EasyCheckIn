@@ -1,6 +1,4 @@
 <?php
-require_once __DIR__ . '/includes/FormularioRegister.php';
-
 $formRegister = new FormularioRegister();
 $htmlFormRegister = $formRegister->gestiona();
 ?>

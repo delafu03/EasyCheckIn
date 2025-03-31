@@ -1,8 +1,12 @@
 <?php
-require 'includes/Database.php';
-require 'includes/Usuario.php';
-require 'includes/Reserva.php';
-require 'includes/CheckIn.php';
+require_once 'includes/Database.php';
+require_once 'includes/Usuario.php';
+require_once 'includes/Reserva.php';
+require_once 'includes/CheckIn.php';
+require_once 'includes/Formulario.php';
+require_once 'includes/FormularioLogin.php';
+require_once 'includes/FormularioRegister.php';
+require_once 'config.php';
 
 $action = $_GET['action'] ?? 'home';
 $id_reserva = $_GET['id_reserva'] ?? null;

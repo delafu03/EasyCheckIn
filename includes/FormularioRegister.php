@@ -1,6 +1,4 @@
 <?php
-require_once __DIR__ . '/Formulario.php';
-require_once __DIR__ . '/Usuario.php';
 
 class FormularioRegister extends Formulario
 {

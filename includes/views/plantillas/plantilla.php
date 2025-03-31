@@ -1,11 +1,9 @@
-<?php
-require_once __DIR__ . '/../../../config.php';
-?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
     <title><?= $tituloPagina ?></title>
+    <link href="<?php echo RUTA_CSS; ?>/headerFooter.css" rel="stylesheet" type="text/css">
     <link href="<?php echo RUTA_CSS; ?>estilo.css" rel="stylesheet" type="text/css">
 </head>
 <body>

@@ -2,11 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-require_once __DIR__ . '/../../../config.php';
 ?>
-<head>
-    <link href="<?php echo RUTA_CSS; ?>headerFooter.css" rel="stylesheet" type="text/css">
-</head>
 <header class="header"> 
     <img src="<?php echo RUTA_IMGS; ?>LOGOTIPO.png" alt="LOGOTIPO" class="foto-index">   
     <nav>
@@ -20,9 +16,6 @@ require_once __DIR__ . '/../../../config.php';
         <div class="auth-buttons"> 
             <?php if (isset($_SESSION["usuario_id"])): ?>
                 <span><?php echo htmlspecialchars($_SESSION['correo']); ?></span>
-                <!-- <?php if ($_SESSION['rol'] === 'admin'): ?>
-                    <a href="index.php?action=admin" class="btn-admin">Panel Admin</a>
-                <?php endif; ?> -->
                 <a href="index.php?action=logout" class="btn-logout">Cerrar sesión</a>
             <?php else: ?>
                 <a href="index.php?action=login" class="btn-login">Iniciar sesión</a>
