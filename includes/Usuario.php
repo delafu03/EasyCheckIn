@@ -11,11 +11,11 @@ class Usuario {
     public function register($nombre, $correo, $password) {
         try {
             // Verificar si el usuario ya existe
-            $stmt = $this->db->prepare("SELECT id_usuario FROM usuarios WHERE correo = :correo");
-            $stmt->execute([":correo" => $correo]);
-            if ($stmt->rowCount() > 0) {
-                return ["error" => "El correo ya está registrado."];
-            }
+            // $stmt = $this->db->prepare("SELECT id_usuario FROM usuarios WHERE correo = :correo");
+            // $stmt->execute([":correo" => $correo]);
+            // if ($stmt->rowCount() > 0) {
+            //     return ["error" => "El correo ya está registrado."];
+            // }
 
             // Hash de la contraseña y asignar rol por defecto ("usuario")
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -39,7 +39,9 @@ class Usuario {
             $stmt->execute([":correo" => $correo]);
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($usuario && password_verify($password, $usuario['password_hash'])) {
-                session_start();
+                if (session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                }
                 $_SESSION['login'] = true;
                 $_SESSION['usuario_id'] = $usuario['id_usuario'];
                 $_SESSION['nombre'] = $usuario['nombre'];
@@ -58,7 +60,9 @@ class Usuario {
     }
 
     public function logout() {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         session_destroy();
         return ["success" => "Sesión cerrada correctamente."];
     }
@@ -97,26 +101,6 @@ class Usuario {
         }
     }
 
-    public function procesar_login() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $correo = $_POST['correo'] ?? '';
-            $password = $_POST['password'] ?? '';
-
-            $resultado = $this->login($correo, $password);
-            
-            if (isset($resultado['success'])) {
-                header('Location: index.php');
-                exit;
-            } else {
-                echo json_encode($resultado);
-            }
-        } else {
-            $tituloPagina = 'Iniciar Sesión';
-            $vista = __DIR__ . '/../login.php';
-            include __DIR__ . '/views/plantillas/plantilla.php';
-        }
-    }
-
     public function procesar_logout() {
         $this->logout();
         header('Location: index.php');
@@ -129,5 +113,15 @@ class Usuario {
         $tituloPagina = 'Usuarios EasyCheckIn';
         $vista = __DIR__ . '/../usuarios_admin.php';
         include __DIR__ . '/views/plantillas/plantilla.php';
+    }
+
+    public function buscaUsuarioPorCorreo($correo) {
+        try {
+            $stmt = $this->db->prepare("SELECT id_usuario, nombre, correo FROM usuarios WHERE correo = :correo");
+            $stmt->execute([":correo" => $correo]);
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die("Error en la consulta: " . $e->getMessage());
+        }
     }
 }

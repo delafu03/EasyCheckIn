@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/Formulario.php';
+require_once __DIR__ . '/Usuario.php';
 
 class FormularioLogin extends Formulario
 {
@@ -64,14 +65,12 @@ class FormularioLogin extends Formulario
         
         if (count($this->errores) === 0) {
             // Llamada al método login del modelo Usuario
-            $usuario = Usuario::login($correo, $password);
+            $usuarioModel = new Usuario();
+            $usuario = $usuarioModel->login($correo, $password);
         
             if (!$usuario) {
                 $_SESSION['error'] = true;
                 $this->errores[] = "El correo o la contraseña no coinciden";
-            } else {
-                $app = Aplicacion::getInstance();
-                $app->login($usuario);
             }
         }
     }

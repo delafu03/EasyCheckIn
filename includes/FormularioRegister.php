@@ -1,10 +1,8 @@
 <?php
-namespace es\ucm\fdi\aw\usuarios;
+require_once __DIR__ . '/Formulario.php';
+require_once __DIR__ . '/Usuario.php';
 
-use es\ucm\fdi\aw\Aplicacion;
-use es\ucm\fdi\aw\Formulario;
-
-class FormularioRegistro extends Formulario
+class FormularioRegister extends Formulario
 {
     public function __construct() {
         parent::__construct('formRegistro', ['urlRedireccion' => 'index.php']);
@@ -22,28 +20,27 @@ class FormularioRegistro extends Formulario
 
         $html = <<<EOF
         $htmlErroresGlobales
-        <fieldset>
-            <legend>Datos de Registro</legend>
-            <div>
-                <label for="nombre">Nombre:</label>
-                <input id="nombre" type="text" name="nombre" value="$nombre" />
-                {$erroresCampos['nombre']}
-            </div>
-            <div>
-                <label for="correo">Correo Electrónico:</label>
-                <input id="correo" type="email" name="correo" value="$correo" />
-                {$erroresCampos['correo']}
-            </div>
-            <div>
-                <label for="password">Contraseña:</label>
-                <input id="password" type="password" name="password" />
-                {$erroresCampos['password']}
-            </div>
-            <div>
-                <button type="submit" name="registro">Registrar</button>
-            </div>
-        </fieldset>
-        EOF;
+        
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="$nombre" required>
+            {$erroresCampos['nombre']}
+        </div>
+        
+        <div class="form-group">
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" value="$correo" required>
+            {$erroresCampos['correo']}
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            {$erroresCampos['password']}
+        </div>
+        
+        <button type="submit" class="btn">Registrarse</button>
+        EOF;        
 
         return $html;
     }
@@ -72,14 +69,14 @@ class FormularioRegistro extends Formulario
 
         // Si no hay errores, procesamos el registro
         if (count($this->errores) === 0) {
-            $usuario = Usuario::buscaUsuarioPorCorreo($correo);
+            $usuarioModel = new Usuario();
+            $usuario = $usuarioModel->buscaUsuarioPorCorreo($correo);
+            error_log("Usuario encontrado: " . print_r($usuario, true)); // Para depuración
 
             if ($usuario) {
                 $this->errores[] = "El correo electrónico ya está registrado.";
             } else {
-                $usuario = Usuario::crea($nombre, $correo, $password, Usuario::USER_ROLE);
-                $app = Aplicacion::getInstance();
-                $app->login($usuario);
+                $usuario = $usuarioModel->register($nombre, $correo, $password);
             }
         }
     }

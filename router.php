@@ -60,11 +60,13 @@ switch ($action) {
         (new CheckIn())->procesarFormulario();
         exit;
     case 'register':
-        (new Usuario())->procesar_register();
-        exit;
+        $tituloPagina = 'Registro';
+        $vista = 'register.php';
+        break;
     case 'login':
-        (new Usuario())->procesar_login();
-        exit;
+        $tituloPagina = 'Iniciar Sesión';
+        $vista = 'login.php'; 
+        break;
     case 'logout':
         (new Usuario())->procesar_logout();
         exit;
