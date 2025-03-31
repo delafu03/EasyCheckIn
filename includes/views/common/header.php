@@ -14,14 +14,15 @@ require_once __DIR__ . '/../../../config.php';
             <a href="<?php echo RUTA_APP; ?>/index.php">Inicio</a> <li></li> 
             <a href="<?php echo RUTA_APP; ?>/index.php?action=alojamiento">Alojamientos</a> <li></li>
             <a href="<?php echo RUTA_APP; ?>/index.php?action=contacto">Contacto</a> <li></li>
-            <a href="<?php echo RUTA_APP; ?>/index.php?action=portal">Mi Portal</a> <li></li>    
+            <a href="<?php echo RUTA_APP; ?>/index.php?action=portal">Mi Portal</a> <li></li>
+            <a href="<?php echo RUTA_APP; ?>/index.php?action=faq">FAQ</a> <li></li>      
         </ul>
         <div class="auth-buttons"> 
             <?php if (isset($_SESSION["usuario_id"])): ?>
-                <span><?php echo htmlspecialchars($_SESSION['nombre']); ?></span>
-                <?php if ($_SESSION['rol'] === 'admin'): ?>
+                <span><?php echo htmlspecialchars($_SESSION['correo']); ?></span>
+                <!-- <?php if ($_SESSION['rol'] === 'admin'): ?>
                     <a href="index.php?action=admin" class="btn-admin">Panel Admin</a>
-                <?php endif; ?>
+                <?php endif; ?> -->
                 <a href="index.php?action=logout" class="btn-logout">Cerrar sesión</a>
             <?php else: ?>
                 <a href="index.php?action=login" class="btn-login">Iniciar sesión</a>

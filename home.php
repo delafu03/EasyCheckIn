@@ -15,7 +15,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <?php if (isset($_SESSION["usuario_id"])): ?>
     <div class="contenido">
-        <p><strong>¡BIENVENIDO <?php echo htmlspecialchars($_SESSION['nombre']); ?>!</strong> a EasyCheckIn</p>
+        <p><strong>¡BIENVENIDO <?php echo htmlspecialchars($_SESSION['correo']); ?>!</strong> a EasyCheckIn</p>
     </div>
 <?php else: ?>
     <div class="contenido">
