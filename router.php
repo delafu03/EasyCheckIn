@@ -6,6 +6,7 @@ require_once 'includes/CheckIn.php';
 require_once 'includes/Formulario.php';
 require_once 'includes/FormularioLogin.php';
 require_once 'includes/FormularioRegister.php';
+require_once 'includes/FormularioReserva.php';
 require_once 'config.php';
 
 $action = $_GET['action'] ?? 'home';

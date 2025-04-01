@@ -25,20 +25,21 @@ class Reserva {
     public function obtenerTodasLasReservas() {
         try {
             $sql = "SELECT 
-                    id_reserva as id, 
-                    fecha_entrada, 
-                    fecha_salida,
-                    estado,
-                    (SELECT nombre FROM usuarios WHERE id_usuario = 
-                        JSON_UNQUOTE(JSON_EXTRACT(usuarios_ids, '$[0]'))) as usuario
+                        id_reserva, 
+                        fecha_entrada, 
+                        fecha_salida,
+                        estado,
+                        usuarios_ids
                     FROM reservas";
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $reservas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+            return $reservas;
         } catch (PDOException $e) {
-            die("Error en la consulta: " . $e->getMessage());
+            return ["error" => "Error en la consulta: " . $e->getMessage()];
         }
-    }
+    }    
 
     public function eliminarReserva($id_reserva) {
         try {
@@ -71,7 +72,8 @@ class Reserva {
     }
 
     public function mostrarTodasReservas() {
-        $reservas = $this->obtenerTodasLasReservas(); 
+        $reservas = $this->obtenerTodasLasReservas();
+        error_log(print_r($reservas, true)); // Log para depuración
         $tituloPagina = 'Reservas EasyCheckIn';
         $vista = __DIR__ . '/../reservas_admin.php';
         include __DIR__ . '/views/plantillas/plantilla.php';
@@ -81,4 +83,41 @@ class Reserva {
         $this->eliminarReserva($id_reserva);
         header('Location: index.php?action=reservas_admin');
     }
+
+    public function actualizarReserva($datos) {
+        $permitidos = ['usuarios_ids', 'fecha_entrada', 'fecha_salida', 'estado'];
+        $campos = [];
+        $valores = [];
+    
+        foreach ($permitidos as $campo) {
+            if (isset($datos[$campo])) {
+                if ($campo === 'usuarios_ids') {
+                    $valor = is_array($datos[$campo])
+                        ? json_encode(array_map('intval', $datos[$campo])) // ya es array
+                        : json_encode(array_filter(array_map('intval', explode(',', $datos[$campo])))); // por si viene en string            
+                } else {
+                    $valor = $datos[$campo];
+                }
+    
+                $campos[] = "$campo = :$campo";
+                $valores[":$campo"] = $valor;
+            }
+        }
+    
+        if (empty($campos)) {
+            return false;
+        }
+    
+        $valores[':id_reserva'] = $datos['id_reserva'];
+    
+        $sql = "UPDATE reservas SET " . implode(', ', $campos) . " WHERE id_reserva = :id_reserva";
+        $stmt = $this->db->prepare($sql);
+    
+        foreach ($valores as $param => $valor) {
+            $stmt->bindValue($param, $valor === '' ? null : $valor, is_int($valor) ? PDO::PARAM_INT : PDO::PARAM_STR);
+        }
+    
+        return $stmt->execute();
+    }
+    
 }
