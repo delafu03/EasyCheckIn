@@ -1,14 +1,18 @@
 <?php
-require_once 'includes/Database.php';
-require_once 'includes/Usuario.php';
-require_once 'includes/Reserva.php';
-require_once 'includes/CheckIn.php';
-require_once 'includes/Formulario.php';
-require_once 'includes/FormularioLogin.php';
-require_once 'includes/FormularioRegister.php';
-require_once 'includes/FormularioReserva.php';
-require_once 'includes/FormularioCheckIn.php';
-require_once 'config.php';
+require_once 'includes/config.php';
+
+require_once 'includes/clases/Formulario.php';
+require_once 'includes/clases/Database.php';
+
+require_once 'includes/clases/usuarios/Usuario.php';
+require_once 'includes/clases/usuarios/FormularioLogin.php';
+require_once 'includes/clases/usuarios/FormularioRegister.php';
+
+require_once 'includes/clases/checkin/CheckIn.php';
+require_once 'includes/clases/checkin/FormularioCheckIn.php';
+
+require_once 'includes/clases/reserva/Reserva.php';
+require_once 'includes/clases/reserva/FormularioReserva.php';
 
 $action = $_GET['action'] ?? 'home';
 $id_reserva = $_GET['id_reserva'] ?? null;

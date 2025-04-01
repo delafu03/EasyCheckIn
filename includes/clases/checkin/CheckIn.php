@@ -144,9 +144,9 @@ class CheckIn {
     public function mostrarFormulario($id_reserva) {
         $usuarios = $this->obtenerUsuariosPorReserva($id_reserva);
         $tituloPagina = "Check-In de la Reserva $id_reserva";
-        $vista = __DIR__ . '/../checkin.php';
+        $vista = __DIR__ . '/../../../checkin.php';
 
-        include __DIR__ . '/views/plantillas/plantilla.php';
+        include __DIR__ . '/../../views/plantillas/plantilla.php';
     }
     
     public function procesarFormulario() {
@@ -192,7 +192,7 @@ class CheckIn {
                 exit();
             } else {
                 $mensaje = "No se encontró un usuario con ese número de documento.";
-                include __DIR__ . '/views/checkin.php';
+                include __DIR__ . '/../../../checkin.php';
             }
         }
     }

@@ -19,7 +19,7 @@ class Usuario {
                 ":correo" => $correo,
                 ":password_hash" => $hashedPassword
             ]);
-
+            $stmt->closeCursor();
             return ["success" => "Registro exitoso, ahora puedes iniciar sesión."];
         } catch (PDOException $e) {
             return ["error" => "Error en el registro: " . $e->getMessage()];
@@ -32,6 +32,8 @@ class Usuario {
             $stmt = $this->db->prepare("SELECT id_usuario, nombre, rol, password_hash FROM usuarios WHERE correo = :correo");
             $stmt->execute([":correo" => $correo]);
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+
             if ($usuario && password_verify($password, $usuario['password_hash'])) {
                 if (session_status() === PHP_SESSION_NONE) {
                     session_start();
@@ -66,7 +68,9 @@ class Usuario {
             $sql = "SELECT id_usuario, nombre, correo FROM usuarios WHERE rol != 'admin'";
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+            return $usuarios;
         } catch (PDOException $e) {
             die("Error en la consulta: " . $e->getMessage());
         }
@@ -77,6 +81,19 @@ class Usuario {
             $stmt = $this->db->prepare($sql);
             $stmt->bindValue(':id_usuario', $id_usuario, PDO::PARAM_INT);
             $stmt->execute();
+            $stmt->closeCursor();
+        } catch (PDOException $e) {
+            die("Error en la consulta: " . $e->getMessage());
+        }
+    }
+
+    public function buscaUsuarioPorCorreo($correo) {
+        try {
+            $stmt = $this->db->prepare("SELECT id_usuario, nombre, correo FROM usuarios WHERE correo = :correo");
+            $stmt->execute([":correo" => $correo]);
+            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
+            return $usuario;
         } catch (PDOException $e) {
             die("Error en la consulta: " . $e->getMessage());
         }
@@ -100,8 +117,8 @@ class Usuario {
             }
         } else {
             $tituloPagina = 'Registro';
-            $vista = __DIR__ . '/../register.php';
-            include __DIR__ . '/views/plantillas/plantilla.php';
+            $vista = __DIR__ . '/../../../register.php';
+            include __DIR__ . '/../../views/plantillas/plantilla.php';
         }
     }
 
@@ -115,17 +132,7 @@ class Usuario {
         $usuarios = $this->obtenerUsuarios();
 
         $tituloPagina = 'Usuarios EasyCheckIn';
-        $vista = __DIR__ . '/../usuarios_admin.php';
-        include __DIR__ . '/views/plantillas/plantilla.php';
-    }
-
-    public function buscaUsuarioPorCorreo($correo) {
-        try {
-            $stmt = $this->db->prepare("SELECT id_usuario, nombre, correo FROM usuarios WHERE correo = :correo");
-            $stmt->execute([":correo" => $correo]);
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            die("Error en la consulta: " . $e->getMessage());
-        }
+        $vista = __DIR__ . '/../../../usuarios_admin.php';
+        include __DIR__ . '/../../views/plantillas/plantilla.php';
     }
 }
