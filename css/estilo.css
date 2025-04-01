@@ -269,8 +269,8 @@ button:active {
 .form-container-checkin {
     display: grid;
     gap: 15px;
-    padding: 20px;
-    background: #f9f9f9;
+    padding: 10px;
+    max-width: 1500px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }

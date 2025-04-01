@@ -12,6 +12,7 @@
                 </tr>
             </thead>
             <tbody>
+                <a href="index.php?action=reserva_vacia" class="btn btn-primary">Crear Reserva Vacía</a>
                 <?php foreach ($reservas as $reserva): ?>
                     <tr>
                         <?php

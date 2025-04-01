@@ -119,5 +119,39 @@ class Reserva {
     
         return $stmt->execute();
     }
+
+    public function crearReservaVacia() {
+        try {
+            $sql = "INSERT INTO reservas (usuarios_ids, fecha_entrada, fecha_salida, estado)
+                    VALUES (:usuarios_ids, :fecha_entrada, :fecha_salida, :estado)";
+            
+            $stmt = $this->db->prepare($sql);
     
+            $hoy = date('Y-m-d');
+            $manana = date('Y-m-d', strtotime('+1 day'));
+            $pasado = date('Y-m-d', strtotime('+2 days'));
+    
+            $stmt->bindValue(':usuarios_ids', json_encode([]), PDO::PARAM_STR);
+            $stmt->bindValue(':fecha_entrada', $manana, PDO::PARAM_STR);
+            $stmt->bindValue(':fecha_salida', $pasado, PDO::PARAM_STR);
+            $stmt->bindValue(':estado', 'pendiente', PDO::PARAM_STR);
+    
+            $stmt->execute();
+    
+            return $this->db->lastInsertId();
+        } catch (PDOException $e) {
+            error_log("Error al crear reserva vacía: " . $e->getMessage());
+            return false;
+        }
+    }
+    
+
+    public function procesarCrearReservaVacia() {
+        $id_reserva = $this->crearReservaVacia();
+        if ($id_reserva) {
+            header('Location: index.php?action=reservas_admin');
+        } else {
+            echo "Error al crear la reserva vacía.";
+        }
+    }
 }

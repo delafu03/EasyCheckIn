@@ -80,13 +80,16 @@ class CheckIn {
             // Filtrar solo los campos enviados
             $campos_actualizar = [];
             $valores = [];
-    
+
+            $camposIgnorados = ["id_usuario", "id_reserva", "tipoFormulario"];
+
             foreach ($datos as $campo => $valor) {
-                if ($campo !== "id_usuario" && $campo !== "id_reserva") { // No actualizar claves primarias
+                if (!in_array($campo, $camposIgnorados)) {
                     $campos_actualizar[] = "$campo = :$campo";
                     $valores[":$campo"] = ($valor === "" ? NULL : $valor);
                 }
             }
+            
     
             // Si no hay campos a actualizar, devolver un mensaje de error
             if (empty($campos_actualizar)) {
@@ -98,14 +101,18 @@ class CheckIn {
             $sql = "UPDATE usuarios SET " . implode(", ", $campos_actualizar) . " WHERE id_usuario = :id_usuario";
             $stmt = $this->db->prepare($sql);
 
+            error_log("SQL final: $sql");
+
             foreach ($valores as $campo => $valor) {
                 $tipo = is_int($valor) ? PDO::PARAM_INT : ($valor === null ? PDO::PARAM_NULL : PDO::PARAM_STR);
-                $stmt->bindValue(":$campo", $valor, $tipo);
+                $stmt->bindValue("$campo", $valor, $tipo);
             }
+
+            error_log("Valores a bind: " . json_encode($valores));
 
             // También bind para id_usuario en WHERE
             $stmt->bindValue(":id_usuario", $datos['id_usuario'], PDO::PARAM_INT);
-            $stmt->execute($valores);
+            $stmt->execute();
             $stmt->closeCursor();
     
             // Verificar si la actualización afectó alguna fila

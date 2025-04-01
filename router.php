@@ -7,6 +7,7 @@ require_once 'includes/Formulario.php';
 require_once 'includes/FormularioLogin.php';
 require_once 'includes/FormularioRegister.php';
 require_once 'includes/FormularioReserva.php';
+require_once 'includes/FormularioCheckIn.php';
 require_once 'config.php';
 
 $action = $_GET['action'] ?? 'home';
@@ -69,17 +70,17 @@ switch ($action) {
     case 'reservas':
         (new Reserva())->mostrarReservas();
         exit;
+    case 'reserva_vacia':
+        (new Reserva())->procesarCrearReservaVacia();
+        exit;
     case 'checkin':
-        $id_reserva = $_POST['id_reserva'] ?? $_GET['id_reserva'] ?? null; // Verificar en POST y GET
+        $id_reserva = $_POST['id_reserva'] ?? $_GET['id_reserva'] ?? null;
         if ($id_reserva) {
             (new CheckIn())->mostrarFormulario($id_reserva);
         }
         exit;
     case 'buscar_actualizar_usuario':
         (new CheckIn())->buscarYActualizarUsuario();
-        exit;
-    case 'procesar_checkin':
-        (new CheckIn())->procesarFormulario();
         exit;
     case 'register':
         $tituloPagina = 'Registro';
