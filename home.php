@@ -11,7 +11,7 @@ if (session_status() == PHP_SESSION_NONE) {
     eliminando largas esperas y simplificando la gestión administrativa.</p>
 </div>
 
-<img src="<?php echo RUTA_IMGS; ?>hotel.png" alt="HOTEL" class="foto-index">
+<img src="<?php echo RUTA_IMGS; ?>/hotel.png" alt="HOTEL" class="foto-index">
 
 <?php if (isset($_SESSION["usuario_id"])): ?>
     <div class="contenido">

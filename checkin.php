@@ -1,5 +1,5 @@
 <h2>Check-In de Usuarios</h2>
-<h2>ID de Reserva:</strong> <?php echo htmlspecialchars($id_reserva); ?></h2>
+<h2><strong>ID de Reserva:</strong> <?php echo htmlspecialchars($id_reserva); ?></h2>
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     error_log("POST recibido");
@@ -19,5 +19,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endforeach; ?>
 <?php endif; ?>
 
-<script src="<?php echo RUTA_JS; ?>validaciones.js"></script>
-<script src="<?php echo RUTA_JS; ?>funciones_aux.js"></script>
+<script src="<?php echo RUTA_JS; ?>/validaciones.js"></script>
+<script src="<?php echo RUTA_JS; ?>/funciones_aux.js"></script>

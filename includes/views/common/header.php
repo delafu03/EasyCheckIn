@@ -4,14 +4,14 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 ?>
 <header class="header"> 
-    <img src="<?php echo RUTA_IMGS; ?>LOGOTIPO.png" alt="LOGOTIPO" class="foto-index">   
+    <img src="<?php echo RUTA_IMGS; ?>/LOGOTIPO.png" alt="LOGOTIPO" class="foto-index">   
     <nav>
         <ul class="navegacion"> 
-            <a href="<?php echo RUTA_APP; ?>/index.php">Inicio</a> <li></li> 
-            <a href="<?php echo RUTA_APP; ?>/index.php?action=alojamiento">Alojamientos</a> <li></li>
-            <a href="<?php echo RUTA_APP; ?>/index.php?action=contacto">Contacto</a> <li></li>
-            <a href="<?php echo RUTA_APP; ?>/index.php?action=portal">Mi Portal</a> <li></li>
-            <a href="<?php echo RUTA_APP; ?>/index.php?action=faq">FAQ</a> <li></li>      
+            <li><a href="<?php echo RUTA_APP; ?>/index.php">Inicio</a> </li> 
+            <li><a href="<?php echo RUTA_APP; ?>/index.php?action=alojamiento">Alojamientos</a></li>
+            <li><a href="<?php echo RUTA_APP; ?>/index.php?action=contacto">Contacto</a></li>
+            <li><a href="<?php echo RUTA_APP; ?>/index.php?action=portal">Mi Portal</a></li>
+            <li><a href="<?php echo RUTA_APP; ?>/index.php?action=faq">FAQ</a></li>      
         </ul>
         <div class="auth-buttons"> 
             <?php if (isset($_SESSION["usuario_id"])): ?>

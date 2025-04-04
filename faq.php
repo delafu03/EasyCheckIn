@@ -62,4 +62,4 @@ $faqs = [
     <?php endforeach; ?>
 </div>
 
-<script src="<?php echo RUTA_JS; ?>funciones_aux.js"></script>
+<script src="<?php echo RUTA_JS; ?>/funciones_aux.js"></script>
