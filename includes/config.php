@@ -5,8 +5,8 @@
  */
 define('BD_HOST', 'vm004.db.swarm.test');
 define('BD_NAME', 'checkin_hotel');
-define('BD_USER', 'root');
-define('BD_PASS', 'W1k89Nt3IODkRDHCZOQJ');
+define('BD_USER', 'super_admin');
+define('BD_PASS', 'vm004aw');
 
 /**
  * Parámetros de configuración utilizados para generar las URLs y las rutas a ficheros en la aplicación
