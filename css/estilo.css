@@ -80,6 +80,9 @@ label {
 /* === Estilo para el área de texto (mensaje) === */
 textarea {
     resize: vertical; /* Permite cambiar el tamaño vertical */
+    width: 98%;
+    height: 80px;
+    margin-top: 10px;
 }
 
 input, textarea {
@@ -489,4 +492,93 @@ input, select {
 
 .hidden {
     display: none; /* Clase para ocultar */
+}
+
+.valoraciones-container {
+    margin-top: 20px;
+}
+.estrellas {
+    font-size: 24px;
+    cursor: pointer;
+}
+.estrella {
+    font-size: 24px;
+    color: gray; /* Estrellas vacías */
+    cursor: pointer;
+    margin: 0 5px;
+}
+.estrella.rellena {
+    color: gold; /* Estrellas activas */
+}
+
+.estrella_admin {
+    font-size: 24px;
+    color: gold; /* Estrellas vacías */
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.desplegable-contenedor {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.desplegable-contenedor.activa {
+    max-height: 500px; /* ajusta a la altura estimada del formulario */
+}
+
+.admin-valoraciones {
+    width: 80%;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border: 2px solid #007BFF; /* Borde azul */
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.admin-valoraciones h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+.admin-valoraciones table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    border-radius: 8px;
+    overflow: hidden; /* Necesario para que se apliquen los bordes */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra sutil para suavizar */
+}
+
+.admin-valoraciones th,
+.admin-valoraciones td {
+    padding: 14px 16px;
+    text-align: left;
+    border: 1px solid #ddd; /* Separador visible */
+}
+
+.admin-valoraciones thead th {
+    background-color: #007BFF;
+    color: #fff;
+    font-weight: 600;
+}
+
+.admin-valoraciones tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.admin-valoraciones tbody tr:hover {
+    background-color: #eef2f7;
+}
+
+.admin-valoraciones thead th:first-child {
+    border-top-left-radius: 12px;
+}
+
+.admin-valoraciones thead th:last-child {
+    border-top-right-radius: 12px;
 }

@@ -8,7 +8,15 @@ if (session_status() == PHP_SESSION_NONE) {
     <nav>
         <ul class="navegacion"> 
             <li><a href="<?php echo RUTA_APP; ?>/index.php">Inicio</a> </li> 
-            <li><a href="<?php echo RUTA_APP; ?>/index.php?action=alojamiento">Alojamientos</a></li>
+            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
+                <li><a href="<?php echo RUTA_APP; ?>/index.php?action=valoraciones_admin">Valoraciones</a></li>
+
+            <?php elseif (isset($_SESSION['rol']) && $_SESSION['rol'] === 'usuario'): ?>
+                <li><a href="<?php echo RUTA_APP; ?>/index.php?action=valoraciones">Valoraciones</a></li>
+
+            <?php else: ?>
+                <li><a href="<?php echo RUTA_APP; ?>/index.php?action=login">Valoraciones</a></li>
+            <?php endif; ?>
             <li><a href="<?php echo RUTA_APP; ?>/index.php?action=contacto">Contacto</a></li>
             <li><a href="<?php echo RUTA_APP; ?>/index.php?action=portal">Mi Portal</a></li>
             <li><a href="<?php echo RUTA_APP; ?>/index.php?action=faq">FAQ</a></li>      

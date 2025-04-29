@@ -1,3 +1,11 @@
+// Definimos toggleValoracion en global
+function toggleValoracion(id) {
+    const contenedor = document.getElementById(id);
+    contenedor.classList.toggle('activa');
+}
+
+
+// Cuando el DOM esté listo
 document.addEventListener("DOMContentLoaded", () => {
     // Botones Buscar
     document.querySelectorAll('.buscarBtn').forEach(btn => {
@@ -37,10 +45,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // FAQs desplegables
     document.querySelectorAll(".faq-question").forEach(question => {
         question.addEventListener("click", function() {
             const answer = this.nextElementSibling;
             answer.style.display = (answer.style.display === "block") ? "none" : "block";
         });
     });
+
+    // Script para manejar estrellas en cualquier formulario
+    document.querySelectorAll('.estrellas .estrella').forEach(function(star) {
+        star.addEventListener('click', function() {
+            var valor = this.getAttribute('data-valor');
+            var container = this.parentElement;
+            var inputHidden = container.parentElement.querySelector('input[name="puntuacion"]');
+            
+            // Actualizar estrellas
+            container.querySelectorAll('.estrella').forEach(function(s) {
+                s.innerHTML = (s.getAttribute('data-valor') <= valor) ? '★' : '☆';
+            });
+
+            // Guardar puntuación
+            inputHidden.value = valor;
+        });
+    });
+
 });

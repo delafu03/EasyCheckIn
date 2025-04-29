@@ -14,6 +14,9 @@ require_once 'includes/clases/checkin/FormularioCheckIn.php';
 require_once 'includes/clases/reserva/Reserva.php';
 require_once 'includes/clases/reserva/FormularioReserva.php';
 
+require_once 'includes/clases/valoraciones/Valoraciones.php';
+require_once 'includes/clases/valoraciones/FormularioValoraciones.php';
+
 $action = $_GET['action'] ?? 'home';
 $id_reserva = $_GET['id_reserva'] ?? null;
 
@@ -74,6 +77,9 @@ switch ($action) {
     case 'reservas':
         (new Reserva())->mostrarReservas();
         exit;
+    case 'valoraciones':
+        (new Reserva())->mostrarReservasValoracion();
+        exit;
     case 'reserva_vacia':
         (new Reserva())->procesarCrearReservaVacia();
         exit;
@@ -93,6 +99,9 @@ switch ($action) {
     case 'login':
         $tituloPagina = 'Iniciar Sesión';
         $vista = 'login.php'; 
+        break;
+    case 'valoraciones_admin':
+        (new Valoraciones())->mostrarValoraciones();
         break;
     case 'logout':
         (new Usuario())->procesar_logout();

@@ -17,6 +17,26 @@ define('RUTA_IMGS', RUTA_APP.'/img');
 define('RUTA_CSS', RUTA_APP.'/css');
 define('RUTA_JS', RUTA_APP.'/js');
 
+// /**
+//  * Parámetros de conexión a la BD
+//  */
+// define('BD_HOST', 'localhost');
+// define('BD_NAME', 'checkin_hotel');
+// define('BD_USER', 'root');
+// define('BD_PASS', '1234');
+
+// /**
+//  * Parámetros de configuración utilizados para generar las URLs y las rutas a ficheros en la aplicación
+//  */
+// define('RAIZ_APP', __DIR__);
+// define('RUTA_APP', '/EASYCHECKIN');
+// define('RUTA_IMGS', RUTA_APP.'/img/');
+// define('RUTA_CSS', RUTA_APP.'/css/');
+// define('RUTA_JS', RUTA_APP.'/js/');
+
+
+
+
 /**
  * Configuración del soporte de UTF-8, localización (idioma y país) y zona horaria
  */

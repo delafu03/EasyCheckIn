@@ -136,6 +136,24 @@ class Reserva {
         include __DIR__ . '/../../views/plantillas/plantilla.php';
     }
 
+    public function mostrarReservasValoracion() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION["login"]) || !isset($_SESSION["usuario_id"])) {
+            header("Location: index.php?action=login");
+            exit();
+        }
+
+        $id_usuario = $_SESSION["usuario_id"];
+        $reservas = $this->obtenerReservasPorUsuario($id_usuario);
+
+        $tituloPagina = 'Mis Valoraciones';
+        $vista = __DIR__ . '/../../../valoraciones.php';
+        include __DIR__ . '/../../views/plantillas/plantilla.php';
+    }
+
     public function mostrarTodasReservas() {
         $reservas = $this->obtenerTodasLasReservas();
         error_log(print_r($reservas, true)); // Log para depuración
