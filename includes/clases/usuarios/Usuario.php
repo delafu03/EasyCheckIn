@@ -68,7 +68,17 @@ class Usuario {
             $sql = "SELECT id_usuario, nombre, correo FROM usuarios WHERE rol != 'admin'";
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
-            $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $usuarios = [];
+            while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $usuarios[] = new UsuarioModelo(
+                    $fila['id_usuario'],
+                    $fila['nombre'],
+                    $fila['correo'],
+                    null
+                );
+            }
+    
             $stmt->closeCursor();
             return $usuarios;
         } catch (PDOException $e) {
@@ -91,9 +101,15 @@ class Usuario {
         try {
             $stmt = $this->db->prepare("SELECT id_usuario, nombre, correo FROM usuarios WHERE correo = :correo");
             $stmt->execute([":correo" => $correo]);
-            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+            $fila = $stmt->fetch(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
-            return $usuario;
+
+            return $fila ? new UsuarioModelo(
+                $fila['id_usuario'],
+                $fila['nombre'],
+                $fila['correo'],
+                'usuario'
+            ) : null;
         } catch (PDOException $e) {
             die("Error en la consulta: " . $e->getMessage());
         }

@@ -5,6 +5,7 @@ require_once 'includes/clases/Formulario.php';
 require_once 'includes/clases/Database.php';
 
 require_once 'includes/clases/usuarios/Usuario.php';
+require_once 'includes/clases/usuarios/UsuarioModelo.php';
 require_once 'includes/clases/usuarios/FormularioLogin.php';
 require_once 'includes/clases/usuarios/FormularioRegister.php';
 
