@@ -18,7 +18,16 @@ if (session_status() == PHP_SESSION_NONE) {
                 <li><a href="<?php echo RUTA_APP; ?>/index.php?action=login">Valoraciones</a></li>
             <?php endif; ?>
             <li><a href="<?php echo RUTA_APP; ?>/index.php?action=contacto">Contacto</a></li>
-            <li><a href="<?php echo RUTA_APP; ?>/index.php?action=portal">Mi Portal</a></li>
+
+            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
+                <li><a href="<?php echo RUTA_APP; ?>/index.php?action=admin">Admin</a></li>
+
+            <?php elseif (isset($_SESSION['rol']) && $_SESSION['rol'] === 'usuario'): ?>
+                <li><a href="<?php echo RUTA_APP; ?>/index.php?action=reservas">Reservas</a></li>
+            <?php else: ?>
+                <li><a href="<?php echo RUTA_APP; ?>/index.php?action=login">Portal</a></li>
+            <?php endif; ?>
+
             <li><a href="<?php echo RUTA_APP; ?>/index.php?action=faq">FAQ</a></li>      
         </ul>
         <div class="auth-buttons"> 
