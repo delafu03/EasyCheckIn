@@ -13,6 +13,7 @@ require_once 'includes/clases/checkin/CheckIn.php';
 require_once 'includes/clases/checkin/FormularioCheckIn.php';
 
 require_once 'includes/clases/reserva/Reserva.php';
+require_once 'includes/clases/reserva/ReservaModelo.php';
 require_once 'includes/clases/reserva/FormularioReserva.php';
 
 require_once 'includes/clases/valoraciones/Valoraciones.php';

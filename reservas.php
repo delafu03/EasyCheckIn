@@ -18,11 +18,11 @@ if (!isset($reservas)) {
             </tr>
             <?php foreach ($reservas as $reserva) { ?>
                 <tr>
-                    <td><?= htmlspecialchars($reserva["id_reserva"]) ?></td>
-                    <td><?= htmlspecialchars($reserva["fecha_entrada"]) ?></td>
-                    <td><?= htmlspecialchars($reserva["fecha_salida"]) ?></td>
-                    <td><a href="index.php?action=checkin&id_reserva=<?= $reserva['id_reserva'] ?>" class="btn">Ir al Check-in</a></td>
-                    <td><a href="index.php?action=actividades&id_reserva=<?= $reserva['id_reserva'] ?>" class="btn">Añadir Actividades</a></td>
+                    <td><?= htmlspecialchars($reserva->id_reserva) ?></td>
+                    <td><?= htmlspecialchars($reserva->fecha_entrada) ?></td>
+                    <td><?= htmlspecialchars($reserva->fecha_salida) ?></td>
+                    <td><a href="index.php?action=checkin&id_reserva=<?= $reserva->id_reserva ?>" class="btn">Ir al Check-in</a></td>
+                    <td><a href="index.php?action=actividades&id_reserva=<?= $reserva->id_reserva ?>" class="btn">Añadir Actividades</a></td>
                 </tr>
             <?php } ?>
         </table>

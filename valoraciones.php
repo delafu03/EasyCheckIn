@@ -17,18 +17,18 @@ if (!isset($reservas)) {
             </tr>
             <?php foreach ($reservas as $reserva) { ?>
                 <tr>
-                    <td><?= htmlspecialchars($reserva["id_reserva"]) ?></td>
-                    <td><?= htmlspecialchars($reserva["fecha_entrada"]) ?></td>
-                    <td><?= htmlspecialchars($reserva["fecha_salida"]) ?></td>
+                    <td><?= htmlspecialchars($reserva->id_reserva) ?></td>
+                    <td><?= htmlspecialchars($reserva->fecha_entrada) ?></td>
+                    <td><?= htmlspecialchars($reserva->fecha_salida) ?></td>
                     <td>
-                        <button class="btn" onclick="toggleValoracion('valoracion-<?= $reserva['id_reserva'] ?>')">Valorar</button>
+                        <button class="btn" onclick="toggleValoracion('valoracion-<?= $reserva->id_reserva ?>')">Valorar</button>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <div id="valoracion-<?= $reserva['id_reserva'] ?>" class="desplegable-contenedor">
+                        <div id="valoracion-<?= $reserva->id_reserva ?>" class="desplegable-contenedor">
                             <?php
-                                $form = new FormularioValoraciones($reserva['id_reserva']);
+                                $form = new FormularioValoraciones($reserva->id_reserva);
                                 echo $form->gestiona();                        
                             ?>
                         </div>

@@ -15,9 +15,18 @@ class Reserva {
             $stmt = $this->db->prepare($sql);
             $stmt->bindValue(':id_usuario', json_encode((int)$id_usuario), PDO::PARAM_STR);
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            $reservas = [];
+            while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $reservas[] = new ReservaModelo(
+                    $fila['id_reserva'],
+                    $fila['fecha_entrada'],
+                    $fila['fecha_salida']
+                );
+            }
+
             $stmt->closeCursor();
-            return $result;
+            return $reservas;
         } catch (PDOException $e) {
             error_log("Error en obtenerReservasPorUsuario: " . $e->getMessage());
             return [];
@@ -29,7 +38,18 @@ class Reserva {
             $sql = "SELECT id_reserva, fecha_entrada, fecha_salida, estado, usuarios_ids FROM reservas";
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
-            $reservas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+            $reservas = [];
+            while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $reservas[] = new ReservaModelo(
+                    $fila['id_reserva'],
+                    $fila['fecha_entrada'],
+                    $fila['fecha_salida'],
+                    $fila['estado'],
+                    $fila['usuarios_ids']
+                );
+            }
+
             $stmt->closeCursor();
             return $reservas;
         } catch (PDOException $e) {
