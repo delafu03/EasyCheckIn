@@ -17,6 +17,9 @@ require_once 'includes/clases/reserva/FormularioReserva.php';
 require_once 'includes/clases/valoraciones/Valoraciones.php';
 require_once 'includes/clases/valoraciones/FormularioValoraciones.php';
 
+require_once 'includes/clases/actividades/Actividades.php';
+require_once 'includes/clases/actividades/Servicio.php';
+
 $action = $_GET['action'] ?? 'home';
 $id_reserva = $_GET['id_reserva'] ?? null;
 
@@ -40,10 +43,6 @@ switch ($action) {
         $tituloPagina = 'Portal';
         $vista = 'portal.php';
         break;
-    case 'actividades':
-        $tituloPagina = 'Actividades';
-        $vista = 'actividades.php';
-        break;
     case 'admin':
         $tituloPagina = 'Administración';
         $vista = 'admin.php';
@@ -52,6 +51,38 @@ switch ($action) {
         $tituloPagina = 'Preguntas Frecuentes';
         $vista = 'faq.php';
         break;
+    case 'actividades':
+        $id_reserva = $_POST['id_reserva'] ?? $_GET['id_reserva'] ?? null;
+        if ($id_reserva) {
+            (new Actividades())->mostrarActividades();
+        }
+        exit;
+    case 'contratar_actividad':
+        $id_reserva = $_POST['id_reserva'] ?? $_GET['id_reserva'] ?? null;
+        $id_servicio = $_POST['id_servicio'] ?? $_GET['id_servicio'] ?? null;
+
+        if ($id_reserva && $id_servicio) {
+            $actividades = new Actividades();
+            $exito = $actividades->contratarActividad((int)$id_reserva, (int)$id_servicio);
+            header("Location: index.php?action=actividades&id_reserva=$id_reserva");
+        } else {
+            (new Actividades())->mostrarActividades();
+        }
+        exit;
+
+    case 'eliminar_actividad':
+        $id_reserva = $_GET['id_reserva'] ?? null;
+        $id_servicio = $_GET['id_servicio'] ?? null;
+    
+        if ($id_reserva && $id_servicio) {
+            $actividades = new Actividades();
+            $exito = $actividades->eliminarActividad((int)$id_reserva, (int)$id_servicio);
+            header("Location: index.php?action=actividades&id_reserva=$id_reserva");
+        } else {
+            header("Location: index.php?action=actividades&error=param");
+        }
+        exit;
+        
     case 'reservas_admin':
         if (isset($_POST['action']) && $_POST['action'] === 'eliminar_reserva') {
             $id_reserva = $_POST['id_reserva'] ?? null;

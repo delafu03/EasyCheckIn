@@ -22,7 +22,7 @@
         </div>
         <div class="contenido">
             <p>Accede a tus <a href="index.php?action=reservas"> reservas</a> </p>
-            <p>O añade ya una <a href="index.php?action=actividades"> actividad</a> para realizar en tu viaje</p>
+            <!-- <p>O añade ya una <a href="index.php?action=actividades"> actividad</a> para realizar en tu viaje</p> -->
         </div>
     <?php endif; ?>
 

@@ -1,30 +1,44 @@
-<main>
-    <h1>Lista de Actividades disponibles</h1>
-    <div class="contenido">
-        <h2>Actividades al Aire Libre</h2>
-        <ul>
-            <li>Senderismo en la montaña</li>
-            <li>Paseo en bicicleta</li>
-            <li>Picnic en el parque</li>
-            <li>Excursión a la playa</li>
-        </ul>
-    </div>
-    <div class="contenido">
-        <h2>Actividades Culturales</h2>
-        <ul>
-            <li>Visita a museos</li>
-            <li>Recorrido por el centro histórico</li>
-            <li>Asistencia a conciertos</li>
-            <li>Exploración de galerías de arte</li>
-        </ul>
-    </div>
-    <div class="contenido">
-        <h2>Actividades de Aventura</h2>
-        <ul>
-            <li>Parapente</li>
-            <li>Rafting</li>
-            <li>Escalada</li>
-            <li>Submarinismo</li>
-        </ul>
-    </div>
-</main>
+<h2>Actividades no contratadas</h2>
+<?php if (!empty($servicios_disponibles)) { ?>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio (€)</th>
+            <th>Contratar</th>
+        </tr>
+        <?php foreach ($servicios_disponibles as $actividad) { ?>
+            <tr>
+                <td><?= htmlspecialchars($actividad->nombre) ?></td>
+                <td><?= htmlspecialchars($actividad->descripcion) ?></td>
+                <td><?= number_format($actividad->precio, 2) ?></td>
+                <td>
+                    <a href="index.php?action=contratar_actividad&id_reserva=<?= $id_reserva ?>&id_servicio=<?= $actividad->id_servicio ?>" class="btn">Contratar</a>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
+<?php } else { ?>
+    <p>No hay actividades nuevas disponibles.</p>
+<?php } ?>
+
+<h2>Actividades ya contratadas</h2>
+<?php if (!empty($servicios_contratados)) { ?>
+    <table>
+        <tr>
+            <th>Nombre</th><th>Descripción</th><th>Precio (€)</th><th>Borrar</th>
+        </tr>
+        <?php foreach ($servicios_contratados as $actividad) { ?>
+            <tr>
+                <td><?= htmlspecialchars($actividad->nombre) ?></td>
+                <td><?= htmlspecialchars($actividad->descripcion) ?></td>
+                <td><?= number_format($actividad->precio, 2) ?></td>
+                <td>
+                    <a href="index.php?action=eliminar_actividad&id_reserva=<?= $id_reserva ?>&id_servicio=<?= $actividad->id_servicio ?>" class="btn" onclick="return confirm('¿Estás seguro de que deseas eliminar esta actividad?');">Eliminar</a>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
+<?php } else { ?>
+    <p>No has contratado ninguna actividad todavía.</p>
+<?php } ?>
