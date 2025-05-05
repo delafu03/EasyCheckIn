@@ -13,7 +13,11 @@
                 <td><?= htmlspecialchars($actividad->descripcion) ?></td>
                 <td><?= number_format($actividad->precio, 2) ?></td>
                 <td>
-                    <a href="index.php?action=contratar_actividad&id_reserva=<?= $id_reserva ?>&id_servicio=<?= $actividad->id_servicio ?>" class="btn">Contratar</a>
+                    <form action="index.php?action=contratar_actividad" method="post">
+                        <input type="hidden" name="id_reserva" value="<?= $id_reserva ?>">
+                        <input type="hidden" name="id_servicio" value="<?= $actividad->id_servicio ?>">
+                        <button type="submit" class="btn">Contratar</button>
+                    </form>
                 </td>
             </tr>
         <?php } ?>
@@ -34,7 +38,11 @@
                 <td><?= htmlspecialchars($actividad->descripcion) ?></td>
                 <td><?= number_format($actividad->precio, 2) ?></td>
                 <td>
-                    <a href="index.php?action=eliminar_actividad&id_reserva=<?= $id_reserva ?>&id_servicio=<?= $actividad->id_servicio ?>" class="btn" onclick="return confirm('¿Estás seguro de que deseas eliminar esta actividad?');">Eliminar</a>
+                    <form action="index.php?action=eliminar_actividad" method="post" onsubmit="return confirm('¿Eliminar actividad?');">
+                        <input type="hidden" name="id_reserva" value="<?= $id_reserva ?>">
+                        <input type="hidden" name="id_servicio" value="<?= $actividad->id_servicio ?>">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
                 </td>
             </tr>
         <?php } ?>

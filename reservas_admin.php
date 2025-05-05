@@ -1,46 +1,33 @@
-<div class="container">
+<div class="container-reservas-admin">
     <h1>Gestión de Reservas</h1>
 
     <a href="index.php?action=reserva_vacia" class="btn btn-primary mb-3">Crear Reserva Vacía</a>
 
     <?php if (!empty($reservas)): ?>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Id Usuarios</th>
-                    <th>Fecha Entrada</th>
-                    <th>Fecha Salida</th>
-                    <th>Estado</th>
-                    <th>Guardar</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($reservas as $reserva): ?>
-                    <tr>
-                        <?php
-                            $form = new FormularioReserva($reserva);
-                            echo $form->gestiona(); 
-                        ?>
-                        <td>
-                            <!-- Botón de eliminar -->
-                            <form method="post" action="index.php?action=reservas_admin" style="display:inline;">
-                                <input type="hidden" name="action" value="eliminar_reserva">
-                                <input type="hidden" name="id_reserva" value="<?= htmlspecialchars($reserva->id_reserva) ?>">
-                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                            </form>
+        <div class="reservas-admin-wrapper">
+            <?php foreach ($reservas as $reserva): ?>
+                <div class="reserva-admin-card">
+                    <?php
+                        $form = new FormularioReserva($reserva);
+                        echo $form->gestiona(); 
+                    ?>
 
-                            <!-- Botón de check-in -->
-                            <form method="post" action="index.php?action=checkin" style="display:inline;">
-                                <input type="hidden" name="id_reserva" value="<?= htmlspecialchars($reserva->id_reserva) ?>">
-                                <button type="submit" class="btn btn-success btn-sm">Check-In</button>
-                            </form>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                    <div class="acciones-admin">
+                        <form method="get" action="index.php?action=checkin&id_reserva=<?= $reserva->id_reserva ?>">
+                            <input type="hidden" name="action" value="checkin">
+                            <input type="hidden" name="id_reserva" value="<?= htmlspecialchars($reserva->id_reserva) ?>">
+                            <button type="submit" class="btn btn-success">Check-In</button>
+                        </form>
+
+                        <form method="post" action="index.php?action=reservas_admin">
+                            <input type="hidden" name="action" value="eliminar_reserva">
+                            <input type="hidden" name="id_reserva" value="<?= htmlspecialchars($reserva->id_reserva) ?>">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
     <?php else: ?>
         <p>No hay reservas registradas en este momento.</p>
     <?php endif; ?>
