@@ -11,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php else: ?>
     <?php foreach ($usuarios as $usuario): ?>
         <?php
-        $fechaNacimiento = !empty($usuario['fecha_nacimiento']) ? $usuario['fecha_nacimiento'] : date('Y-m-d', strtotime('-14 years'));
-        $fechaExpedicion = !empty($usuario['fecha_expedicion']) ? $usuario['fecha_expedicion'] : date('Y-m-d', strtotime('-14 years'));
+        $fechaNacimiento = !empty($usuario->fecha_nacimiento) ? $usuario->fecha_nacimiento : date('Y-m-d', strtotime('-14 years'));
+        $fechaExpedicion = !empty($usuario->fecha_expedicion) ? $usuario->fecha_expedicion : date('Y-m-d', strtotime('-14 years'));
         $form = new FormularioCheckIn($usuario, $id_reserva);
         echo $form->gestiona();
         ?>

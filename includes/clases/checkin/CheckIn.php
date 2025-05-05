@@ -55,7 +55,22 @@ class CheckIn {
             }
     
             $stmt->execute();
-            $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $usuarios = [];
+            while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $usuarios[] = new CheckInModelo(
+                    $fila['id_usuario'],
+                    $fila['nombre'],
+                    $fila['correo'],
+                    $fila['rol'] ?? null,
+                    $fila['numero_documento'] ?? null,
+                    $fila['sexo'] ?? null,
+                    $fila['apellidos'] ?? null,
+                    $fila['fecha_nacimiento'] ?? null,
+                    $fila['nacionalidad'] ?? null,
+                    $fila['pais'] ?? null,
+                    $fila['direccion'] ?? null
+                );
+            }
             $stmt->closeCursor();
             return $usuarios;
         } catch (PDOException $e) {
@@ -133,9 +148,21 @@ class CheckIn {
             $stmt = $this->db->prepare($sql);
             $stmt->bindValue(":dni", $dni, PDO::PARAM_STR);
             $stmt->execute();
-            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+            $fila = $stmt->fetch(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
-            return $usuario;
+            return $fila ? new UsuarioModelo(
+                $fila['id_usuario'],
+                $fila['nombre'],
+                $fila['correo'],
+                $fila['rol'] ?? null,
+                $fila['numero_documento'] ?? null,
+                $fila['sexo'] ?? null,
+                $fila['apellidos'] ?? null,
+                $fila['fecha_nacimiento'] ?? null,
+                $fila['nacionalidad'] ?? null,
+                $fila['pais'] ?? null,
+                $fila['direccion'] ?? null
+            ) : null;
         } catch (PDOException $e) {
             return null;
         }
@@ -170,19 +197,19 @@ class CheckIn {
             $usuarioEncontrado = $this->buscarUsuarioPorDNI($dni);
     
             if ($usuarioEncontrado) {
-                $id_usuario_encontrado = (int)$usuarioEncontrado["id_usuario"];
+                $id_usuario_encontrado = (int)$usuarioEncontrado->id_usuario;
                 
                 if ($id_usuario_encontrado === $id_usuario_actual) {
                     $this->procesarCheckIn([
                         "id_usuario" => $id_usuario_actual,
-                        "numero_documento" => $usuarioEncontrado["numero_documento"],
-                        "sexo" => $usuarioEncontrado["sexo"],
-                        "nombre" => $usuarioEncontrado["nombre"],
-                        "apellidos" => $usuarioEncontrado["apellidos"],
-                        "fecha_nacimiento" => $usuarioEncontrado["fecha_nacimiento"],
-                        "nacionalidad" => $usuarioEncontrado["nacionalidad"],
-                        "pais" => $usuarioEncontrado["pais"],
-                        "direccion" => $usuarioEncontrado["direccion"],
+                        "numero_documento" => $usuarioEncontrado->numero_documento,
+                        "sexo" => $usuarioEncontrado->sexo,
+                        "nombre" => $usuarioEncontrado->nombre,
+                        "apellidos" => $usuarioEncontrado->apellidos,
+                        "fecha_nacimiento" => $usuarioEncontrado->fecha_nacimiento,
+                        "nacionalidad" => $usuarioEncontrado->nacionalidad,
+                        "pais" => $usuarioEncontrado->pais,
+                        "direccion" => $usuarioEncontrado->direccion,
                     ]);
                 } else {
                     $this->actualizarUsuarioEnReserva($id_reserva, $id_usuario_actual, $id_usuario_encontrado);

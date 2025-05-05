@@ -15,17 +15,17 @@
             <tbody>
                 <?php foreach ($valoraciones as $valoracion) { ?>
                     <tr>
-                        <td><?= htmlspecialchars($valoracion['id_valoracion']) ?></td>
-                        <td><?= htmlspecialchars($valoracion['id_reserva']) ?></td>
-                        <td><?= htmlspecialchars($valoracion['nombre_usuario']) ?></td>
+                        <td><?= htmlspecialchars($valoracion->id_valoracion) ?></td>
+                        <td><?= htmlspecialchars($valoracion->id_reserva) ?></td>
+                        <td><?= htmlspecialchars($valoracion->nombre_usuario) ?></td>
                         <td>
                         <?php
                         for ($i = 1; $i <= 5; $i++) {
-                            echo '<span class="estrella_admin">' . ($i <= $valoracion['puntuacion'] ? '★' : '☆') . '</span>';
+                            echo '<span class="estrella_admin">' . ($i <= $valoracion->puntuacion ? '★' : '☆') . '</span>';
                         }
                         ?>
                         </td>
-                        <td><?= nl2br(htmlspecialchars($valoracion['comentario'])) ?></td>
+                        <td><?= nl2br(htmlspecialchars($valoracion->comentario)) ?></td>
                     </tr>
                 <?php } ?>
             </tbody>

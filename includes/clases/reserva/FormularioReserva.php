@@ -10,11 +10,11 @@ class FormularioReserva extends Formulario
 
     protected function generaCamposFormulario(&$datos)
     {
-        $id = $datos['id_reserva'] ?? $this->reserva['id_reserva'] ?? '';
-        $usuarios = $datos['usuarios_ids'] ?? (isset($this->reserva['usuarios_ids']) ? implode(',', json_decode($this->reserva['usuarios_ids'], true)) : '');
-        $fechaEntrada = $datos['fecha_entrada'] ?? $this->reserva['fecha_entrada'] ?? '';
-        $fechaSalida = $datos['fecha_salida'] ?? $this->reserva['fecha_salida'] ?? '';
-        $estado = $datos['estado'] ?? $this->reserva['estado'] ?? 'pendiente';
+        $id = $datos['id_reserva'] ?? $this->reserva->id_reserva ?? '';
+        $usuarios = $datos['usuarios_ids'] ?? (isset($this->reserva->usuarios_ids) ? implode(',', json_decode($this->reserva->usuarios_ids, true)) : '');
+        $fechaEntrada = $datos['fecha_entrada'] ?? $this->reserva->fecha_entrada ?? '';
+        $fechaSalida = $datos['fecha_salida'] ?? $this->reserva->fecha_salida ?? '';
+        $estado = $datos['estado'] ?? $this->reserva->estado ?? 'pendiente';        
 
         $htmlErroresGlobales = self::generaListaErroresGlobales($this->errores);
         $erroresCampos = self::generaErroresCampos(['usuarios_ids', 'fecha_entrada', 'fecha_salida', 'estado'], $this->errores, 'span', ['class' => 'error']);

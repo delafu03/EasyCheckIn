@@ -27,13 +27,13 @@
                             <!-- Botón de eliminar -->
                             <form method="post" action="index.php?action=reservas_admin" style="display:inline;">
                                 <input type="hidden" name="action" value="eliminar_reserva">
-                                <input type="hidden" name="id_reserva" value="<?= htmlspecialchars($reserva['id_reserva']) ?>">
+                                <input type="hidden" name="id_reserva" value="<?= htmlspecialchars($reserva->id_reserva) ?>">
                                 <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                             </form>
 
                             <!-- Botón de check-in -->
                             <form method="post" action="index.php?action=checkin" style="display:inline;">
-                                <input type="hidden" name="id_reserva" value="<?= htmlspecialchars($reserva['id_reserva']) ?>">
+                                <input type="hidden" name="id_reserva" value="<?= htmlspecialchars($reserva->id_reserva) ?>">
                                 <button type="submit" class="btn btn-success btn-sm">Check-In</button>
                             </form>
                         </td>

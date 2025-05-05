@@ -10,6 +10,7 @@ require_once 'includes/clases/usuarios/FormularioLogin.php';
 require_once 'includes/clases/usuarios/FormularioRegister.php';
 
 require_once 'includes/clases/checkin/CheckIn.php';
+require_once 'includes/clases/checkin/CheckInModelo.php';
 require_once 'includes/clases/checkin/FormularioCheckIn.php';
 
 require_once 'includes/clases/reserva/Reserva.php';

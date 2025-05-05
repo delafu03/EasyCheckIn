@@ -3,7 +3,7 @@
 class FormularioCheckIn extends Formulario
 {
     public function __construct($usuario = [], $id_reserva = '') {
-        $tipoFormulario = 'formCheckIn-' . ($usuario['id_usuario'] ?? 'nuevo');
+        $tipoFormulario = 'formCheckIn-' . ($usuario->id_usuario ?? 'nuevo');
         parent::__construct($tipoFormulario, [
             'class' => 'form-container-checkin',
             'urlRedireccion' => "index.php?action=checkin&id_reserva=$id_reserva"
@@ -14,19 +14,19 @@ class FormularioCheckIn extends Formulario
 
     protected function generaCamposFormulario(&$datos)
     {
-        $id_usuario = $this->usuario['id_usuario'] ?? '';
-        $nombre = $this->usuario['nombre'] ?? '';
-        $apellidos = $this->usuario['apellidos'] ?? '';
-        $tipo_documento = $this->usuario['tipo_documento'] ?? 'DNI';
-        $numero_documento = $this->usuario['numero_documento'] ?? '';
-        $fecha_nacimiento = $this->usuario['fecha_nacimiento'] ?? date('Y-m-d', strtotime('-14 years'));
-        $fecha_expedicion = $this->usuario['fecha_expedicion'] ?? date('Y-m-d', strtotime('-14 years'));
-        $num_soporte = $this->usuario['num_soporte'] ?? '';
-        $sexo = $this->usuario['sexo'] ?? '';
-        $nacionalidad = $this->usuario['nacionalidad'] ?? '';
-        $pais = $this->usuario['pais'] ?? '';
-        $direccion = $this->usuario['direccion'] ?? '';
-        $correo = $this->usuario['correo'] ?? '';
+        $id_usuario = $this->usuario->id_usuario ?? '';
+        $nombre = $this->usuario->nombre ?? '';
+        $apellidos = $this->usuario->apellidos ?? '';
+        $tipo_documento = $this->usuario->tipo_documento ?? 'DNI';
+        $numero_documento = $this->usuario->numero_documento ?? '';
+        $fecha_nacimiento = $this->usuario->fecha_nacimiento ?? date('Y-m-d', strtotime('-14 years'));
+        $fecha_expedicion = $this->usuario->fecha_expedicion ?? date('Y-m-d', strtotime('-14 years'));
+        $num_soporte = $this->usuario->num_soporte ?? '';
+        $sexo = $this->usuario->sexo ?? '';
+        $nacionalidad = $this->usuario->nacionalidad ?? '';
+        $pais = $this->usuario->pais ?? '';
+        $direccion = $this->usuario->direccion ?? '';
+        $correo = $this->usuario->correo ?? '';
 
         $selDNI = ($tipo_documento === 'DNI') ? 'selected' : '';
         $selPasaporte = ($tipo_documento === 'Pasaporte') ? 'selected' : '';
@@ -60,7 +60,7 @@ class FormularioCheckIn extends Formulario
                         class="buscarBtn"
                         data-id-usuario="$id_usuario"
                         data-id-reserva="{$this->id_reserva}"
-                        data-documento-original="{$this->usuario['numero_documento']}">
+                        data-documento-original="{$this->usuario->numero_documento}">
                         Buscar
                     </button>
                 </div>
@@ -127,7 +127,7 @@ class FormularioCheckIn extends Formulario
 
     protected function procesaFormulario(&$datos)
     {
-        error_log("Procesando FormularioCheckIn para ID: " . ($datos['id_usuario'] ?? 'N/A'));
+        error_log("Procesando FormularioCheckIn para ID: " . ($datos->id_usuario ?? 'N/A'));
 
         $checkIn = new CheckIn();
         $resultado = $checkIn->procesarCheckIn($datos);
