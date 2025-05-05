@@ -32,9 +32,12 @@ class Valoraciones {
             $stmt->bindValue(':id_usuario', $id_usuario, PDO::PARAM_INT);
             $stmt->bindValue(':id_reserva', $id_reserva, PDO::PARAM_INT);
             $stmt->execute();
-            $valoracion = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            $fila = $stmt->fetch(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
-            return $valoracion ?: null;
+    
+            return $fila ? new Valoracion($fila['comentario'], $fila['puntuacion']) : null;
+    
         } catch (PDOException $e) {
             error_log("Error al obtener la valoración: " . $e->getMessage());
             return null;
@@ -49,9 +52,19 @@ class Valoraciones {
                     ORDER BY v.id_valoracion DESC";
             $stmt = $this->db->prepare($sql);
             $stmt->execute();
-            $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+            $valoraciones = [];
+            while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $valoraciones[] = new Valoracion(
+                    $fila['comentario'],
+                    $fila['puntuacion'],
+                    $fila['id_valoracion'],
+                    $fila['id_reserva'],
+                    $fila['nombre_usuario']
+                );
+            }
             $stmt->closeCursor();
-            return $resultado ?: [];
+            return $valoraciones;
         } catch (PDOException $e) {
             error_log("Error al obtener todas las valoraciones: " . $e->getMessage());
             return [];

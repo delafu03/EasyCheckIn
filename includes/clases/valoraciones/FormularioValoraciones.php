@@ -17,8 +17,8 @@ class FormularioValoraciones extends Formulario
         $valoracionModel = new Valoraciones();
         $valoracionExistente = $valoracionModel->obtenerValoracion($idUsuario, $this->idReserva);
     
-        $comentario = $valoracionExistente['comentario'] ?? '';
-        $puntuacion = $valoracionExistente['puntuacion'] ?? '';
+        $comentario = $valoracionExistente ? $valoracionExistente->comentario : '';
+        $puntuacion = $valoracionExistente ? $valoracionExistente->puntuacion : '';        
 
         $html = '
             <input type="hidden" name="id_reserva" value="' . htmlspecialchars($this->idReserva) . '">

@@ -15,6 +15,7 @@ require_once 'includes/clases/reserva/Reserva.php';
 require_once 'includes/clases/reserva/FormularioReserva.php';
 
 require_once 'includes/clases/valoraciones/Valoraciones.php';
+require_once 'includes/clases/valoraciones/Valoracion.php';
 require_once 'includes/clases/valoraciones/FormularioValoraciones.php';
 
 require_once 'includes/clases/actividades/Actividades.php';
