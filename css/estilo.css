@@ -665,3 +665,64 @@ input, select {
     display: block;
     margin-bottom: 0.3em;
 }
+
+.editar-perfil-container {
+    margin-top: 50px !important;
+    background-color: #f9f9f9;
+    border: 2px solid #0b3d91;
+    border-radius: 10px;
+    padding: 30px;
+    padding-right: 50px;
+    width: 350px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.editar-perfil-titulo {
+    text-align: center;
+    color: #0b3d91;
+    margin-bottom: 25px;
+}
+
+.editar-perfil-grupo {
+    margin-bottom: 20px;
+}
+
+.editar-perfil-grupo label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.editar-perfil-grupo input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.editar-perfil-error {
+    color: red;
+    font-size: 0.85em;
+    margin-top: 5px;
+    display: block;
+}
+
+.boton-centrado-guardar {
+    background-color: #ffa500;
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0 auto;
+    transition: background-color 0.3s ease;
+}
+
+.boton-centrado-guardar:hover {
+    background-color: #e69500;
+}
+

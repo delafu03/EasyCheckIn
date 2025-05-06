@@ -44,7 +44,7 @@ class Usuario {
                 $_SESSION['correo'] = $correo;
                 $_SESSION['rol'] = $usuario['rol']; // Almacenar el rol del usuario
 
-                return header('Location: perfil.php');
+                return header('Location: index.php?action=editarPerfil');
             } else {
                 $_SESSION['error'] = true;
                 unset($_SESSION["correo"]);
@@ -164,5 +164,12 @@ class Usuario {
         }
     }
 
-   
+    public function editarPerfil() {
+        session_start();
+        $usuario = $this->buscaUsuarioPorCorreo($_SESSION['correo']);
+
+        $tituloPagina = 'Usuarios EasyCheckIn';
+        $vista = __DIR__ . '/../../../editarPerfil.php';
+        include __DIR__ . '/../../views/plantillas/plantilla.php';
+    }
 }

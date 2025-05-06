@@ -32,7 +32,6 @@ if (session_status() == PHP_SESSION_NONE) {
         </ul>
        <div class="auth-buttons">
             <?php if (isset($_SESSION["usuario_id"])): ?>
-                <span class="user-email"><?php echo htmlspecialchars($_SESSION['correo']); ?></span>
                 <div class="auth-buttons-container">
                     <a href="index.php?action=editarPerfil" class="btn btn-editar">Editar Perfil</a>
                     <a href="index.php?action=logout" class="btn btn-logout">Cerrar sesión</a>

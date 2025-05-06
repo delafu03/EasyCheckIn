@@ -14,7 +14,6 @@ require_once 'includes/clases/usuarios/formularioEditar.php';
 require_once 'includes/clases/checkin/CheckIn.php';
 require_once 'includes/clases/checkin/CheckInModelo.php';
 require_once 'includes/clases/checkin/FormularioCheckIn.php';
-require_once 'includes/clases/checkin/perfilContenido.php';
 
 
 require_once 'includes/clases/reserva/Reserva.php';
@@ -140,10 +139,9 @@ switch ($action) {
         $tituloPagina = 'Iniciar Sesión';
         $vista = 'login.php'; 
         break;
-    case 'editarPerfil': 
-        $tituloPagina = 'Editar Perfil';
-        $vista = 'editarPerfil.php'; 
-        break;
+    case 'editarPerfil':
+        (new Usuario())->editarPerfil();
+        exit;
 
     case 'valoraciones_admin':
         (new Valoraciones())->mostrarValoraciones();
