@@ -12,7 +12,7 @@ class UsuarioModelo {
         $this->rol = $rol;
     }
 
-    public function getIdUsuario() {
+    public function getId() {
         return $this->id_usuario;
     }
 
@@ -23,4 +23,5 @@ class UsuarioModelo {
     public function getCorreo() {
         return $this->correo;
     }
+    
 }

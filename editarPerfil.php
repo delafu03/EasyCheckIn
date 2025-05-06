@@ -4,14 +4,11 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 require_once 'includes/config.php';
-require_once 'includes/clases/usuarios/UsuarioModelo.php';
-require_once 'includes/clases/formularios/FormularioEditarPerfil.php';
+require_once 'includes/clases/usuarios/formularioEditar.php';
 
-$tituloPagina = 'Editar Perfil - EasyCheckIn';
-
-// Crear una instancia del formulario
+if (!isset($_SESSION['correo'])) {
+    die("Error: No se ha iniciado sesión o no se ha configurado el correo.");
+}
 $formulario = new FormularioEditarPerfil($_SESSION['correo']);
 $htmlFormulario = $formulario->gestiona();
-
-$vista = __DIR__ . '/includes/views/formulario.php';
-include __DIR__ . '/includes/views/plantillas/plantilla.php';
+echo $htmlFormulario;

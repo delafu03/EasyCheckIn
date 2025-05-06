@@ -8,6 +8,7 @@ require_once 'includes/clases/usuarios/Usuario.php';
 require_once 'includes/clases/usuarios/UsuarioModelo.php';
 require_once 'includes/clases/usuarios/FormularioLogin.php';
 require_once 'includes/clases/usuarios/FormularioRegister.php';
+require_once 'includes/clases/usuarios/formularioEditar.php';
 
 
 require_once 'includes/clases/checkin/CheckIn.php';
@@ -143,6 +144,7 @@ switch ($action) {
         $tituloPagina = 'Editar Perfil';
         $vista = 'editarPerfil.php'; 
         break;
+
     case 'valoraciones_admin':
         (new Valoraciones())->mostrarValoraciones();
         break;

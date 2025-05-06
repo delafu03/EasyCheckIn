@@ -97,6 +97,7 @@ class Usuario {
         }
     }
 
+   
     public function buscaUsuarioPorCorreo($correo) {
         try {
             $stmt = $this->db->prepare("SELECT id_usuario, nombre, correo FROM usuarios WHERE correo = :correo");
@@ -151,6 +152,7 @@ class Usuario {
         $vista = __DIR__ . '/../../../usuarios_admin.php';
         include __DIR__ . '/../../views/plantillas/plantilla.php';
     }
+    
     public function actualizaUsuario($idUsuario, $nombre, $correo, $password = null) {
         if ($password) {
             $passwordHash = password_hash($password, PASSWORD_DEFAULT);
@@ -161,4 +163,6 @@ class Usuario {
             return $stmt->execute([':nombre' => $nombre, ':correo' => $correo, ':id' => $idUsuario]);
         }
     }
+
+   
 }
