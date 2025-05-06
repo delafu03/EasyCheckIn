@@ -9,9 +9,12 @@ require_once 'includes/clases/usuarios/UsuarioModelo.php';
 require_once 'includes/clases/usuarios/FormularioLogin.php';
 require_once 'includes/clases/usuarios/FormularioRegister.php';
 
+
 require_once 'includes/clases/checkin/CheckIn.php';
 require_once 'includes/clases/checkin/CheckInModelo.php';
 require_once 'includes/clases/checkin/FormularioCheckIn.php';
+require_once 'includes/clases/checkin/perfilContenido.php';
+
 
 require_once 'includes/clases/reserva/Reserva.php';
 require_once 'includes/clases/reserva/ReservaModelo.php';
@@ -23,6 +26,7 @@ require_once 'includes/clases/valoraciones/FormularioValoraciones.php';
 
 require_once 'includes/clases/actividades/Actividades.php';
 require_once 'includes/clases/actividades/Servicio.php';
+
 
 $action = $_GET['action'] ?? 'home';
 $id_reserva = $_GET['id_reserva'] ?? null;
@@ -134,6 +138,10 @@ switch ($action) {
     case 'login':
         $tituloPagina = 'Iniciar Sesión';
         $vista = 'login.php'; 
+        break;
+    case 'editarPerfil': 
+        $tituloPagina = 'Editar Perfil';
+        $vista = 'editarPerfil.php'; 
         break;
     case 'valoraciones_admin':
         (new Valoraciones())->mostrarValoraciones();

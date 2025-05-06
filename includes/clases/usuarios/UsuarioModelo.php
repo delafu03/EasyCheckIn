@@ -11,4 +11,16 @@ class UsuarioModelo {
         $this->correo = $correo;
         $this->rol = $rol;
     }
+
+    public function getIdUsuario() {
+        return $this->id_usuario;
+    }
+
+    public function getNombre() {
+        return $this->nombre;
+    }
+
+    public function getCorreo() {
+        return $this->correo;
+    }
 }

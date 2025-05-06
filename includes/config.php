@@ -23,7 +23,7 @@
 define('BD_HOST', 'localhost');
 define('BD_NAME', 'checkin_hotel');
 define('BD_USER', 'root');
-define('BD_PASS', '1234');
+define('BD_PASS', '');
 
 /**
  * Parámetros de configuración utilizados para generar las URLs y las rutas a ficheros en la aplicación

@@ -30,12 +30,15 @@ if (session_status() == PHP_SESSION_NONE) {
 
             <li><a href="<?php echo RUTA_APP; ?>/index.php?action=faq">FAQ</a></li>      
         </ul>
-        <div class="auth-buttons"> 
+       <div class="auth-buttons">
             <?php if (isset($_SESSION["usuario_id"])): ?>
-                <span><?php echo htmlspecialchars($_SESSION['correo']); ?></span>
-                <a href="index.php?action=logout" class="btn-logout">Cerrar sesión</a>
+                <span class="user-email"><?php echo htmlspecialchars($_SESSION['correo']); ?></span>
+                <div class="auth-buttons-container">
+                    <a href="index.php?action=editarPerfil" class="btn btn-editar">Editar Perfil</a>
+                    <a href="index.php?action=logout" class="btn btn-logout">Cerrar sesión</a>
+                </div>
             <?php else: ?>
-                <a href="index.php?action=login" class="btn-login">Iniciar sesión</a>
+                <a href="index.php?action=login" class="btn btn-login">Iniciar sesión</a>
             <?php endif; ?>
         </div>
     </nav>    

@@ -44,7 +44,7 @@ class Usuario {
                 $_SESSION['correo'] = $correo;
                 $_SESSION['rol'] = $usuario['rol']; // Almacenar el rol del usuario
 
-                return ["success" => "Inicio de sesión exitoso."];
+                return header('Location: perfil.php');
             } else {
                 $_SESSION['error'] = true;
                 unset($_SESSION["correo"]);
@@ -150,5 +150,15 @@ class Usuario {
         $tituloPagina = 'Usuarios EasyCheckIn';
         $vista = __DIR__ . '/../../../usuarios_admin.php';
         include __DIR__ . '/../../views/plantillas/plantilla.php';
+    }
+    public function actualizaUsuario($idUsuario, $nombre, $correo, $password = null) {
+        if ($password) {
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+            $stmt = $this->db->prepare("UPDATE usuarios SET nombre = :nombre, correo = :correo, password_hash = :password WHERE id_usuario = :id");
+            return $stmt->execute([':nombre' => $nombre, ':correo' => $correo, ':password' => $passwordHash, ':id' => $idUsuario]);
+        } else {
+            $stmt = $this->db->prepare("UPDATE usuarios SET nombre = :nombre, correo = :correo WHERE id_usuario = :id");
+            return $stmt->execute([':nombre' => $nombre, ':correo' => $correo, ':id' => $idUsuario]);
+        }
     }
 }
