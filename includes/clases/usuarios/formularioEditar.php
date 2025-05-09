@@ -1,6 +1,4 @@
 <?php
-require_once 'includes/clases/usuarios/UsuarioModelo.php';
-require_once 'includes/clases/usuarios/Usuario.php';
 
 class FormularioEditarPerfil extends Formulario {
 
@@ -17,8 +15,10 @@ class FormularioEditarPerfil extends Formulario {
 
         $nombre = $this->usuario->nombre ?? '';
         $correo = $this->usuario->correo ?? '';
+        $nombreJS = json_encode($nombre);
+        $correoJS = json_encode($correo);
         $htmlErroresGlobales = self::generaListaErroresGlobales($this->errores);
-        $erroresCampos = self::generaErroresCampos(['nombre', 'correo', 'password', 'confirmar_password'], $this->errores, 'span', ['class' => 'error']);
+        $erroresCampos = self::generaErroresCampos(['nombre', 'correo', 'password', 'confirmar_password', 'general'], $this->errores, 'span', ['class' => 'error']);
 
         return <<<EOF
             <div class="editar-perfil-container">
@@ -26,12 +26,12 @@ class FormularioEditarPerfil extends Formulario {
                 $htmlErroresGlobales
                 <div class="editar-perfil-grupo">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" value="">
+                    <input type="text" id="nombre" name="nombre" value="{$this->escapa($nombre)}">
                     <span class="editar-perfil-error">{$erroresCampos['nombre']}</span>
                 </div>
                 <div class="editar-perfil-grupo">
                     <label for="correo">Correo Electrónico:</label>
-                    <input type="email" id="correo" name="correo" value="">
+                    <input type="email" id="correo" name="correo" value="{$this->escapa($correo)}">
                     <span class="editar-perfil-error">{$erroresCampos['correo']}</span>
                 </div>
                 <div class="editar-perfil-grupo">
@@ -44,30 +44,9 @@ class FormularioEditarPerfil extends Formulario {
                     <input type="password" id="confirmar_password" name="confirmar_password">
                     <span class="editar-perfil-error">{$erroresCampos['confirmar_password']}</span>
                 </div>
-                <button type="submit" class="boton-centrado-guardar" onclick="return validarCambios()">Guardar Cambios</button>
+                <button type="submit" id="guardarCambiosBtn" class="boton-centrado-guardar" disabled>Guardar Cambios</button>
+                <span class="editar-perfil-error general">{$erroresCampos['general']}</span>
             </div>
-
-            <script>
-                function validarCambios() {
-                    const nombre = document.getElementById('nombre').value.trim();
-                    const confirmarNombre = document.getElementById('confirmar_nombre').value.trim();
-                    const correo = document.getElementById('correo').value.trim();
-                    const confirmarCorreo = document.getElementById('confirmar_correo').value.trim();
-                    const password = document.getElementById('password').value.trim();
-                    const confirmarPassword = document.getElementById('confirmar_password').value.trim();
-
-                    if (
-                        (!nombre && !confirmarNombre) &&
-                        (!correo && !confirmarCorreo) &&
-                        (!password && !confirmarPassword)
-                    ) {
-                        alert('No se realizaron cambios. Por favor, modifique al menos un campo antes de guardar.');
-                        return false; 
-                    }
-
-                    return true; // Permite el envío del formulario
-                }
-            </script>
         EOF;
     }
 
@@ -77,7 +56,7 @@ class FormularioEditarPerfil extends Formulario {
         $password = trim($datos['password'] ?? '');
         $confirmarPassword = trim($datos['confirmar_password'] ?? '');
 
-
+        
         if (!$this->usuario) {
             $this->errores['general'] = 'Usuario no encontrado.';
             return null;
@@ -86,18 +65,21 @@ class FormularioEditarPerfil extends Formulario {
         $nombreActual = $this->usuario->nombre;
         $correoActual = $this->usuario->correo;
 
+        error_log("Nombre POST: $nombre, Nombre actual: $nombreActual");
+        error_log("Correo POST: $correo, Correo actual: $correoActual");
+
         if (!empty($password)) {
             if (empty($confirmarPassword) || $password !== $confirmarPassword) {
                 $this->errores['confirmar_password'] = 'La contraseña y su confirmación no coinciden.';
             } 
-            elseif (mb_strlen($password) < 6) {
-                $this->errores['password'] = 'La contraseña debe tener al menos 6 caracteres.';
+            elseif (mb_strlen($password) < 4) {
+                $this->errores['password'] = 'La contraseña debe tener al menos 4 caracteres.';
             }
         }
 
         if (
-            (empty($nombre) || $nombre === $nombreActual) &&
-            (empty($correo) || $correo === $correoActual) &&
+            ($nombre === $nombreActual) &&
+            ($correo === $correoActual) &&
             empty($password)
         ) {
             $this->errores['general'] = 'No se realizaron cambios.';
@@ -121,6 +103,7 @@ class FormularioEditarPerfil extends Formulario {
             }
         }
 
+        error_log("Error en la actualización: " . json_encode($this->errores));
         return null;
     }
 }

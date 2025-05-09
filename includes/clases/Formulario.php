@@ -282,4 +282,8 @@ abstract class Formulario
         EOS;
         return $htmlForm;
     }
+
+    protected function escapa($valor) {
+        return htmlspecialchars($valor ?? '', ENT_QUOTES | ENT_SUBSTITUTE);
+    }
 }

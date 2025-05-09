@@ -105,4 +105,41 @@ document.addEventListener("DOMContentLoaded", () => {
         validarEdad();
     });
 
+    // === DESACTIVAR BOTÓN SI NO HAY CAMBIOS EN FORMULARIO PERFIL ===
+    const nombreInput = document.getElementById('nombre');
+    const correoInput = document.getElementById('correo');
+    const passwordInput = document.getElementById('password');
+    const confirmarInput = document.getElementById('confirmar_password');
+    const guardarBtn = document.getElementById('guardarCambiosBtn');
+
+    if (nombreInput && correoInput && guardarBtn) {
+        const nombreInicial = nombreInput.value.trim();
+        const correoInicial = correoInput.value.trim();
+
+        const hayCambios = () => {
+            const nombre = nombreInput.value.trim();
+            const correo = correoInput.value.trim();
+            const password = passwordInput?.value || "";
+            const confirmar = confirmarInput?.value || "";
+
+            return (
+                nombre !== nombreInicial ||
+                correo !== correoInicial ||
+                password.length > 0 ||
+                confirmar.length > 0
+            );
+        };
+
+        const actualizarBoton = () => {
+            console.log(!hayCambios());
+            guardarBtn.disabled = !hayCambios();
+        };
+
+        [nombreInput, correoInput, passwordInput, confirmarInput].forEach(input => {
+            input?.addEventListener('input', actualizarBoton);
+        });
+
+        actualizarBoton();
+    }
+
 });

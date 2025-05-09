@@ -726,3 +726,11 @@ input, select {
     background-color: #e69500;
 }
 
+.boton-centrado-guardar:disabled {
+    background-color: #ccc;       /* gris claro */
+    color: #666;                  /* texto gris oscuro */
+    cursor: not-allowed;          /* cursor de prohibido */
+    border: 1px solid #999;       /* borde opcional para claridad */
+    opacity: 1;                   /* aseguramos que no se vea borroso */
+}
+
