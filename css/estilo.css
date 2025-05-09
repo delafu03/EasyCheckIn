@@ -630,26 +630,27 @@ input, select {
     border-radius: 4px;
 }
 
-/* Botones de acción */
 .acciones-admin {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5em;
     align-items: center;
+    gap: 10px;
 }
 
 .acciones-admin form {
     margin: 0;
-    display: inline-block;
+    display: inline-flex;
+    width: auto !important; /* fuerza ancho natural */
 }
 
-.acciones-admin form button {
-    display: inline-block;
-}
-
+.acciones-admin form button,
 .acciones-admin a.btn {
     display: inline-block;
+    width: auto !important;    /* evita que se estiren */
+    max-width: max-content;    /* asegura tamaño mínimo */
+    white-space: nowrap;
 }
+
 
 .checkbox-usuarios {
     max-height: 150px;
@@ -732,5 +733,76 @@ input, select {
     cursor: not-allowed;          /* cursor de prohibido */
     border: 1px solid #999;       /* borde opcional para claridad */
     opacity: 1;                   /* aseguramos que no se vea borroso */
+}
+
+.ocultar-boton {
+    display: none;
+}
+
+.barra-acciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.botones-derecha {
+    display: flex;
+    gap: 10px;
+}
+
+.form-filtro {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; /* ← Fuerza una sola fila */
+    align-items: flex-end;
+    gap: 10px;
+    padding: 10px 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    max-width: 95%;
+}
+
+.grupo-filtro {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    width: auto;
+    flex: 0 0 auto;
+}
+
+.grupo-filtro label {
+    font-size: 0.75rem;
+    margin-bottom: 2px;
+    font-weight: 600;
+}
+
+.grupo-filtro input,
+.grupo-filtro select {
+    font-size: 0.85rem;
+    padding: 4px 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.grupo-filtro input[type="text"] {
+    width: 60px;
+}
+
+.grupo-filtro input[type="date"] {
+    width: 107px;
+}
+
+.grupo-filtro select {
+    width: 120px;
+}
+
+.form-filtro button {
+    align-self: flex-end;
+    padding: 5px 12px;
+    font-size: 0.85rem;
+    margin-left: 50px;
 }
 

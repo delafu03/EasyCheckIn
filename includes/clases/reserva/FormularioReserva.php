@@ -69,9 +69,7 @@ class FormularioReserva extends Formulario
             {$erroresCampos['usuarios_ids']}
         </div>
     
-        <div class="acciones">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-        </div>
+        <button type="submit" class="btn btn-primary ocultar-boton">Guardar</button>
         EOF;
     
         return $html;

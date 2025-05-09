@@ -44,7 +44,7 @@ class Usuario {
                 $_SESSION['correo'] = $correo;
                 $_SESSION['rol'] = $usuario['rol']; // Almacenar el rol del usuario
 
-                return header('Location: index.php?action=editarPerfil');
+                return header('Location: index.php');
             } else {
                 $_SESSION['error'] = true;
                 unset($_SESSION["correo"]);

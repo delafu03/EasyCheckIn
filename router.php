@@ -19,6 +19,7 @@ require_once 'includes/clases/checkin/FormularioCheckIn.php';
 require_once 'includes/clases/reserva/Reserva.php';
 require_once 'includes/clases/reserva/ReservaModelo.php';
 require_once 'includes/clases/reserva/FormularioReserva.php';
+require_once 'includes/clases/reserva/FormularioFiltro.php';
 
 require_once 'includes/clases/valoraciones/Valoraciones.php';
 require_once 'includes/clases/valoraciones/Valoracion.php';
@@ -59,6 +60,17 @@ switch ($action) {
         $tituloPagina = 'Preguntas Frecuentes';
         $vista = 'faq.php';
         break;
+    case 'filtro_reservas':
+        $filtros = [
+            'id' => $_POST['id'] ?? null,
+            'estado' => $_POST['estado'] ?? null,
+            'fecha_entrada' => $_POST['fecha_entrada'] ?? null,
+            'fecha_salida' => $_POST['fecha_salida'] ?? null,
+        ];
+        $reserva = new Reserva();
+        $reservas = $reserva->obtenerReservasFiltradas($filtros);
+        include 'filtro_reservas.php';
+        exit;
     case 'actividades':
         $id_reserva = $_POST['id_reserva'] ?? $_GET['id_reserva'] ?? null;
         if ($id_reserva) {

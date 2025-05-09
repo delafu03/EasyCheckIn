@@ -56,8 +56,58 @@ class Reserva {
             error_log("Error en obtenerTodasLasReservas: " . $e->getMessage());
             return [];
         }
-    } 
+    }
 
+    public function obtenerReservasFiltradas($filtros) {
+        try {
+            $sql = "SELECT id_reserva, fecha_entrada, fecha_salida, estado, usuarios_ids FROM reservas WHERE 1=1";
+            $params = [];
+    
+            if (!empty($filtros['id'])) {
+                $sql .= " AND id_reserva = ?";
+                $params[] = $filtros['id'];
+            }
+    
+            if (!empty($filtros['estado'])) {
+                $sql .= " AND estado = ?";
+                $params[] = $filtros['estado'];
+            }
+    
+            if (!empty($filtros['fecha_entrada'])) {
+                $sql .= " AND fecha_entrada >= ?";
+                $params[] = $filtros['fecha_entrada'];
+            }
+    
+            if (!empty($filtros['fecha_salida'])) {
+                $sql .= " AND fecha_salida <= ?";
+                $params[] = $filtros['fecha_salida'];
+            }
+    
+            $sql .= " ORDER BY fecha_entrada ASC";
+    
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute($params);
+    
+            $reservas = [];
+            while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $reservas[] = new ReservaModelo(
+                    $fila['id_reserva'],
+                    $fila['fecha_entrada'],
+                    $fila['fecha_salida'],
+                    $fila['estado'],
+                    $fila['usuarios_ids']
+                );
+            }
+    
+            $stmt->closeCursor();
+            return $reservas;
+    
+        } catch (PDOException $e) {
+            error_log("Error en obtenerReservasFiltradas: " . $e->getMessage());
+            return [];
+        }
+    }
+    
     public function eliminarReserva($id_reserva) {
         try {
             $sql = "DELETE FROM reservas WHERE id_reserva = :id_reserva";
@@ -176,7 +226,6 @@ class Reserva {
 
     public function mostrarTodasReservas() {
         $reservas = $this->obtenerTodasLasReservas();
-        error_log(print_r($reservas, true)); // Log para depuración
         $tituloPagina = 'Reservas EasyCheckIn';
         $vista = __DIR__ . '/../../../reservas_admin.php';
         include __DIR__ . '/../../views/plantillas/plantilla.php';

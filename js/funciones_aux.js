@@ -70,4 +70,37 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+
+    const formFiltro = document.getElementById('formFiltro');
+    const toggleFiltro = document.getElementById('toggleFiltro');
+    const limpiarFiltro = document.getElementById('limpiarFiltro');
+    const resultado = document.getElementById('resultadoReservas');
+
+    toggleFiltro.addEventListener('click', () => {
+        formFiltro.style.display = formFiltro.style.display === 'none' ? 'flex' : 'none';
+    });
+
+    limpiarFiltro.addEventListener('click', () => {
+        formFiltro.reset();
+        formFiltro.dispatchEvent(new Event('submit'));
+    });
+
+    formFiltro.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const datos = new FormData(formFiltro);
+
+        fetch('index.php?action=filtro_reservas', {
+            method: 'POST',
+            body: datos
+        })
+        .then(res => res.text())
+        .then(html => {
+            resultado.innerHTML = html;
+        })
+        .catch(err => {
+            resultado.innerHTML = `<p style="color: red;">Error al cargar resultados</p>`;
+            console.error(err);
+        });
+    });
 });
