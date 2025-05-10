@@ -77,9 +77,9 @@ CREATE TABLE `usuarios` (
 --
 -- Disparadores `usuarios`
 --
-DELIMITER $$ CREATE TRIGGER `actualizar_edad` BEFORE
+CREATE TRIGGER `actualizar_edad` BEFORE
 INSERT ON `usuarios` FOR EACH ROW
-SET NEW.edad = TIMESTAMPDIFF(YEAR, NEW.fecha_nacimiento, CURDATE()) $$ DELIMITER;
+SET NEW.edad = TIMESTAMPDIFF(YEAR, NEW.fecha_nacimiento, CURDATE());
 -- --------------------------------------------------------
 --
 -- Estructura de tabla para la tabla `valoraciones`
